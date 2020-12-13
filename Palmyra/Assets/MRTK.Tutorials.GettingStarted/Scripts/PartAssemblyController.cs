@@ -162,6 +162,7 @@ namespace MRTK.Tutorials.GettingStarted
         {
             while (true)
             {
+                MaxDistance = (MonumentScale.currentScale.x * 0.0071428571428571f);
                 yield return new WaitForSeconds(0.01f);
 
                 if (!isPlaced)
