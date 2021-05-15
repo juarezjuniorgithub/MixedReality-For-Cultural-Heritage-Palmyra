@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit;
 using UnityEngine;
 using Photon.Pun;
+using Microsoft.MixedReality.Toolkit.UI;
 
-
-public class QuestionmarkNetworkHandler : MonoBehaviour
+public class NarrtorController : MonoBehaviour
 {
     public GameObject bigZaidZaim;
-    public GameObject questionmark;
+    //public GameObject narratorButton;
+    [SerializeField]
+    private PressableButtonHoloLens2 pressableButtonHoloLens2;
+    
     PhotonView photonView;
 
     // Start is called before the first frame update
@@ -21,7 +25,12 @@ public class QuestionmarkNetworkHandler : MonoBehaviour
     public void Activatecomponents()
     {
         bigZaidZaim.SetActive(true);
-        questionmark.SetActive(false);
+        if (bigZaidZaim.activeSelf)
+        {
+            pressableButtonHoloLens2.enabled = false;
+
+        }
+        
     }
 
     public void ActivateComponnentsOnAllDevices()

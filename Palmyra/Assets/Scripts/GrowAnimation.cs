@@ -9,6 +9,7 @@ public class GrowAnimation : MonoBehaviour
     public Quaternion originalRotation;
     public Vector3 originalScale;
     public GameObject tooltip;
+    public MeshRenderer MeshrenderSyria;
     
 
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class GrowAnimation : MonoBehaviour
         originalScale = transform.lossyScale;
         originalRotation = transform.rotation;
         gameObject.SetActive(false);
+        MeshrenderSyria.enabled = false;
         
 
         
@@ -44,15 +46,17 @@ public class GrowAnimation : MonoBehaviour
 
     IEnumerator CoGrow()
     {
+
         
+        yield return new WaitForSeconds(2);
+        MeshrenderSyria.enabled = true;
         for (float i = 0; i < 100; i++)
         {
+           
             transform.position= Vector3.Lerp(syriaSurface.transform.position, orignalPosition, i / 99f);
             transform.localScale= Vector3.Lerp(syriaSurface.transform.lossyScale, originalScale, i / 99f);
             transform.rotation= Quaternion.Lerp(syriaSurface.transform.rotation, originalRotation, i / 99f);
             yield return new WaitForSeconds(1/99f);
-
-      
         }
         tooltip.SetActive(true);
     }

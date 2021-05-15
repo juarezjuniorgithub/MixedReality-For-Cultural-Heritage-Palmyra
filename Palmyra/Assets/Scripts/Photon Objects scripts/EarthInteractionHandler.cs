@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Microsoft.MixedReality.Toolkit.UI;
 
 public class EarthInteractionHandler : MonoBehaviour
 {
     public GameObject syriaOnEarth;
     public GameObject syriaOnEarthToolTip;
     PhotonView photonView;
+    bool alreadyInteracted = false;
+    //public Interactable earthInteractable;
     //public TakeOverObject takeOverScript;
 
 
@@ -22,15 +25,21 @@ public class EarthInteractionHandler : MonoBehaviour
     {
         syriaOnEarth.SetActive(true);
         syriaOnEarthToolTip.SetActive(true);
+        alreadyInteracted = true;
+        //earthInteractable.enabled = false;
         //takeOverScript.TakeOver();
 
-        
+
 
     }
 
     public void ActivateComponnentsOnAllDevices()
     {
-        photonView.RPC("ActivateComponennts", RpcTarget.AllBuffered);
+        if (alreadyInteracted==false)
+        {
+            photonView.RPC("ActivateComponennts", RpcTarget.AllBuffered);
+        }
+        
     }
 
 }

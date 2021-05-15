@@ -7,14 +7,15 @@ using Microsoft.MixedReality.Toolkit.UI;
 public class SyriaNetworkHandler : MonoBehaviour
 {
     public GameObject Syria;
-    PhotonView photonView;
+    public PhotonView photonView;
     public GrowAnimation growAnimation;
-    public Interactable interactable;
+    //public Interactable interactable;
+    bool alreadyInteracted = false;
 
     
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
+        //photonView = GetComponent<PhotonView>();
 
     }
     [PunRPC]
@@ -22,7 +23,8 @@ public class SyriaNetworkHandler : MonoBehaviour
     {
         Syria.SetActive(true);
         growAnimation.Grow();
-        interactable.enabled = false;
+        alreadyInteracted = true;
+        //interactable.enabled = false;
         
         //takeOverScript.TakeOver();
 
@@ -31,7 +33,11 @@ public class SyriaNetworkHandler : MonoBehaviour
     }
     public void ActivateComponnentsOnAllDevices1()
     {
-        photonView.RPC("ActivateComponennts0", RpcTarget.All);
+        if (alreadyInteracted==false)
+        {
+            photonView.RPC("ActivateComponennts0", RpcTarget.All);
+        }
+        
     }
 
 

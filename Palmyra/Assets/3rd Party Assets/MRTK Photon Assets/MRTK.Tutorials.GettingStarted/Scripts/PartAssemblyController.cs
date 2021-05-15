@@ -117,6 +117,8 @@ namespace MRTK.Tutorials.GettingStarted
             trans.SetParent(locationToPlace.parent);
             trans.position = locationToPlace.position;
             trans.rotation = locationToPlace.rotation;
+            locationToPlace.gameObject.active = false;
+            //DestroyMonument.instance.PieceAttached();
         }
 
         /// <summary>
