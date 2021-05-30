@@ -33,6 +33,9 @@ namespace MRTK.Tutorials.GettingStarted
 
         private bool isPlaced;
         private bool isResetting;
+        public Material mainStoneMat;
+        
+
 
 
 
@@ -40,6 +43,8 @@ namespace MRTK.Tutorials.GettingStarted
         {
             set => isPunEnabled = value;
         }
+
+
 
         private void Awake()
         {
@@ -118,6 +123,13 @@ namespace MRTK.Tutorials.GettingStarted
             trans.position = locationToPlace.position;
             trans.rotation = locationToPlace.rotation;
             locationToPlace.gameObject.active = false;
+            if (isPlaced)
+            {
+                MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+                meshRenderer.material = mainStoneMat;
+            }
+
+           
             //DestroyMonument.instance.PieceAttached();
         }
 

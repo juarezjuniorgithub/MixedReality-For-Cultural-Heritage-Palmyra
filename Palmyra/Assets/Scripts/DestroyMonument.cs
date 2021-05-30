@@ -14,11 +14,15 @@ public class DestroyMonument : MonoBehaviour
     public GameObject[] stoneglitch;
     public UnityEvent OnMonumentDestroyed;
     public GameObject[] stoneToSnap;
+    public MeshRenderer[] stoneToSnapMAT;
+    public Material mat;
     public GameObject[] stoneOfAnim;
     public GameObject[] stoneMainLocation;
     private GameObject destroyButton;
     private GameObject rebuildButton;
     
+    
+
     void Start()
     {
         destroyButton = GameObject.FindGameObjectWithTag("Destroy");
@@ -49,6 +53,8 @@ public class DestroyMonument : MonoBehaviour
         destroyButton.GetComponent<PressableButtonHoloLens2>().enabled = false;
         StartCoroutine(StoneToSnap());
         StartCoroutine(TrackDestroyAnim());
+       
+
         Debug.Log("Botton Off");
     }
 
@@ -74,6 +80,8 @@ public class DestroyMonument : MonoBehaviour
         foreach (GameObject stones in stoneToSnap)
         {
             stones.SetActive(false);
+            stones.GetComponent<MeshRenderer>();
+            
         }
         
         foreach (GameObject stones in stoneMainLocation)
@@ -97,6 +105,7 @@ public class DestroyMonument : MonoBehaviour
 
     IEnumerator StoneToSnap()
     {
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         yield return new WaitForSeconds(6.1f);
         foreach (GameObject stones in stoneOfAnim)
         {
@@ -107,7 +116,28 @@ public class DestroyMonument : MonoBehaviour
         {
             stones.SetActive(true);
             stones.GetComponent<PartAssemblyController>().ResetPlacement();
+        
+
+            // Change back material to red
+            
         }
+
+        foreach (GameObject stones in stoneToSnap)
+        {
+            foreach (MeshRenderer item in stoneToSnapMAT)
+            {
+                item.GetComponent<MeshRenderer>();
+                item.material = mat;
+            }
+
+        }
+
+        /*foreach (MeshRenderer item in stoneToSnapMAT)
+        {
+            item.GetComponent<MeshRenderer>();
+            item.material = mat;
+        }*/
+        
 
         foreach (GameObject stones in stoneMainLocation)
         {
