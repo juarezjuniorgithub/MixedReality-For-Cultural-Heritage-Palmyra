@@ -118,7 +118,7 @@ public class DestroyMonument : MonoBehaviour
             stones.GetComponent<PartAssemblyController>().ResetPlacement();
         
 
-            // Change back material to red
+     
             
         }
 
@@ -131,13 +131,6 @@ public class DestroyMonument : MonoBehaviour
             }
 
         }
-
-        /*foreach (MeshRenderer item in stoneToSnapMAT)
-        {
-            item.GetComponent<MeshRenderer>();
-            item.material = mat;
-        }*/
-        
 
         foreach (GameObject stones in stoneMainLocation)
         {
