@@ -12,7 +12,7 @@ public class PalmyraImageNetworkHandler : MonoBehaviour
     //public BoxCollider buildButton; 
     public GameObject destroyArck;
     //public BoxCollider destroyButton;
-    public GameObject qustionmark;
+    public GameObject Handmenu;
     public GameObject arckOfTriumph;
     //public GameObject airtapinstruction;
     public GameObject Earth;
@@ -39,7 +39,7 @@ public class PalmyraImageNetworkHandler : MonoBehaviour
         //buildButton.enabled = true;
         destroyArck.SetActive(true);
         //destroyButton.enabled = true;
-        qustionmark.SetActive(true);
+        Handmenu.SetActive(true);
         arckOfTriumph.SetActive(true);
         //airtapinstruction.SetActive(false);
         sceneLight.transform.DetachChildren();

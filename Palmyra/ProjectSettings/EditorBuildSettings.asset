@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Slider.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
     path: Assets/Scenes/Palmyra MultiPlayer Original.unity
     guid: c39d03dc32f10cf41b68c5561b8e126b
   m_configObjects: {}
