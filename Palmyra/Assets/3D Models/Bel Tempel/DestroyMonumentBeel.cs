@@ -8,10 +8,8 @@ public class DestroyMonumentBeel : MonoBehaviour
     public GameObject ornaments;
     public GameObject [] fractured;
     
-
     public void Destroy()
     {
-        
         ornaments.SetActive(false);
         foreach (var item in fractured)
         {
