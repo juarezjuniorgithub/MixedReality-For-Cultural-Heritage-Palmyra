@@ -6,21 +6,38 @@ using UnityEngine.Playables;
 public class TimelineController : MonoBehaviour
 {
     public List<PlayableDirector> playableDirectors;
+    public EarthInteractionHandler earthInteractionHandler;
+    public ExperimentalGrowAnimation experimentalGrowAnimation;
     
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.G))
         {
-            Play();
+            PlayGlobe();
+        }
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            PlayExpandSyria();
         }
     }
 
-    public void Play()
+    public void PlayGlobe()
     {
         //plays all playable directors attached to script
-        foreach(PlayableDirector playableDirector in playableDirectors)
-        {
-            playableDirector.Play();    
-        }
+        playableDirectors[0].Play();    
+    }
+
+    public void PlayExpandSyria()
+    {
+        earthInteractionHandler.ActivateComponennts();
+        earthInteractionHandler.ActivateComponnentsOnAllDevices();
+        playableDirectors[1].Play();
+        StartCoroutine(CallExperimentalGrow());
+    }
+
+    IEnumerator CallExperimentalGrow()
+    {        
+        yield return new WaitForSeconds(5);
+        experimentalGrowAnimation.Grow();
     }
 }
