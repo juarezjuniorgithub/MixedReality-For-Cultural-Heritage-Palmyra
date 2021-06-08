@@ -8,6 +8,8 @@ public class TimelineController : MonoBehaviour
     public List<PlayableDirector> playableDirectors;
     public EarthInteractionHandler earthInteractionHandler;
     public ExperimentalGrowAnimation experimentalGrowAnimation;
+
+    bool animationExpandSyriaDone = false;
     
     void Update()
     {
@@ -19,6 +21,10 @@ public class TimelineController : MonoBehaviour
         {
             PlayExpandSyria();
         }
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            PlayPalmyraMap();
+        }
     }
 
     public void PlayGlobe()
@@ -27,12 +33,21 @@ public class TimelineController : MonoBehaviour
         playableDirectors[0].Play();    
     }
 
+    public void PlayPalmyraMap()
+    {
+        playableDirectors[2].Play();
+    }
+
     public void PlayExpandSyria()
     {
-        earthInteractionHandler.ActivateComponennts();
-        earthInteractionHandler.ActivateComponnentsOnAllDevices();
-        playableDirectors[1].Play();
-        StartCoroutine(CallExperimentalGrow());
+        if(!animationExpandSyriaDone)
+        {
+            earthInteractionHandler.ActivateComponennts();
+            earthInteractionHandler.ActivateComponnentsOnAllDevices();
+            playableDirectors[1].Play();
+            StartCoroutine(CallExperimentalGrow());
+            animationExpandSyriaDone = true;
+        }
     }
 
     IEnumerator CallExperimentalGrow()
