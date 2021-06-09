@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/GlobeTimeline.unity
+    guid: 2ac692ea5e5097d4fabdaedd15670d47
+  - enabled: 1
     path: Assets/Scenes/Slider.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1

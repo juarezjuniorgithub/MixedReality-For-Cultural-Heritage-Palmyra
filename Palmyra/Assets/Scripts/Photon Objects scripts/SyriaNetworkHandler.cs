@@ -9,13 +9,12 @@ public class SyriaNetworkHandler : MonoBehaviour
     public GameObject Syria;
     public PhotonView photonView;
     public GrowAnimation growAnimation;
-    //public Interactable interactable;
+    
     bool alreadyInteracted = false;
 
     
     void Start()
     {
-        //photonView = GetComponent<PhotonView>();
 
     }
     [PunRPC]
@@ -24,11 +23,7 @@ public class SyriaNetworkHandler : MonoBehaviour
         Syria.SetActive(true);
         growAnimation.Grow();
         alreadyInteracted = true;
-        //interactable.enabled = false;
-        
-        //takeOverScript.TakeOver();
 
-        //photonView.RPC("ChatMessage", RpcTarget.All, "jup", "and jup.");
 
     }
     public void ActivateComponnentsOnAllDevices1()
