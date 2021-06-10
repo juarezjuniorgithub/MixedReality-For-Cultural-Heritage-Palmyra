@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3115158470885458687}
   - component: {fileID: 8491687219314754226}
   - component: {fileID: 2052245057210978662}
+  - component: {fileID: 7199009173364127838}
   m_Layer: 0
   m_Name: Plane.007
   m_TagString: Untagged
@@ -112,13 +113,21 @@ MonoBehaviour:
   manipulationType: 3
   twoHandedManipulationType: 7
   allowFarManipulation: 1
+  useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
   oneHandRotationModeFar: 1
   releaseBehavior: 3
-  smoothingActive: 1
+  transformSmoothingLogicType:
+    reference: Microsoft.MixedReality.Toolkit.Utilities.DefaultTransformSmoothingLogic,
+      Microsoft.MixedReality.Toolkit.SDK
+  smoothingFar: 1
+  smoothingNear: 1
   moveLerpTime: 0.001
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 7199009173364127838}
+  elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -147,13 +156,21 @@ MonoBehaviour:
   manipulationType: 3
   twoHandedManipulationType: 7
   allowFarManipulation: 1
+  useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
   oneHandRotationModeFar: 1
   releaseBehavior: 3
-  smoothingActive: 1
+  transformSmoothingLogicType:
+    reference: Microsoft.MixedReality.Toolkit.Utilities.DefaultTransformSmoothingLogic,
+      Microsoft.MixedReality.Toolkit.SDK
+  smoothingFar: 1
+  smoothingNear: 1
   moveLerpTime: 0.001
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 7199009173364127838}
+  elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -180,3 +197,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locationToPlace: {fileID: 0}
   MaxDistance: 0.1
+  mainStoneMat: {fileID: 0}
+--- !u!114 &7199009173364127838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20132852235321093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98de877dee5fc341b4eb59dfdab266c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoConstraintSelection: 1
+  selectedConstraints: []
