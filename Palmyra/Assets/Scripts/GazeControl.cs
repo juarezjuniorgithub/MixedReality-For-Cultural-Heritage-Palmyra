@@ -122,12 +122,12 @@ public class GazeControl : MonoBehaviour
         transform.localScale -= new Vector3(scaleValue,scaleValue,scaleValue);
     }
 
-    void DeactivateGazeControlSequence() //Deactivates the GazeControl
+    public void DeactivateGazeControlSequence() //Deactivates the GazeControl
     {
         gazeControlStatus = false;
     }
 
-    void ActivateGazeControlSequence() //Activates the GazeControl
+    public void ActivateGazeControlSequence() //Activates the GazeControl
     {
         gazeControlStatus = true;
     }

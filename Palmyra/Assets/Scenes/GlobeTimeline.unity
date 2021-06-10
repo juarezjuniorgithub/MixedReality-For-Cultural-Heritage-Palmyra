@@ -2170,7 +2170,18 @@ MonoBehaviour:
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 790478285}
+        m_MethodName: DeactivateGazeControlSequence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onManipulationEnded:
     m_PersistentCalls:
       m_Calls: []
@@ -2229,9 +2240,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatYMaxValue: 0.02
-  floatPosSpeed: 3
-  floatScaleSpeed: 3
-  floatRotateSpeed: 3
+  floatPosSpeed: 1
+  floatScaleSpeed: 1.5
+  floatRotateSpeed: 5
   scaleFactor: 0.04
 --- !u!65 &790478286
 BoxCollider:
@@ -3132,11 +3143,22 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 843488542}
+  constraintsManager: {fileID: 790478284}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 843488543}
+        m_MethodName: DeactivateGazeControlSequence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onManipulationEnded:
     m_PersistentCalls:
       m_Calls: []
@@ -3195,9 +3217,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatYMaxValue: 0.02
-  floatPosSpeed: 3
-  floatScaleSpeed: 3
-  floatRotateSpeed: 3
+  floatPosSpeed: 1
+  floatScaleSpeed: 1.5
+  floatRotateSpeed: 5
   scaleFactor: 0.04
 --- !u!1 &850387641
 GameObject:
@@ -3264,11 +3286,22 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 850387644}
+  constraintsManager: {fileID: 790478284}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 850387645}
+        m_MethodName: DeactivateGazeControlSequence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onManipulationEnded:
     m_PersistentCalls:
       m_Calls: []
@@ -3327,9 +3360,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatYMaxValue: 0.02
-  floatPosSpeed: 3
-  floatScaleSpeed: 3
-  floatRotateSpeed: 3
+  floatPosSpeed: 1
+  floatScaleSpeed: 1.5
+  floatRotateSpeed: 5
   scaleFactor: 0.04
 --- !u!65 &850387646
 BoxCollider:
