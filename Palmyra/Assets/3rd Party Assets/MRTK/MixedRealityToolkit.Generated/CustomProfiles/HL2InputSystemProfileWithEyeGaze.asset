@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b71cb900fa9dec5488df2deb180db58f, type: 3}
-  m_Name: HL2InputSystemProfile 1
+  m_Name: HL2InputSystemProfileWithEyeGaze
   m_EditorClassIdentifier: 
   isCustomProfile: 1
   dataProviderConfigurations:
@@ -67,7 +67,7 @@ MonoBehaviour:
     componentName: Input Simulation Service
     priority: 0
     runtimePlatform: 208
-    deviceManagerProfile: {fileID: 11400000, guid: ab34cde8e475f9c45a660ce8889dd75d,
+    deviceManagerProfile: {fileID: 11400000, guid: 41478039094d47641bf4e09c20e61a5a,
       type: 2}
   - componentType:
       reference: Microsoft.MixedReality.Toolkit.WindowsMixedReality.Input.WindowsMixedRealityEyeGazeDataProvider,
