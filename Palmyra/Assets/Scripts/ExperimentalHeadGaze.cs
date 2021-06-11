@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Microsoft.MixedReality.Toolkit;
+using Microsoft.MixedReality.Toolkit.Input;
 
 public class ExperimentalHeadGaze : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOn);
     }
 
     // Update is called once per frame
     void Update()
     {
-        LogCurrentGazeTarget();
+        //LogCurrentGazeTarget();
     }
 
     void LogCurrentGazeTarget()
@@ -29,6 +31,7 @@ public class ExperimentalHeadGaze : MonoBehaviour
                     CoreServices.InputSystem.GazeProvider.GazeTarget.GetComponent<GazeControl>().StartFloatSequence();
                 }
         }
+        Debug.Log(CoreServices.InputSystem.GazeProvider.HitInfo);
 
     }
 }
