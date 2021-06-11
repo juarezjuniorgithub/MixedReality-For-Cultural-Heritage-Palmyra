@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rebuild
   - Destroy
+  - monument
   layers:
   - Default
   - TransparentFX
