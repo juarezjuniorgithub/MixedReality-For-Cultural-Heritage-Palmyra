@@ -53,7 +53,7 @@ MonoBehaviour:
   enableSceneSystem: 0
   sceneSystemType:
     reference: 
-  registeredServiceProvidersProfile: {fileID: 11400000, guid: efbaf6ea540c69f4fb75415a5d145a53,
+  registeredServiceProvidersProfile: {fileID: 11400000, guid: c4413e841b3f34345b669a479833c501,
     type: 2}
   useServiceInspectors: 1
   renderDepthBuffer: 0
