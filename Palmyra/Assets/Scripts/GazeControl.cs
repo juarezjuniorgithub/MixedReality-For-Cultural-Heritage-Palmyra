@@ -11,10 +11,12 @@ public class GazeControl : MonoBehaviour
     [SerializeField] float floatScaleSpeed = 5;
     [SerializeField] float floatRotateSpeed = 5;
     [SerializeField] float scaleFactor = 0.1f;
+    [SerializeField] GameObject buttons;
     Vector3 position;
     Vector3 initialPosition;
     Vector3 rotation;
     Vector3 initialRotation;
+    Vector3 initialScale;
 
     bool startFloatSequence = false;
     bool startDeFloatSequence = false;
@@ -26,6 +28,8 @@ public class GazeControl : MonoBehaviour
     {
         initialPosition = transform.localPosition;
         position = initialPosition;
+
+        initialScale = transform.localScale;
 
         rotation = new Vector3(0,1,0);
         initialRotation = new Vector3(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z);
@@ -72,6 +76,12 @@ public class GazeControl : MonoBehaviour
 
     public void StartDeFloatSequence()
     {
+        StartCoroutine(CallDefloatSequence());
+    }
+
+    IEnumerator CallDefloatSequence()
+    {        
+        yield return new WaitForSeconds(3);
         startFloatSequence = false;
         startDeFloatSequence = true;
         isFloating = false;
@@ -119,17 +129,28 @@ public class GazeControl : MonoBehaviour
     void DeScale()
     {
         float scaleValue = Time.deltaTime * scaleFactor * floatScaleSpeed;
-        transform.localScale -= new Vector3(scaleValue,scaleValue,scaleValue);
+        if(transform.localScale.x >= initialScale.x)
+            transform.localScale -= new Vector3(scaleValue,scaleValue,scaleValue);
     }
 
     public void DeactivateGazeControlSequence() //Deactivates the GazeControl
     {
         gazeControlStatus = false;
+        buttons.SetActive(true);
     }
 
     public void ActivateGazeControlSequence() //Activates the GazeControl
     {
         gazeControlStatus = true;
+        buttons.SetActive(false);
+    }
+
+    public void InitiateResetPlaygroundMap()
+    {   
+        transform.localPosition = initialPosition;
+        transform.localRotation = Quaternion.Euler(initialRotation); 
+        transform.localScale = initialScale;
+        ActivateGazeControlSequence();
     }
     
 }

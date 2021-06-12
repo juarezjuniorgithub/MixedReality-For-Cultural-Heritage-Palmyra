@@ -18,15 +18,16 @@ public class ExperimentalHeadGaze : MonoBehaviour
     }
 
 
-    public void StartHeadGazePointer()
-    {
-        PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOn); //makes sure that the head gaze is always on
-    }
+    // public void StartHeadGazePointer()
+    // {
+    //     PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOn); //makes sure that the head gaze is always on
+    // }
 
-    public void StopHeadGazePointer()
-    {
-        PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOff); //makes sure that the head gaze is always off
-    }
+    // //NOT WORKING
+    // public void StopHeadGazePointer()
+    // {
+    //     PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOff); //makes sure that the head gaze is always off
+    // }
     
     
     
