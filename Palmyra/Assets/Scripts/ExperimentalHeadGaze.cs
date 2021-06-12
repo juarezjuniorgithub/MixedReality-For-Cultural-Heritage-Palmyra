@@ -7,18 +7,32 @@ using Microsoft.MixedReality.Toolkit.Input;
 public class ExperimentalHeadGaze : MonoBehaviour
 {
     
-    // Start is called before the first frame update
     void Start()
     {
-        PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOn);
+        PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOn); //makes sure that the head gaze is always on
     }
 
-    // Update is called once per frame
     void Update()
     {
         //LogCurrentGazeTarget();
     }
 
+
+    // public void StartHeadGazePointer()
+    // {
+    //     PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOn); //makes sure that the head gaze is always on
+    // }
+
+    // //NOT WORKING
+    // public void StopHeadGazePointer()
+    // {
+    //     PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOff); //makes sure that the head gaze is always off
+    // }
+    
+    
+    
+    
+    //Ignore
     void LogCurrentGazeTarget()
     {
         if (CoreServices.InputSystem.GazeProvider.GazeTarget)
