@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 515634022}
   - component: {fileID: 515634024}
   - component: {fileID: 515634023}
+  - component: {fileID: 515634025}
   m_Layer: 0
   m_Name: Cube
   m_TagString: monument
@@ -487,7 +488,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f30833a2d967a94dba83933ba0cfc6a, type: 2}
+  - {fileID: 2100000, guid: af8d8464fa164ce498aad1fb3ed88e46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -559,6 +560,7 @@ MonoBehaviour:
   floatScaleSpeed: 5
   floatRotateSpeed: 5
   scaleFactor: 0.1
+  buttons: {fileID: 0}
 --- !u!114 &515634023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,6 +651,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
   selectedConstraints: []
+--- !u!114 &515634025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515634016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2d1b8859ac7ef45845a9408ae2d111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMat:
+  - {fileID: 2100000, guid: af8d8464fa164ce498aad1fb3ed88e46, type: 2}
+  appearanceValue: 10
+  appearanceSpeed: 1
+  appearanceLimit: 10
+  dissolveVal: Vector1_CC876C20
+  minApperanceValue: 0
 --- !u!1 &1247761399
 GameObject:
   m_ObjectHideFlags: 0

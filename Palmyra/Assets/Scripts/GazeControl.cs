@@ -12,6 +12,8 @@ public class GazeControl : MonoBehaviour
     [SerializeField] float floatRotateSpeed = 5;
     [SerializeField] float scaleFactor = 0.1f;
     [SerializeField] GameObject buttons;
+
+    [SerializeField] DissolveEffect dissolveEffect;
     Vector3 position;
     Vector3 initialPosition;
     Vector3 rotation;
@@ -147,7 +149,17 @@ public class GazeControl : MonoBehaviour
 
     public void InitiateResetPlaygroundMap()
     {   
+
+        dissolveEffect.InitiateDisappearence();
+        StartCoroutine(ResetPlaygroundMap());
+        
+    }
+
+    IEnumerator ResetPlaygroundMap()
+    {
+        yield return new WaitForSeconds(3);
         transform.localPosition = initialPosition;
+        dissolveEffect.InitiateAppearence();
         transform.localRotation = Quaternion.Euler(initialRotation); 
         transform.localScale = initialScale;
         ActivateGazeControlSequence();

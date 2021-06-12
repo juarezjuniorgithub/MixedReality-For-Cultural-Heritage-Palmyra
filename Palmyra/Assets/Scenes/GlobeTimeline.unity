@@ -1519,6 +1519,7 @@ GameObject:
   - component: {fileID: 558687514}
   - component: {fileID: 558687513}
   - component: {fileID: 558687519}
+  - component: {fileID: 558687520}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -1559,6 +1560,7 @@ MonoBehaviour:
   floatRotateSpeed: 5
   scaleFactor: 0.04
   buttons: {fileID: 1544080455}
+  dissolveEffect: {fileID: 558687520}
 --- !u!114 &558687513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,7 +1698,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: af8d8464fa164ce498aad1fb3ed88e46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1738,8 +1740,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleValue: 0
-  maxScaleValue: 0.005
-  scaleSpeed: 1
+  maxScaleValue: 0.05
+  scaleSpeed: 0.01
+--- !u!114 &558687520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558687510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2d1b8859ac7ef45845a9408ae2d111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMat:
+  - {fileID: 2100000, guid: af8d8464fa164ce498aad1fb3ed88e46, type: 2}
+  appearanceValue: 10
+  appearanceSpeed: 1
+  appearanceLimit: 10
+  dissolveVal: Vector1_CC876C20
+  minApperanceValue: 0
 --- !u!1001 &560906208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1868,6 +1889,7 @@ GameObject:
   - component: {fileID: 599995742}
   - component: {fileID: 599995741}
   - component: {fileID: 599995747}
+  - component: {fileID: 599995748}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1908,6 +1930,7 @@ MonoBehaviour:
   floatRotateSpeed: 5
   scaleFactor: 0.04
   buttons: {fileID: 1039074201}
+  dissolveEffect: {fileID: 599995748}
 --- !u!114 &599995741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2045,7 +2068,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: af8d8464fa164ce498aad1fb3ed88e46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2087,8 +2110,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleValue: 0
-  maxScaleValue: 0.005
-  scaleSpeed: 1
+  maxScaleValue: 0.05
+  scaleSpeed: 0.01
+--- !u!114 &599995748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599995738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2d1b8859ac7ef45845a9408ae2d111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMat:
+  - {fileID: 2100000, guid: af8d8464fa164ce498aad1fb3ed88e46, type: 2}
+  appearanceValue: 10
+  appearanceSpeed: 1
+  appearanceLimit: 10
+  dissolveVal: Vector1_CC876C20
+  minApperanceValue: 0
 --- !u!1 &610606378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,6 +3793,7 @@ GameObject:
   - component: {fileID: 843488541}
   - component: {fileID: 843488544}
   - component: {fileID: 843488545}
+  - component: {fileID: 843488546}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -3804,7 +3847,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: af8d8464fa164ce498aad1fb3ed88e46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3941,6 +3984,7 @@ MonoBehaviour:
   floatRotateSpeed: 5
   scaleFactor: 0.04
   buttons: {fileID: 4357062690457615695}
+  dissolveEffect: {fileID: 843488546}
 --- !u!114 &843488544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3972,6 +4016,25 @@ MonoBehaviour:
   scaleValue: 0
   maxScaleValue: 0.05
   scaleSpeed: 0.01
+--- !u!114 &843488546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843488536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2d1b8859ac7ef45845a9408ae2d111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMat:
+  - {fileID: 2100000, guid: af8d8464fa164ce498aad1fb3ed88e46, type: 2}
+  appearanceValue: 10
+  appearanceSpeed: 1
+  appearanceLimit: 10
+  dissolveVal: Vector1_CC876C20
+  minApperanceValue: 0
 --- !u!1001 &845094279
 PrefabInstance:
   m_ObjectHideFlags: 0
