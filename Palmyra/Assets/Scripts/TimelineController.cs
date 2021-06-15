@@ -48,6 +48,10 @@ public class TimelineController : MonoBehaviour
             StartCoroutine(CallExperimentalGrow());
             animationExpandSyriaDone = true;
         }
+        else
+        {
+            playableDirectors[1].Play();
+        } 
     }
 
     IEnumerator CallExperimentalGrow()
