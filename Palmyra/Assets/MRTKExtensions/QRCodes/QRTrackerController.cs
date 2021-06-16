@@ -7,6 +7,9 @@ namespace MRTKExtensions.QRCodes
     public class QRTrackerController : MonoBehaviour
     {
         [SerializeField]
+        GameObject instructions;
+
+        [SerializeField]
         private SpatialGraphCoordinateSystemSetter spatialGraphCoordinateSystemSetter;
 
         [SerializeField]
@@ -76,6 +79,7 @@ namespace MRTKExtensions.QRCodes
             {
                 markerDisplay.SetActive(false);
                 IsTrackingActive = true;
+                instructions.SetActive(true); //activate instructions
                 trackingCounter = 0;
             }
         }

@@ -5,6 +5,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField]
     private QRTrackerController trackerController;
+    [SerializeField] GameObject instructions;
 
     private void Start()
     {
@@ -16,5 +17,6 @@ public class ObjectSpawner : MonoBehaviour
         var childObj = transform.GetChild(0);
         childObj.SetPositionAndRotation(pose.position, pose.rotation);
         childObj.gameObject.SetActive(true);
+        instructions.SetActive(false); //deactivate instructions
     }
 }
