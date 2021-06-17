@@ -83,7 +83,7 @@ public class GazeControl : MonoBehaviour
 
     IEnumerator CallDefloatSequence()
     {        
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         startFloatSequence = false;
         startDeFloatSequence = true;
         isFloating = false;
