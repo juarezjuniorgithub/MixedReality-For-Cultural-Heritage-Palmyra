@@ -71,14 +71,22 @@ public class GazeControl : MonoBehaviour
 
     public void StartFloatSequence()
     {
-        startFloatSequence = true;
-        startDeFloatSequence = false;
-        isFloating = true;
+        if(gazeControlStatus)
+        {
+            startFloatSequence = true;
+            startDeFloatSequence = false;
+            isFloating = true;
+        }
+
     }
 
     public void StartDeFloatSequence()
     {
-        StartCoroutine(CallDefloatSequence());
+        if(gazeControlStatus)
+        {
+            Debug.LogWarning("Called DefloatSequencce");
+            StartCoroutine(CallDefloatSequence());
+        }
     }
 
     IEnumerator CallDefloatSequence()
