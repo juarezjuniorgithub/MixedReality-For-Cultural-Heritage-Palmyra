@@ -15,7 +15,12 @@ public class ObjectSpawner : MonoBehaviour
     private void PoseFound(object sender, Pose pose)
     {
         var childObj = transform.GetChild(0);
-        childObj.SetPositionAndRotation(pose.position, pose.rotation);
+        childObj.SetPositionAndRotation(pose.position, pose.rotation); //setting position and rotation
+        
+        Debug.Log("----------------ROTATION---------------------------------------");
+        Debug.Log("X: "+pose.rotation.x+", Y: "+pose.rotation.y+", Z: "+pose.rotation.z);
+        Debug.Log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        
         childObj.gameObject.SetActive(true);
         instructions.SetActive(false); //deactivate instructions
     }
