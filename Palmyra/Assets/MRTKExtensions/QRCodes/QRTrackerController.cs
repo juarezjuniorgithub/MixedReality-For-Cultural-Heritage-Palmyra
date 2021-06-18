@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections;
+using System;
 using Microsoft.MixedReality.Toolkit;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ namespace MRTKExtensions.QRCodes
         private GameObject markerDisplay;
         private QRInfo lastMessage;
         private int trackingCounter;
+
+        bool isUpdateTracking = false;
 
         public bool IsTrackingActive { get; private set; } = true;
 
@@ -63,6 +66,23 @@ namespace MRTKExtensions.QRCodes
             }
         }
 
+        private void Update() //Added to keep active the QR Code Tracker in the Background @Remove if issue in QR Tracking
+        {
+            if(isUpdateTracking)
+                StartCoroutine(CallTrackerUpdate());
+        }
+
+        IEnumerator CallTrackerUpdate() //Added to keep active the QR Code Tracker in the Background @Remove if issue in QR Tracking
+        {
+            yield return new WaitForSeconds(2);
+            if (QRCodeTrackingService.IsInitialized)
+            {
+                Debug.Log("<<<<<<<<<<<QR TIME TRACKER ACTIVE AT QRTrackerController Script>>>>>>>>>>>>>>>>>>");
+                IsTrackingActive = true;
+                trackingCounter = 0;
+            }
+        }
+
         private void QRCodeTrackingService_Initialized(object sender, EventArgs e)
         {
             StartTracking();
@@ -81,6 +101,7 @@ namespace MRTKExtensions.QRCodes
                 IsTrackingActive = true;
                 instructions.SetActive(true); //activate instructions
                 trackingCounter = 0;
+                isUpdateTracking = false;
             }
         }
 
@@ -98,6 +119,7 @@ namespace MRTKExtensions.QRCodes
                 if (trackingCounter++ == 2)
                 {
                     IsTrackingActive = false;
+                    isUpdateTracking = true;
                     spatialGraphCoordinateSystemSetter.SetLocationIdSize(msg.SpatialGraphNodeId,
                         msg.PhysicalSideLength);
                 }
@@ -110,7 +132,8 @@ namespace MRTKExtensions.QRCodes
             markerHolder.localScale = Vector3.one * lastMessage.PhysicalSideLength;
             markerDisplay.SetActive(true);
             PositionSet?.Invoke(this, pose);
-            audioSource.Play();
+            //if(!isUpdateTracking)
+                audioSource.Play();
         }
 
         public EventHandler<Pose> PositionSet;
