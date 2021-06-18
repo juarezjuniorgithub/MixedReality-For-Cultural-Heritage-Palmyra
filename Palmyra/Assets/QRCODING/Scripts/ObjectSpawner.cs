@@ -14,11 +14,22 @@ public class ObjectSpawner : MonoBehaviour
 
     private void PoseFound(object sender, Pose pose)
     {
+        Quaternion newRotation;
         var childObj = transform.GetChild(0);
-        childObj.SetPositionAndRotation(pose.position, pose.rotation); //setting position and rotation
+
+        if(pose.rotation.eulerAngles.z > 2)
+        {
+            newRotation = Quaternion.Euler( pose.rotation.eulerAngles.x, pose.rotation.eulerAngles.y, 0);
+        }
+        else
+        {
+            newRotation = pose.rotation;
+        }
+
+        childObj.SetPositionAndRotation(pose.position, newRotation); //setting position and rotation
         
         Debug.Log("----------------ROTATION---------------------------------------");
-        Debug.Log("X: "+pose.rotation.x+", Y: "+pose.rotation.y+", Z: "+pose.rotation.z);
+        Debug.Log("X: "+pose.rotation.eulerAngles.x+", Y: "+pose.rotation.eulerAngles.y+", Z: "+pose.rotation.eulerAngles.z);
         Debug.Log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         
         childObj.gameObject.SetActive(true);
