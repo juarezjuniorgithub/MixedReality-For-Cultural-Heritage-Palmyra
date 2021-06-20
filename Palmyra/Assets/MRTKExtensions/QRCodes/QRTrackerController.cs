@@ -16,6 +16,7 @@ namespace MRTKExtensions.QRCodes
         [SerializeField]
         private string locationQrValue = string.Empty;
 
+#if !UNITY_EDITOR
         private Transform markerHolder;
         private AudioSource audioSource;
         private GameObject markerDisplay;
@@ -136,5 +137,6 @@ namespace MRTKExtensions.QRCodes
         }
 
         public EventHandler<Pose> PositionSet;
+#endif
     }
 }

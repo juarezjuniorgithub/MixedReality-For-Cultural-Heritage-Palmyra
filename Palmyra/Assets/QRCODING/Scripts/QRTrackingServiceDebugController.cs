@@ -8,6 +8,8 @@ public class QRTrackingServiceDebugController : MonoBehaviour
     [SerializeField]
     private TextMeshPro displayText;
 
+#if !UNITY_EDITOR
+
     private IQRCodeTrackingService qrCodeTrackingService;
 
     private IQRCodeTrackingService QRCodeTrackingService
@@ -58,4 +60,5 @@ public class QRTrackingServiceDebugController : MonoBehaviour
     {
         displayText.text = msg;
     }
+#endif
 }

@@ -9,7 +9,12 @@ public class ObjectSpawner : MonoBehaviour
 
     private void Start()
     {
+#if !UNITY_EDITOR
         trackerController.PositionSet += PoseFound;
+#endif
+#if UNITY_EDITOR
+        PoseFound(transform.position);
+#endif
     }
 
     private void PoseFound(object sender, Pose pose)
@@ -36,6 +41,25 @@ public class ObjectSpawner : MonoBehaviour
         Debug.Log("X: "+newRotation.eulerAngles.x+", Y: "+newRotation.eulerAngles.y+", Z: "+newRotation.eulerAngles.z);
         Debug.Log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         
+        childObj.gameObject.SetActive(true);
+        instructions.SetActive(false); //deactivate instructions
+    }
+
+    private void PoseFound(Vector3 pos) {
+        Quaternion newRotation;
+        var childObj = transform.GetChild(0);
+
+        // if(pose.rotation.eulerAngles.z > 2)
+        // {
+        newRotation = Quaternion.Euler(0, 0, 0);
+        // }
+        // else
+        //  {
+        //     newRotation = pose.rotation;
+        // }
+
+        childObj.SetPositionAndRotation(pos, newRotation); //setting position and rotation
+
         childObj.gameObject.SetActive(true);
         instructions.SetActive(false); //deactivate instructions
     }
