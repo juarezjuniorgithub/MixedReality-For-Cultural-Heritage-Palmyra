@@ -16,12 +16,20 @@ namespace MRTKExtensions.QRCodes
         [SerializeField]
         private string locationQrValue = string.Empty;
 
+        [SerializeField]
+        private float realignUpdateTime = 3;
+        private float counter = 0;
+
 #if !UNITY_EDITOR
+
         private Transform markerHolder;
         private AudioSource audioSource;
         private GameObject markerDisplay;
         private QRInfo lastMessage;
+
         private int trackingCounter;
+        private Coroutine coroutine;
+        private bool firstTargetFound = false;
 
         //bool isUpdateTracking = false;
 
@@ -67,6 +75,21 @@ namespace MRTKExtensions.QRCodes
             }
         }
 
+        private void Update() {
+            if (firstTargetFound) {
+                counter += Time.deltaTime;
+                if(counter >= realignUpdateTime && !IsTrackingActive) {
+                    Realign();
+                }
+                if(counter >= realignUpdateTime && IsTrackingActive) {
+                    if(counter >= realignUpdateTime + 1) {
+                        counter = 0;
+                        IsTrackingActive = false;
+                    }
+                }
+            }
+        }
+
         // IEnumerator CallTrackerUpdate() //Added to keep active the QR Code Tracker in the Background @Remove if issue in QR Tracking
         // {
         //     while(isUpdateTracking)
@@ -103,6 +126,13 @@ namespace MRTKExtensions.QRCodes
             }
         }
 
+        public void Realign() {
+            if (QRCodeTrackingService.IsInitialized) {
+                IsTrackingActive = true;
+                trackingCounter = 0;
+            }
+        }
+
         private void ProcessTrackingFound(object sender, QRInfo msg)
         {
             if ( msg == null || !IsTrackingActive)
@@ -114,6 +144,7 @@ namespace MRTKExtensions.QRCodes
 
             if (msg.Data == locationQrValue)
             {
+                firstTargetFound = true;
                 if (trackingCounter++ == 2)
                 {
                     IsTrackingActive = false;
@@ -137,6 +168,7 @@ namespace MRTKExtensions.QRCodes
         }
 
         public EventHandler<Pose> PositionSet;
+
 #endif
     }
 }

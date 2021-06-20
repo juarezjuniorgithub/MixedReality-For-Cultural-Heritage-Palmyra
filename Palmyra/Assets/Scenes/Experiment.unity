@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -917,6 +917,7 @@ MonoBehaviour:
   instructions: {fileID: 9177500563382068845}
   spatialGraphCoordinateSystemSetter: {fileID: 9177500563426202872}
   locationQrValue: PalmyraXR
+  realignUpdateTime: 10
 --- !u!4 &9177500562095222078
 Transform:
   m_ObjectHideFlags: 0
