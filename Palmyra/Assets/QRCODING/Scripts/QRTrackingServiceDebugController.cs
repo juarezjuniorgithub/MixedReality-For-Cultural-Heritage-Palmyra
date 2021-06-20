@@ -7,6 +7,8 @@ public class QRTrackingServiceDebugController : MonoBehaviour
 {
     [SerializeField]
     private TextMeshPro displayText;
+    [SerializeField]
+    private bool debugQRDetection = false;
 
 #if !UNITY_EDITOR
 
@@ -24,20 +26,22 @@ public class QRTrackingServiceDebugController : MonoBehaviour
 
     private void Start()
     {
-        DisplayMessage(QRCodeTrackingService.ProgressMessages);
-        QRCodeTrackingService.ProgressMessageSent += QRCodeTrackingService_ProgressMessageSent;
-        if (!QRCodeTrackingService.IsSupported)
-        {
-            return;
-        }
+        if (debugQRDetection) {
+            DisplayMessage(QRCodeTrackingService.ProgressMessages);
+            QRCodeTrackingService.ProgressMessageSent += QRCodeTrackingService_ProgressMessageSent;
+            if (!QRCodeTrackingService.IsSupported)
+            {
+                return;
+            }
 
-        if (QRCodeTrackingService.IsInitialized)
-        {
-            StartTracking();
-        }
-        else
-        {
-            QRCodeTrackingService.Initialized += QRCodeTrackingService_Initialized;
+            if (QRCodeTrackingService.IsInitialized)
+            {
+                StartTracking();
+            }
+            else
+            {
+                QRCodeTrackingService.Initialized += QRCodeTrackingService_Initialized;
+            }
         }
     }
 
@@ -60,5 +64,6 @@ public class QRTrackingServiceDebugController : MonoBehaviour
     {
         displayText.text = msg;
     }
+
 #endif
 }
