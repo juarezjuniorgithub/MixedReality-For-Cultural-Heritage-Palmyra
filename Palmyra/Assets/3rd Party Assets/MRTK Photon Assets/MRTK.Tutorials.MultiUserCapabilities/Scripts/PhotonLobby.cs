@@ -81,17 +81,13 @@ namespace MRTK.Tutorials.MultiUserCapabilities
             {
                 PhotonNetwork.OfflineMode = true;
                 Debug.Log("No Internet connection. Offline mode ");
-                
             }
             else
             {
                 PhotonNetwork.ConnectUsingSettings();
                 Lobby = this;
                 Debug.Log("You are Online. Multiplayer");
-
             }
-            
-
         }
 
         private void CreateRoom()

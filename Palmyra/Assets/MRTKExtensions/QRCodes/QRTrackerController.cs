@@ -121,7 +121,7 @@ namespace MRTKExtensions.QRCodes
             {
                 markerDisplay.SetActive(false);
                 IsTrackingActive = true;
-                instructions.SetActive(true); //activate instructions
+                //instructions.SetActive(true); //activate instructions
                 trackingCounter = 0;
                 //isUpdateTracking = false;
             }
