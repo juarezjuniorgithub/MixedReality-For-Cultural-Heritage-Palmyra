@@ -158,18 +158,19 @@ namespace MRTKExtensions.QRCodes
             }
         }
 
-
         private void SetScale(object sender, Pose pose)
         {
             markerHolder.localScale = Vector3.one * lastMessage.PhysicalSideLength;
             markerDisplay.SetActive(true);
             PositionSet?.Invoke(this, pose);
             //if(!isUpdateTracking)
-            audioSource.Play();
+
+            if (!firstTargetFound) {
+                audioSource.Play();
+            }
         }
 
         public EventHandler<Pose> PositionSet;
-
 #endif
     }
 }
