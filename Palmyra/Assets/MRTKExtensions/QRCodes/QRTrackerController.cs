@@ -13,11 +13,12 @@ namespace MRTKExtensions.QRCodes
         [SerializeField]
         private SpatialGraphCoordinateSystemSetter spatialGraphCoordinateSystemSetter;
 
-        [SerializeField]
-        private string locationQrValue = string.Empty;
+        public string locationQrValue = string.Empty;
 
         [SerializeField]
-        private float realignUpdateTime = 3;
+        private float realignUpdateTime = 5;
+        [SerializeField]
+        private float realignWindow = 1;
         private float counter = 0;
 
 #if !UNITY_EDITOR
@@ -82,7 +83,7 @@ namespace MRTKExtensions.QRCodes
                     Realign();
                 }
                 if(counter >= realignUpdateTime && IsTrackingActive) {
-                    if(counter >= realignUpdateTime + 1) {
+                    if(counter >= realignUpdateTime + realignWindow) {
                         counter = 0;
                         IsTrackingActive = false;
                     }

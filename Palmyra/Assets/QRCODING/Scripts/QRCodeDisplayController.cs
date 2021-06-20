@@ -22,6 +22,11 @@ public class QRCodeDisplayController : MonoBehaviour
 
     private QRInfo lastSeenCode;
 
+    [SerializeField]
+    private QRTrackerController qrTrackerController;
+
+    private bool qrCodeAlreadyDetected = false;
+
     private IQRCodeTrackingService QRCodeTrackingService
     {
         get
@@ -67,14 +72,15 @@ public class QRCodeDisplayController : MonoBehaviour
     {
         if (lastSeenCode?.Data != codeReceived.Data)
         {
-            displayText.text = $"code observed: {codeReceived.Data}";
-            if (confirmSound.clip != null)
-            {
-                confirmSound.Play();
+            if(codeReceived.Data == qrTrackerController.locationQrValue && !qrCodeAlreadyDetected) {
+                //displayText.text = $"code observed: {codeReceived.Data}";
+                if (confirmSound.clip != null)
+                {
+                    confirmSound.Play();
+                }
+                qrCodeAlreadyDetected = true;
+                menu.SetActive(false);
             }
-
-            //TEMPORAL FIX to disable diplay instructions
-            menu.SetActive(false);
         }
         lastSeenCode = codeReceived;
     }
