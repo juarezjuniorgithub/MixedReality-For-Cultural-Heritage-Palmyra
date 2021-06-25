@@ -20,4 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Palmyra MultiPlayer Original.unity
     guid: c39d03dc32f10cf41b68c5561b8e126b
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 2bc0329d0e4666d43bf5cd48dbae56e2,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d6fba719f42c6fd4a92a1b90f8bc6486,
+      type: 2}
