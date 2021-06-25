@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Experiment.unity
     guid: 41eb5cc97cfba51469f590838db93736
   - enabled: 1
+    path: Assets/Scenes/Slider.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
     path: Assets/Scenes/qr.unity
     guid: a6ec0a18cd9136a41b70fb949a4e853e
   - enabled: 1
     path: Assets/Scenes/GlobeTimeline.unity
     guid: 2ac692ea5e5097d4fabdaedd15670d47
-  - enabled: 1
-    path: Assets/Scenes/Slider.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Palmyra MultiPlayer Original.unity
     guid: c39d03dc32f10cf41b68c5561b8e126b
