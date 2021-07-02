@@ -9,19 +9,19 @@ public class SceneLoader : MonoBehaviour
         // Register callback for everytime a new scene is loaded
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        // Initially load the second scene additive
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        // // load first scene additive
+        // SceneManager.LoadScene(0, LoadSceneMode.Additive);
     }
 
-    public void LoadSliderScene()
-    {
-        LoadScene(1);
-    }
+    // public void LoadSliderScene()
+    // {
+    //     LoadScene(1);
+    // }
 
-    public void LoadBeautyScene()
-    {
-        LoadScene(2);
-    }
+    // public void LoadBeautyScene()
+    // {
+    //     LoadScene(2);
+    // }
 
     // Called when a new scene was loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadMode)
@@ -40,7 +40,7 @@ public class SceneLoader : MonoBehaviour
         var currentScene = SceneManager.GetActiveScene();
         var index = currentScene.buildIndex;
 
-        SceneManager.UnloadScene(currentScene);
+        SceneManager.UnloadSceneAsync(currentScene);
 
         SceneManager.LoadScene(index, LoadSceneMode.Additive);
     }
@@ -49,7 +49,7 @@ public class SceneLoader : MonoBehaviour
     {
         var currentScene = SceneManager.GetActiveScene();
 
-        SceneManager.UnloadScene(currentScene);
+        SceneManager.UnloadSceneAsync(currentScene);
 
         SceneManager.LoadScene(name, LoadSceneMode.Additive);
     }
@@ -58,7 +58,7 @@ public class SceneLoader : MonoBehaviour
     {
         var currentScene = SceneManager.GetActiveScene();
 
-        SceneManager.UnloadScene(currentScene);
+        SceneManager.UnloadSceneAsync(currentScene);
 
         SceneManager.LoadScene(index, LoadSceneMode.Additive);
     }
