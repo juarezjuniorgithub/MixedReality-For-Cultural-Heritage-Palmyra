@@ -8,9 +8,8 @@ public class SceneLoader : MonoBehaviour
     {
         // Register callback for everytime a new scene is loaded
         SceneManager.sceneLoaded += OnSceneLoaded;
-
-        // // load first scene additive
-        // SceneManager.LoadScene(0, LoadSceneMode.Additive);
+        // load first scene additive
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
     // public void LoadSliderScene()
@@ -35,10 +34,12 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    public static void ReloadScene()
+    public void ReloadScene()
     {
         var currentScene = SceneManager.GetActiveScene();
+        Debug.Log(currentScene);
         var index = currentScene.buildIndex;
+        Debug.Log(index);
 
         SceneManager.UnloadSceneAsync(currentScene);
 
