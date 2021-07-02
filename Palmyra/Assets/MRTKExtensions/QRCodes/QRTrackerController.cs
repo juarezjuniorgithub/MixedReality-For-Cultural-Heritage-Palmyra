@@ -20,6 +20,7 @@ namespace MRTKExtensions.QRCodes
         [SerializeField]
         private float realignWindow = 1;
         private float counter = 0;
+        public GameObject SpownedObjects;
 
 #if !UNITY_EDITOR
 
@@ -156,6 +157,12 @@ namespace MRTKExtensions.QRCodes
                         msg.PhysicalSideLength);
                 }
             }
+
+            /*if (firstTargetFound)
+            {
+                SpownedObjects.transform.eulerAngles.y
+
+            }*/
         }
 
         private void SetScale(object sender, Pose pose)
