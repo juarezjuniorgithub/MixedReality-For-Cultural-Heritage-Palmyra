@@ -8,6 +8,8 @@ public class TimelineController : MonoBehaviour
     public List<PlayableDirector> playableDirectors;
     public EarthInteractionHandler earthInteractionHandler;
     public ExperimentalGrowAnimation experimentalGrowAnimation;
+    public DissolveEffect palmyraMapDissolveEffect;
+    public List<GazeControl> mapObjects;
 
     bool animationExpandSyriaDone = false;
     
@@ -36,6 +38,7 @@ public class TimelineController : MonoBehaviour
     public void PlayPalmyraMap()
     {
         playableDirectors[2].Play();
+        StartCoroutine(ShowPalmyraMap());
     }
 
     public void PlayExpandSyria()
@@ -65,4 +68,15 @@ public class TimelineController : MonoBehaviour
         yield return new WaitForSeconds(15);
         experimentalGrowAnimation.Grow();
     }
+
+    IEnumerator ShowPalmyraMap()
+    {        
+        yield return new WaitForSeconds(4);
+        palmyraMapDissolveEffect.InitiateAppearence();
+        foreach(GazeControl mapObject in mapObjects)
+        {
+            mapObject.InitiateAppearanceOfObject();
+        }
+    }
+
 }

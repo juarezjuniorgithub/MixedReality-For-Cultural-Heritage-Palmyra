@@ -172,5 +172,21 @@ public class GazeControl : MonoBehaviour
         transform.localScale = initialScale;
         ActivateGazeControlSequence();
     }
+
+    public void InitiateAppearanceOfObject()
+    {
+        StartCoroutine(AppearObject());
+    }
+
+    IEnumerator AppearObject()
+    {
+        yield return new WaitForSeconds(3);
+        transform.localPosition = initialPosition;
+        dissolveEffect.InitiateAppearence();
+        transform.localRotation = Quaternion.Euler(initialRotation); 
+        transform.localScale = initialScale;
+        ActivateGazeControlSequence();
+    }
+
     
 }

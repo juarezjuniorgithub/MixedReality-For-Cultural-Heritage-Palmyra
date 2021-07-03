@@ -2065,6 +2065,11 @@ MonoBehaviour:
   - {fileID: 432922062441880132}
   earthInteractionHandler: {fileID: 1097344940}
   experimentalGrowAnimation: {fileID: 432922061946506378}
+  palmyraMapDissolveEffect: {fileID: 2540532869804865383}
+  mapObjects:
+  - {fileID: 432922061389648716}
+  - {fileID: 432922061129317135}
+  - {fileID: 432922061170879307}
 --- !u!1 &432922060802539900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,8 +2515,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432922061057474507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.316}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.112, y: -0.226, z: -0.31}
+  m_LocalScale: {x: 6.0450583, y: 6.0450583, z: 6.0450583}
   m_Children:
   - {fileID: 251351365156866164}
   - {fileID: 432922061389648714}
@@ -2555,7 +2560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1001 &432922061067987042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4036,7 +4041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dissolveMat:
   - {fileID: 2100000, guid: af8d8464fa164ce498aad1fb3ed88e46, type: 2}
-  appearanceValue: 10
+  appearanceValue: 0
   appearanceSpeed: 1
   appearanceLimit: 10
   dissolveVal: Vector1_CC876C20
@@ -6421,8 +6426,6 @@ PlayableDirector:
     value: {fileID: 432922061440095583}
   - key: {fileID: 6228641881337575379, guid: 962b3dd71209c8248a44d6aec407ffb4, type: 2}
     value: {fileID: 432922061946506397}
-  - key: {fileID: 2113018960513259232, guid: 962b3dd71209c8248a44d6aec407ffb4, type: 2}
-    value: {fileID: 432922061057474506}
   m_ExposedReferences:
     m_References: []
 --- !u!95 &432922062441880133
@@ -8400,6 +8403,7 @@ GameObject:
   - component: {fileID: 5134661299509405792}
   - component: {fileID: 2604074118270509740}
   - component: {fileID: 2540532869804865381}
+  - component: {fileID: 2540532869804865383}
   m_Layer: 0
   m_Name: 'palmyrasite reference '
   m_TagString: Untagged
@@ -8407,6 +8411,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2540532869804865383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540532869804865382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2d1b8859ac7ef45845a9408ae2d111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMat:
+  - {fileID: 2100000, guid: 57f7274e1ea026d4d9c1a94a81ae7d32, type: 2}
+  appearanceValue: 0
+  appearanceSpeed: 10
+  appearanceLimit: 100
+  dissolveVal: Vector1_CC876C20
+  minApperanceValue: 0
 --- !u!23 &2604074118270509740
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8425,7 +8448,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9ccc942368593f34c8516160ffce158c, type: 2}
+  - {fileID: 2100000, guid: 57f7274e1ea026d4d9c1a94a81ae7d32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9287,7 +9310,7 @@ PrefabInstance:
     - target: {fileID: 9181818329810857364, guid: 45fd0ad89d6d17b4fbe68eb48dbe9de9,
         type: 3}
       propertyPath: m_text
-      value: 
+      value: Say "Select"
       objectReference: {fileID: 0}
     - target: {fileID: 9181818329810857364, guid: 45fd0ad89d6d17b4fbe68eb48dbe9de9,
         type: 3}
@@ -9593,7 +9616,7 @@ PrefabInstance:
     - target: {fileID: 9181818329810857364, guid: 45fd0ad89d6d17b4fbe68eb48dbe9de9,
         type: 3}
       propertyPath: m_text
-      value: 
+      value: Say "Select"
       objectReference: {fileID: 0}
     - target: {fileID: 9181818329810857364, guid: 45fd0ad89d6d17b4fbe68eb48dbe9de9,
         type: 3}
