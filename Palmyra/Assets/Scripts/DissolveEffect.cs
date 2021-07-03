@@ -22,6 +22,15 @@ public class DissolveEffect : MonoBehaviour
             mat.SetFloat(dissolveVal, appearanceValue/maxAppearanceValue);
         }
     }
+
+    public void ResetAppearanceValue()
+    {
+        appearanceValue = 0;
+        foreach (Material mat in dissolveMat)
+        {
+            mat.SetFloat(dissolveVal, appearanceValue/maxAppearanceValue);
+        }
+    }
     
     void Update()
     {

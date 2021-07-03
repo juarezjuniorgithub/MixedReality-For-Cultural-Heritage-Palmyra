@@ -188,5 +188,9 @@ public class GazeControl : MonoBehaviour
         ActivateGazeControlSequence();
     }
 
+    public void ResetAppearanceValueDissolve()
+    {
+        dissolveEffect.ResetAppearanceValue();
+    }
     
 }

@@ -12,6 +12,14 @@ public class TimelineController : MonoBehaviour
     public List<GazeControl> mapObjects;
 
     bool animationExpandSyriaDone = false;
+
+    void OnStart()
+    {
+        foreach(GazeControl mapObject in mapObjects)
+        {
+            mapObject.ResetAppearanceValueDissolve();
+        }
+    }
     
     void Update()
     {
