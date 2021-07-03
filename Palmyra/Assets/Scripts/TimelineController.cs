@@ -42,9 +42,8 @@ public class TimelineController : MonoBehaviour
     {
         if(!animationExpandSyriaDone)
         {
-            earthInteractionHandler.ActivateComponennts();
-            earthInteractionHandler.ActivateComponnentsOnAllDevices();
             playableDirectors[1].Play();
+            StartCoroutine(ShowEarthToolTip());
             StartCoroutine(CallExperimentalGrow());
             animationExpandSyriaDone = true;
         }
@@ -54,9 +53,16 @@ public class TimelineController : MonoBehaviour
         } 
     }
 
+    IEnumerator ShowEarthToolTip()
+    {
+        yield return new WaitForSeconds(6);
+        earthInteractionHandler.ActivateComponennts();
+        earthInteractionHandler.ActivateComponnentsOnAllDevices();
+    }
+
     IEnumerator CallExperimentalGrow()
     {        
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
         experimentalGrowAnimation.Grow();
     }
 }

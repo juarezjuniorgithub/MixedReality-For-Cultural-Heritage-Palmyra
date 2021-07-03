@@ -28,9 +28,6 @@ public class EarthInteractionHandler : MonoBehaviour
         alreadyInteracted = true;
         //earthInteractable.enabled = false;
         //takeOverScript.TakeOver();
-
-
-
     }
 
     public void ActivateComponnentsOnAllDevices()
