@@ -7,8 +7,11 @@ namespace MRTK.Tutorials.MultiUserCapabilities
     public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     {
         public static PhotonRoom Room;
+        [SerializeField] bool oculus;
 
         [SerializeField] private GameObject photonUserPrefab = default;
+        [SerializeField] private GameObject photonUserOculusPrefab = default;
+
 
         // private PhotonView pv;
         private Player[] photonPlayers;
@@ -80,7 +83,11 @@ namespace MRTK.Tutorials.MultiUserCapabilities
 
         private void CreatPlayer()
         {
-            var player = PhotonNetwork.Instantiate(photonUserPrefab.name, Vector3.zero, Quaternion.identity);
+            if (oculus) {
+                var player = PhotonNetwork.Instantiate(photonUserOculusPrefab.name, Vector3.zero, Quaternion.identity);
+            } else {
+                var player = PhotonNetwork.Instantiate(photonUserPrefab.name, Vector3.zero, Quaternion.identity);
+            }
         }
     }
 }

@@ -997,6 +997,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6752987717821717211, guid: 1e25d9aec1f21cd49bd6df5d12b8ef08,
+        type: 3}
+      propertyPath: oculus
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752987717821717211, guid: 1e25d9aec1f21cd49bd6df5d12b8ef08,
+        type: 3}
+      propertyPath: photonUserOculusPrefab
+      value: 
+      objectReference: {fileID: 8966556672102657529, guid: 6ffb87330f321de4f84666f30942bdbe,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e25d9aec1f21cd49bd6df5d12b8ef08, type: 3}
 --- !u!1 &1769914562
