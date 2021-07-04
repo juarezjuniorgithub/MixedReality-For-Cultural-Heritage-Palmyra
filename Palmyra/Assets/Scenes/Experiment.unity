@@ -579,6 +579,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c56a187443b9b34d9c5a2b0c3a25e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handR: {fileID: 3518298850950181566, guid: 2da0713e3e7969e4ab36bfd9f15c4963, type: 3}
+  handL: {fileID: 3518298850950181566, guid: 5a3491ceb7461524d97596e7a5ce99a9, type: 3}
 --- !u!4 &882066923
 Transform:
   m_ObjectHideFlags: 0
@@ -12612,12 +12614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c22ee3dd9c243b49a9c3245ff376527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructions: {fileID: 9177500563382068845}
-  spatialGraphCoordinateSystemSetter: {fileID: 9177500563426202872}
-  locationQrValue: PalmyraXR
-  realignUpdateTime: 10
-  realignWindow: 1
-  SpownedObjects: {fileID: 0}
 --- !u!4 &9177500562095222078
 Transform:
   m_ObjectHideFlags: 0
@@ -12936,8 +12932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaefc5c98d807aa49a2ad95bff830493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackerController: {fileID: 9177500562095222073}
-  instructions: {fileID: 9177500563382068845}
 --- !u!4 &9177500562314423935
 Transform:
   m_ObjectHideFlags: 0
@@ -14257,8 +14251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66e09d62a263b049997c1f2b7ab4b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: {fileID: 9177500562720024495}
-  debugQRDetection: 0
 --- !u!4 &9177500563136605501
 Transform:
   m_ObjectHideFlags: 0
@@ -14462,11 +14454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933266477f0d4fa41873f86917767f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  qrObservationTimeOut: 3500
-  menu: {fileID: 9177500562392476038}
-  displayText: {fileID: 9177500563922127057}
-  confirmSound: {fileID: 9177500563382068847}
-  qrTrackerController: {fileID: 9177500562095222073}
 --- !u!82 &9177500563382068847
 AudioSource:
   m_ObjectHideFlags: 0
