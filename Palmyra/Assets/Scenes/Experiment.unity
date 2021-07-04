@@ -2719,37 +2719,37 @@ PrefabInstance:
     - target: {fileID: 430365778250296018, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 73.95
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 769.81586
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 63.95
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 389.90793
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -36.975
       objectReference: {fileID: 0}
     - target: {fileID: 1518213805970286144, guid: 014968b15c802764280d30975ed34252,
         type: 3}
@@ -2904,12 +2904,12 @@ PrefabInstance:
     - target: {fileID: 4207361910492106090, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4207361910492106090, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5555645148562130515, guid: 014968b15c802764280d30975ed34252,
         type: 3}
@@ -6154,7 +6154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &432922062151059826
 MonoBehaviour:
   m_ObjectHideFlags: 0
