@@ -10,6 +10,8 @@ namespace MRTK.Tutorials.MultiUserCapabilities
 
         private void Start()
         {
+            
+
             pv = GetComponent<PhotonView>();
 
             if (!pv.IsMine) return;

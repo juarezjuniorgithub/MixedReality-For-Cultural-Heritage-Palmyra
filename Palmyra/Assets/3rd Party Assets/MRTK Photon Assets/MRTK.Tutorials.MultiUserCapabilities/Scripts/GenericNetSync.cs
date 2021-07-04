@@ -38,6 +38,8 @@ namespace MRTK.Tutorials.MultiUserCapabilities
 
         private void Start()
         {
+            
+
             if (isUser)
             {
                 if (TableAnchor.Instance != null) transform.parent = FindObjectOfType<TableAnchor>().transform;
@@ -77,7 +79,9 @@ namespace MRTK.Tutorials.MultiUserCapabilities
                 //trans.localRotation = networkLocalRotation;
                 trans.localPosition = Vector3.Lerp(trans.localPosition, networkLocalPosition, Time.deltaTime * 5);
                 trans.localRotation = Quaternion.Lerp(trans.localRotation, networkLocalRotation, Time.deltaTime * 5);
+
             }
+
 
             if (photonView.IsMine && isUser)
             {
