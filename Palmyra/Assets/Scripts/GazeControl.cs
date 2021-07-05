@@ -12,6 +12,9 @@ public class GazeControl : MonoBehaviour
     [SerializeField] float floatRotateSpeed = 5;
     [SerializeField] float scaleFactor = 0.1f;
     [SerializeField] float delayForReset = 3f;
+
+    [Tooltip("Delay for buttons and objects to become active")]
+    [SerializeField] float additionalObjectsActivationDelay = 0.5f;
     [SerializeField] GameObject buttons;
 
     [SerializeField] List<GameObject> additionalActivators;
@@ -150,6 +153,13 @@ public class GazeControl : MonoBehaviour
     public void DeactivateGazeControlSequence() //Deactivates the GazeControl
     {
         gazeControlStatus = false;
+
+        StartCoroutine(AcitvateAdditionalGameObjects());
+    }
+
+    IEnumerator AcitvateAdditionalGameObjects()
+    {
+        yield return new WaitForSeconds(additionalObjectsActivationDelay);
 
         for(int i=1; i<dissolveEffect.Count; i++)
         {

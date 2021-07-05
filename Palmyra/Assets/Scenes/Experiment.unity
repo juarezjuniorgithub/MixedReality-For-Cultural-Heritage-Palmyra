@@ -422,7 +422,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420284407}
   m_LocalRotation: {x: 0.26534978, y: -0, z: -0, w: 0.9641522}
-  m_LocalPosition: {x: 0.46699995, y: -0.7062334, z: -1.3257616}
+  m_LocalPosition: {x: 0.9, y: -0.7062334, z: -2.09}
   m_LocalScale: {x: 13.076338, y: 13.076339, z: 13.076339}
   m_Children:
   - {fileID: 1717626082}
@@ -730,7 +730,8 @@ MonoBehaviour:
   floatScaleSpeed: 1
   floatRotateSpeed: 1
   scaleFactor: 0.01
-  delayForReset: 2.5
+  delayForReset: 1.8
+  additionalObjectsActivationDelay: 1.5
   buttons: {fileID: 420284407}
   additionalActivators:
   - {fileID: 1174681839}
@@ -1102,12 +1103,12 @@ PrefabInstance:
     - target: {fileID: 5750974859579047498, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.88
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 5750974859579047498, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.65
+      value: -20.3
       objectReference: {fileID: 0}
     - target: {fileID: 6881962854267241624, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
@@ -1178,7 +1179,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: da28029e294623648a2dade13b244e1b, type: 2}
   - {fileID: 2100000, guid: 007cdd9c328fa5f438c651a31be2f443, type: 2}
   appearanceValue: 0
-  appearanceSpeed: 3
+  appearanceSpeed: 6
   appearanceLimit: 100
   dissolveVal: Vector1_CC876C20
   minApperanceValue: 0
@@ -2088,7 +2089,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909140249}
   m_LocalRotation: {x: 0, y: -0.2520694, z: -0, w: -0.9677092}
-  m_LocalPosition: {x: -8.3, y: 1, z: -8.1}
+  m_LocalPosition: {x: -4, y: 1, z: 4.7}
   m_LocalScale: {x: 10.897115, y: 10.897115, z: 10.897115}
   m_Children:
   - {fileID: 420284408}
@@ -3601,37 +3602,37 @@ PrefabInstance:
     - target: {fileID: 430365778250296018, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 73.95
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 769.81586
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 63.95
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 389.90793
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 796234572853761481, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -36.975
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1518213805970286144, guid: 014968b15c802764280d30975ed34252,
         type: 3}
@@ -3786,12 +3787,12 @@ PrefabInstance:
     - target: {fileID: 4207361910492106090, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4207361910492106090, guid: 014968b15c802764280d30975ed34252,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5555645148562130515, guid: 014968b15c802764280d30975ed34252,
         type: 3}
@@ -4258,6 +4259,7 @@ MonoBehaviour:
   floatRotateSpeed: 5
   scaleFactor: 0.04
   delayForReset: 3
+  additionalObjectsActivationDelay: 0.5
   buttons: {fileID: 432922061500239306}
   additionalActivators: []
   dissolveEffect:
@@ -4521,6 +4523,7 @@ MonoBehaviour:
   floatRotateSpeed: 5
   scaleFactor: 0.04
   delayForReset: 3
+  additionalObjectsActivationDelay: 0.5
   buttons: {fileID: 432922062030438932}
   additionalActivators: []
   dissolveEffect:
@@ -4963,6 +4966,7 @@ MonoBehaviour:
   floatRotateSpeed: 5
   scaleFactor: 0.04
   delayForReset: 3
+  additionalObjectsActivationDelay: 0.5
   buttons: {fileID: 4212388735815037724}
   additionalActivators: []
   dissolveEffect:
@@ -7045,7 +7049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &432922062151059826
 MonoBehaviour:
   m_ObjectHideFlags: 0
