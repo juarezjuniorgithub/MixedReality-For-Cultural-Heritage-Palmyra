@@ -730,13 +730,15 @@ MonoBehaviour:
   floatScaleSpeed: 1
   floatRotateSpeed: 1
   scaleFactor: 0.01
-  delayForReset: 4.8
+  delayForReset: 2.5
   buttons: {fileID: 420284407}
   additionalActivators:
   - {fileID: 1174681839}
   - {fileID: 837506233}
   - {fileID: 772304440}
-  dissolveEffect: {fileID: 718213412}
+  dissolveEffect:
+  - {fileID: 718213412}
+  - {fileID: 992060304}
 --- !u!114 &718213412 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8848697022942695731, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
@@ -1030,17 +1032,17 @@ PrefabInstance:
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0009850049
+      value: 0.0013263092
       objectReference: {fileID: 0}
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.0009850049
+      value: 0.0013263092
       objectReference: {fileID: 0}
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.0009850049
+      value: 0.0013263092
       objectReference: {fileID: 0}
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
@@ -1097,6 +1099,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5750974859579047498, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 5750974859579047498, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.65
+      objectReference: {fileID: 0}
     - target: {fileID: 6881962854267241624, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -1109,9 +1121,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8848697022942695731, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
-      propertyPath: dissolveMat.Array.size
-      value: 8
+      propertyPath: appearanceLimit
+      value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8848697022942695731, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
+        type: 3}
+      propertyPath: dissolveMat.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848697022942695731, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
+        type: 3}
+      propertyPath: dissolveMat.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 64a5ac18247635b46af1738af51ab53a, type: 2}
+    - target: {fileID: 8848697022942695731, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
+        type: 3}
+      propertyPath: dissolveMat.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: d030c225cfc1acf4091b6253294a1e1b, type: 2}
+    - target: {fileID: 8848697022942695731, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
+        type: 3}
+      propertyPath: dissolveMat.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf2f1bcfc01278c40a8146ddb3646cd0, type: 2}
+    - target: {fileID: 8848697022942695731, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
+        type: 3}
+      propertyPath: dissolveMat.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 007cdd9c328fa5f438c651a31be2f443, type: 2}
     - target: {fileID: 8848697022942695731, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: dissolveMat.Array.data[7]
@@ -1119,6 +1156,32 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 007cdd9c328fa5f438c651a31be2f443, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9220d0d0fea3bb4fb449b10d5a3c051, type: 3}
+--- !u!1 &992060303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7077325804458992951, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
+    type: 3}
+  m_PrefabInstance: {fileID: 992060302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &992060304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992060303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2d1b8859ac7ef45845a9408ae2d111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMat:
+  - {fileID: 2100000, guid: da28029e294623648a2dade13b244e1b, type: 2}
+  - {fileID: 2100000, guid: 007cdd9c328fa5f438c651a31be2f443, type: 2}
+  appearanceValue: 0
+  appearanceSpeed: 3
+  appearanceLimit: 100
+  dissolveVal: Vector1_CC876C20
+  minApperanceValue: 0
 --- !u!1 &1097344932 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5502653134554730355, guid: f4d9a4d999c12bd4eb4f52a2827f148e,
@@ -4197,7 +4260,8 @@ MonoBehaviour:
   delayForReset: 3
   buttons: {fileID: 432922061500239306}
   additionalActivators: []
-  dissolveEffect: {fileID: 432922061129317175}
+  dissolveEffect:
+  - {fileID: 432922061129317175}
 --- !u!114 &432922061129317168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4459,7 +4523,8 @@ MonoBehaviour:
   delayForReset: 3
   buttons: {fileID: 432922062030438932}
   additionalActivators: []
-  dissolveEffect: {fileID: 432922061170879347}
+  dissolveEffect:
+  - {fileID: 718213412}
 --- !u!114 &432922061170879308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4900,7 +4965,8 @@ MonoBehaviour:
   delayForReset: 3
   buttons: {fileID: 4212388735815037724}
   additionalActivators: []
-  dissolveEffect: {fileID: 432922061389648753}
+  dissolveEffect:
+  - {fileID: 432922061389648753}
 --- !u!114 &432922061389648717
 MonoBehaviour:
   m_ObjectHideFlags: 0
