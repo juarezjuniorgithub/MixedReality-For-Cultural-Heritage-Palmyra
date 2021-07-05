@@ -831,8 +831,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleValue: 0
-  maxScaleValue: 0.05
-  scaleSpeed: 0.01
+  maxScaleValue: 0.004
+  scaleSpeed: 0.001
 --- !u!1 &772304440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5750974859579047495, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
@@ -1030,17 +1030,17 @@ PrefabInstance:
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.00074065797
+      value: 0.0009850049
       objectReference: {fileID: 0}
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.00074065797
+      value: 0.0009850049
       objectReference: {fileID: 0}
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.00074065797
+      value: 0.0009850049
       objectReference: {fileID: 0}
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
@@ -1050,7 +1050,7 @@ PrefabInstance:
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0013
+      value: -0.0101
       objectReference: {fileID: 0}
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
@@ -1060,7 +1060,7 @@ PrefabInstance:
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9677092
+      value: -0.98667026
       objectReference: {fileID: 0}
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
@@ -1070,7 +1070,7 @@ PrefabInstance:
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.2520694
+      value: 0.16273238
       objectReference: {fileID: 0}
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
@@ -1085,7 +1085,7 @@ PrefabInstance:
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 330.8
+      value: 341.269
       objectReference: {fileID: 0}
     - target: {fileID: 3252389680559545356, guid: e9220d0d0fea3bb4fb449b10d5a3c051,
         type: 3}
@@ -1275,7 +1275,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 432922061170879308}
+      objectReference: {fileID: 718213420}
     - target: {fileID: 7440800412470431853, guid: 45fd0ad89d6d17b4fbe68eb48dbe9de9,
         type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2921,7 +2921,7 @@ PrefabInstance:
     - target: {fileID: 9181818329810857364, guid: 45fd0ad89d6d17b4fbe68eb48dbe9de9,
         type: 3}
       propertyPath: m_text
-      value: 
+      value: Say "Select"
       objectReference: {fileID: 0}
     - target: {fileID: 9181818329810857364, guid: 45fd0ad89d6d17b4fbe68eb48dbe9de9,
         type: 3}
@@ -7338,7 +7338,7 @@ PrefabInstance:
     - target: {fileID: 9181818329810857364, guid: 45fd0ad89d6d17b4fbe68eb48dbe9de9,
         type: 3}
       propertyPath: m_text
-      value: 
+      value: Say "Select"
       objectReference: {fileID: 0}
     - target: {fileID: 9181818329810857364, guid: 45fd0ad89d6d17b4fbe68eb48dbe9de9,
         type: 3}

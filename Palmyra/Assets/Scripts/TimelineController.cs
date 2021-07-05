@@ -13,7 +13,7 @@ public class TimelineController : MonoBehaviour
 
     bool animationExpandSyriaDone = false;
 
-    void OnStart()
+    void Start()
     {
         foreach(GazeControl mapObject in mapObjects)
         {
