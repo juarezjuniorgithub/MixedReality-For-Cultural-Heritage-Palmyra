@@ -150,27 +150,40 @@ public class GazeControl : MonoBehaviour
             transform.localScale -= new Vector3(scaleValue,scaleValue,scaleValue);
     }
 
-    public void DeactivateGazeControlSequence() //Deactivates the GazeControl
+    public void DeactivateOnlyGazeControl()
     {
         gazeControlStatus = false;
+    }
 
+    public void DeactivateGazeControlSequence() //Deactivates the GazeControl
+    {
         StartCoroutine(AcitvateAdditionalGameObjects());
     }
 
     IEnumerator AcitvateAdditionalGameObjects()
     {
         yield return new WaitForSeconds(additionalObjectsActivationDelay);
+        buttons.SetActive(true);
+    }
+
+    public void ActivateAllAdditionalObjects()
+    {
+        dissolveEffect[0].InitiateDisappearence();
+        StartCoroutine(ActivateHighPolyModels());
+    }
+
+    IEnumerator ActivateHighPolyModels()
+    {
+        yield return new WaitForSeconds(additionalObjectsActivationDelay);
+        foreach(GameObject gameObject in additionalActivators)
+        {
+            gameObject.SetActive(true);
+        }
 
         for(int i=1; i<dissolveEffect.Count; i++)
         {
             dissolveEffect[i].InitiateAppearence();  //fade in all other secondary items with dissolve shaders
         }
-
-        foreach(GameObject gameObject in additionalActivators)
-        {
-            gameObject.SetActive(true);
-        }
-        buttons.SetActive(true);
     }
 
     public void ActivateGazeControlSequence() //Activates the GazeControl
@@ -228,7 +241,7 @@ public class GazeControl : MonoBehaviour
 
     public void ResetAppearanceValueDissolve()
     {
-        dissolveEffect[0].ResetAppearanceValue();
+            dissolveEffect[0].ResetAppearanceValue();
     }
     
 }

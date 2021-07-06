@@ -45,14 +45,14 @@ public class DissolveEffect : MonoBehaviour
             Disappear();
         }
 
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            InitiateAppearence();
-        }     
-        if(Input.GetKeyDown(KeyCode.U))
-        {
-            InitiateDisappearence();
-        }     
+        // if(Input.GetKeyDown(KeyCode.G))
+        // {
+        //     InitiateAppearence();
+        // }     
+        // if(Input.GetKeyDown(KeyCode.U))
+        // {
+        //     InitiateDisappearence();
+        // }     
     }
 
     void Appear()
@@ -90,6 +90,7 @@ public class DissolveEffect : MonoBehaviour
     public void InitiateAppearence()
     {
         initiateAppearanceSequence = true;
+        initiateDisappearanceSequence = false;
     }
 
     public void InitiateDisappearence()
