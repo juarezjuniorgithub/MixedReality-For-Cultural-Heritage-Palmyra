@@ -2602,7 +2602,7 @@ MonoBehaviour:
   floatPosSpeed: 1
   floatScaleSpeed: 1
   floatRotateSpeed: 5
-  scaleFactor: 0.01
+  scaleFactor: 5
   delayForReset: 2
   additionalObjectsActivationDelay: 1
   activateOtherAdditionalObjectsDelay: 1
