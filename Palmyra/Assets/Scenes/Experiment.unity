@@ -2250,6 +2250,7 @@ MonoBehaviour:
   delayForReset: 3
   additionalObjectsActivationDelay: 1
   activateOtherAdditionalObjectsDelay: 0.1
+  holderDeactivationDelay: 1
   buttons: {fileID: 821212549}
   additionalActivators:
   - {fileID: 487157664}
@@ -2605,6 +2606,7 @@ MonoBehaviour:
   delayForReset: 2
   additionalObjectsActivationDelay: 1
   activateOtherAdditionalObjectsDelay: 1
+  holderDeactivationDelay: 1
   buttons: {fileID: 420284407}
   additionalActivators:
   - {fileID: 2767778089696240952}
@@ -6715,6 +6717,7 @@ MonoBehaviour:
   delayForReset: 3
   additionalObjectsActivationDelay: 0.5
   activateOtherAdditionalObjectsDelay: 1
+  holderDeactivationDelay: 1
   buttons: {fileID: 4212388735815037724}
   additionalActivators: []
   holderDeactivators: []

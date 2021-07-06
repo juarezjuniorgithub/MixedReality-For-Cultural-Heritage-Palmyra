@@ -16,9 +16,12 @@ public class GazeControl : MonoBehaviour
     [Tooltip("Delay for buttons and objects to become active")]
     [SerializeField] float additionalObjectsActivationDelay = 0.5f;
     [SerializeField] float activateOtherAdditionalObjectsDelay = 1f;
+    [SerializeField] float  holderDeactivationDelay = 1f;
     [SerializeField] GameObject buttons;
 
     [SerializeField] List<GameObject> additionalActivators;
+    [Tooltip("For Holder GameObjects")]
+    [SerializeField] List<GameObject> holderDeactivators;
 
     [Tooltip("Keep 0th element as the dissolve effect on the map initiation and elements from 1th position onwards to dissolve in during manipulation")]
     [SerializeField] List<DissolveEffect> dissolveEffect;
@@ -171,6 +174,7 @@ public class GazeControl : MonoBehaviour
     public void ActivateAllAdditionalObjects()
     {
         dissolveEffect[0].InitiateDisappearence();
+        
         StartCoroutine(ActivateHighPolyModels());
     }
 
@@ -182,9 +186,21 @@ public class GazeControl : MonoBehaviour
             gameObject.SetActive(true);
         }
 
+
         for(int i=1; i<dissolveEffect.Count; i++)
         {
             dissolveEffect[i].InitiateAppearence();  //fade in all other secondary items with dissolve shaders
+        }
+
+        StartCoroutine(DeactivateHolders());
+    }
+
+    IEnumerator DeactivateHolders()
+    {
+        yield return new WaitForSeconds(holderDeactivationDelay);
+        foreach(GameObject gameObject in holderDeactivators)
+        {
+            gameObject.SetActive(false);
         }
     }
 
@@ -206,6 +222,10 @@ public class GazeControl : MonoBehaviour
 
     public void InitiateResetPlaygroundMap()
     {   
+        foreach(GameObject gameObject in holderDeactivators)
+        {
+            gameObject.SetActive(true);
+        }
 
         for(int i=0; i<dissolveEffect.Count; i++)
         {
