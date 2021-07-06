@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 593452886}
   - component: {fileID: 593452885}
   - component: {fileID: 593452884}
+  - component: {fileID: 593452888}
   m_Layer: 0
   m_Name: Palmyra
   m_TagString: Untagged
@@ -382,9 +383,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98de877dee5fc341b4eb59dfdab266c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoConstraintSelection: 1
+  autoConstraintSelection: 0
   selectedConstraints:
   - {fileID: 593452887}
+  - {fileID: 593452888}
 --- !u!114 &593452887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +401,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handType: 3
   proximityType: 3
+--- !u!114 &593452888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593452881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3e6359c9750ad4fb8a05c9b8704d7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 3
+  proximityType: 3
+  constraintOnRotation: 0
+  useLocalSpaceForConstraint: 0
 --- !u!1 &598129389
 GameObject:
   m_ObjectHideFlags: 0
