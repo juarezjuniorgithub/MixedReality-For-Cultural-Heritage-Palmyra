@@ -15,6 +15,7 @@ public class GazeControl : MonoBehaviour
 
     [Tooltip("Delay for buttons and objects to become active")]
     [SerializeField] float additionalObjectsActivationDelay = 0.5f;
+    [SerializeField] float activateOtherAdditionalObjectsDelay = 1f;
     [SerializeField] GameObject buttons;
 
     [SerializeField] List<GameObject> additionalActivators;
@@ -35,6 +36,7 @@ public class GazeControl : MonoBehaviour
 
     void Start()
     {
+        
         initialPosition = transform.localPosition;
         position = initialPosition;
 
@@ -174,7 +176,7 @@ public class GazeControl : MonoBehaviour
 
     IEnumerator ActivateHighPolyModels()
     {
-        yield return new WaitForSeconds(additionalObjectsActivationDelay);
+        yield return new WaitForSeconds(activateOtherAdditionalObjectsDelay);
         foreach(GameObject gameObject in additionalActivators)
         {
             gameObject.SetActive(true);

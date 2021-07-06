@@ -45,14 +45,14 @@ public class DissolveEffect : MonoBehaviour
             Disappear();
         }
 
-        // if(Input.GetKeyDown(KeyCode.G))
-        // {
-        //     InitiateAppearence();
-        // }     
-        // if(Input.GetKeyDown(KeyCode.U))
-        // {
-        //     InitiateDisappearence();
-        // }     
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            InitiateAppearence();
+        }     
+        if(Input.GetKeyDown(KeyCode.U))
+        {
+            InitiateDisappearence();
+        }     
     }
 
     void Appear()
