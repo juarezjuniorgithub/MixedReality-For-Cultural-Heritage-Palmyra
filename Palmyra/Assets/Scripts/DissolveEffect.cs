@@ -90,6 +90,7 @@ public class DissolveEffect : MonoBehaviour
     public void InitiateAppearence()
     {
         initiateAppearanceSequence = true;
+        initiateDisappearanceSequence = false;
     }
 
     public void InitiateDisappearence()

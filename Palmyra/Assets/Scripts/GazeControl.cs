@@ -15,9 +15,13 @@ public class GazeControl : MonoBehaviour
 
     [Tooltip("Delay for buttons and objects to become active")]
     [SerializeField] float additionalObjectsActivationDelay = 0.5f;
+    [SerializeField] float activateOtherAdditionalObjectsDelay = 1f;
+    [SerializeField] float  holderDeactivationDelay = 1f;
     [SerializeField] GameObject buttons;
 
     [SerializeField] List<GameObject> additionalActivators;
+    [Tooltip("For Holder GameObjects")]
+    [SerializeField] List<GameObject> holderDeactivators;
 
     [Tooltip("Keep 0th element as the dissolve effect on the map initiation and elements from 1th position onwards to dissolve in during manipulation")]
     [SerializeField] List<DissolveEffect> dissolveEffect;
@@ -35,6 +39,7 @@ public class GazeControl : MonoBehaviour
 
     void Start()
     {
+        
         initialPosition = transform.localPosition;
         position = initialPosition;
 
@@ -150,27 +155,53 @@ public class GazeControl : MonoBehaviour
             transform.localScale -= new Vector3(scaleValue,scaleValue,scaleValue);
     }
 
-    public void DeactivateGazeControlSequence() //Deactivates the GazeControl
+    public void DeactivateOnlyGazeControl()
     {
         gazeControlStatus = false;
+    }
 
+    public void DeactivateGazeControlSequence() //Deactivates the GazeControl
+    {
         StartCoroutine(AcitvateAdditionalGameObjects());
     }
 
     IEnumerator AcitvateAdditionalGameObjects()
     {
         yield return new WaitForSeconds(additionalObjectsActivationDelay);
+        buttons.SetActive(true);
+    }
+
+    public void ActivateAllAdditionalObjects()
+    {
+        dissolveEffect[0].InitiateDisappearence();
+        
+        StartCoroutine(ActivateHighPolyModels());
+    }
+
+    IEnumerator ActivateHighPolyModels()
+    {
+        yield return new WaitForSeconds(activateOtherAdditionalObjectsDelay);
+        foreach(GameObject gameObject in additionalActivators)
+        {
+            gameObject.SetActive(true);
+        }
+
 
         for(int i=1; i<dissolveEffect.Count; i++)
         {
             dissolveEffect[i].InitiateAppearence();  //fade in all other secondary items with dissolve shaders
         }
 
-        foreach(GameObject gameObject in additionalActivators)
+        StartCoroutine(DeactivateHolders());
+    }
+
+    IEnumerator DeactivateHolders()
+    {
+        yield return new WaitForSeconds(holderDeactivationDelay);
+        foreach(GameObject gameObject in holderDeactivators)
         {
-            gameObject.SetActive(true);
+            gameObject.SetActive(false);
         }
-        buttons.SetActive(true);
     }
 
     public void ActivateGazeControlSequence() //Activates the GazeControl
@@ -191,6 +222,10 @@ public class GazeControl : MonoBehaviour
 
     public void InitiateResetPlaygroundMap()
     {   
+        foreach(GameObject gameObject in holderDeactivators)
+        {
+            gameObject.SetActive(true);
+        }
 
         for(int i=0; i<dissolveEffect.Count; i++)
         {
@@ -228,7 +263,7 @@ public class GazeControl : MonoBehaviour
 
     public void ResetAppearanceValueDissolve()
     {
-        dissolveEffect[0].ResetAppearanceValue();
+            dissolveEffect[0].ResetAppearanceValue();
     }
     
 }
