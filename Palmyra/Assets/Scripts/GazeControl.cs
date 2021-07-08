@@ -31,11 +31,15 @@ public class GazeControl : MonoBehaviour
     Vector3 initialRotation;
     Vector3 initialScale;
 
+    [SerializeField] bool doNotDeactivateFirstDissolveEffect = false;
+    
     bool startFloatSequence = false;
     bool startDeFloatSequence = false;
 
     bool gazeControlStatus = true;
     bool isFloating = false;
+
+    
 
     void Start()
     {
@@ -173,8 +177,10 @@ public class GazeControl : MonoBehaviour
 
     public void ActivateAllAdditionalObjects()
     {
-        dissolveEffect[0].InitiateDisappearence();
-        
+        if(!doNotDeactivateFirstDissolveEffect)
+        {
+            dissolveEffect[0].InitiateDisappearence();
+        }
         StartCoroutine(ActivateHighPolyModels());
     }
 
