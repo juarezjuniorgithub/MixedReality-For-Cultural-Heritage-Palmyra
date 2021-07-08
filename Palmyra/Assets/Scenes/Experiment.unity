@@ -1219,6 +1219,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1230161234}
     m_Modifications:
+    - target: {fileID: 3418484374632214193, guid: be35485f8a3e93c4c917f9dcdd3f1294,
+        type: 3}
+      propertyPath: additionValue.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418484374632214193, guid: be35485f8a3e93c4c917f9dcdd3f1294,
+        type: 3}
+      propertyPath: additionValue.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418484374632214193, guid: be35485f8a3e93c4c917f9dcdd3f1294,
+        type: 3}
+      propertyPath: additionValue.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3418484374632214197, guid: be35485f8a3e93c4c917f9dcdd3f1294,
         type: 3}
       propertyPath: m_Name
@@ -3387,6 +3402,26 @@ MonoBehaviour:
   scaleValue: 0
   maxScaleValue: 2
   scaleSpeed: 0.5
+--- !u!1 &1385721086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3877767423421282931, guid: be35485f8a3e93c4c917f9dcdd3f1294,
+    type: 3}
+  m_PrefabInstance: {fileID: 560883371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1385721094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385721086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTetherWhenManipulating: 0
+  IsBoundsHandles: 0
 --- !u!1001 &1476412218
 PrefabInstance:
   m_ObjectHideFlags: 0
