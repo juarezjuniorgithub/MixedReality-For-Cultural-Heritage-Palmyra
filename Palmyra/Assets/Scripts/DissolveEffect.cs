@@ -66,6 +66,8 @@ public class DissolveEffect : MonoBehaviour
             }
             else
             {
+                if(appearanceLimit>100)
+                    mat.SetFloat(dissolveVal, 1);
                 initiateAppearanceSequence = false;
             }
         } 
