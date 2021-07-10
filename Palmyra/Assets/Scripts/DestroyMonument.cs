@@ -10,7 +10,7 @@ using UnityEngine.Events;
 public class DestroyMonument : MonoBehaviour
 {
     public Animator monumentanim;
-    public GameObject ornaments;
+    //public GameObject ornaments;
     public GameObject[] stoneglitch;
     public UnityEvent OnMonumentDestroyed;
     public GameObject[] stoneToSnap;
@@ -20,13 +20,30 @@ public class DestroyMonument : MonoBehaviour
     public GameObject[] stoneMainLocation;
     private GameObject destroyButton;
     private GameObject rebuildButton;
-    
-    
+    GameObject[] gos;
+
+
 
     void Start()
     {
         destroyButton = GameObject.FindGameObjectWithTag("Destroy");
         rebuildButton = GameObject.FindGameObjectWithTag("Rebuild");
+    }
+
+    private void Awake()
+    {
+        Destroy();
+        //Rebuild();
+
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Debug.Log("H Pressed");
+            
+        }
     }
 
     public void OnDestroyFinished()
@@ -47,8 +64,8 @@ public class DestroyMonument : MonoBehaviour
     public void Destroy()
     {
 
-        monumentanim.SetTrigger("destroy");
-        ornaments.SetActive(false);
+        monumentanim.SetTrigger("destroybaal");
+        //ornaments.SetActive(false);
         destroyButton.GetComponent<Interactable>().enabled = false;
         destroyButton.GetComponent<PressableButtonHoloLens2>().enabled = false;
         StartCoroutine(StoneToSnap());
@@ -60,18 +77,22 @@ public class DestroyMonument : MonoBehaviour
 
     public void Rebuild()
     {
-        rebuildButton.GetComponent<Interactable>().enabled = false;
-        rebuildButton.GetComponent<PressableButtonHoloLens2>().enabled = false;
+        monumentanim.SetTrigger("rebuildbaal");
+       
+        //rebuildButton.GetComponent<Interactable>().enabled = false;
+        //rebuildButton.GetComponent<PressableButtonHoloLens2>().enabled = false;
         StartCoroutine(Waitrebuild());
         StartCoroutine(WaittoActive());
+        
         Debug.Log("Botton Off"); 
     }
     IEnumerator Waitrebuild()
     {
-        monumentanim.SetTrigger("rebuild");
+        
 
-        yield return new WaitForSeconds(6.210f);
-        ornaments.SetActive(true);
+        yield return new WaitForSeconds(5.0f);
+        //MonumetAppearOnDestruction();
+        //ornaments.SetActive(true);
         foreach (GameObject stones in stoneOfAnim )
         {
             stones.SetActive(true);
@@ -91,7 +112,7 @@ public class DestroyMonument : MonoBehaviour
     }
     IEnumerator TrackDestroyAnim()
     {
-        yield return new WaitForSeconds(6.210f);
+        yield return new WaitForSeconds(5.0f);
     }
 
     IEnumerator WaittoActive()
@@ -106,7 +127,7 @@ public class DestroyMonument : MonoBehaviour
     IEnumerator StoneToSnap()
     {
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-        yield return new WaitForSeconds(6.1f);
+        yield return new WaitForSeconds(5.0f);
         foreach (GameObject stones in stoneOfAnim)
         {
             stones.SetActive(false);
@@ -137,4 +158,27 @@ public class DestroyMonument : MonoBehaviour
             stones.SetActive(true);
         }
     }
+
+    public void MonumetRemoveOnDestruction()
+    {
+        
+        gos =GameObject.FindGameObjectsWithTag("HideBaalP");
+        foreach (GameObject item in gos)
+        {
+            item.SetActive(false);
+            // TODOÜ Creante new dissolve mat for higebaalp - add to dissolve script - call initiate disapperance
+
+        }
+    }
+
+    public void MonumetAppearOnDestruction()
+    {
+
+        foreach (GameObject item in gos)
+        {
+            item.SetActive(true);
+            // TODO call initiate apperance on script
+         }
+    }
+
 }
