@@ -49,15 +49,15 @@ public class DestroyMonument : MonoBehaviour
     public void OnDestroyFinished()
     {
         Debug.Log("this is a destroy test");
-        rebuildButton.GetComponent<Interactable>().enabled = true;
-        rebuildButton.GetComponent<PressableButtonHoloLens2>().enabled = true;
+        //rebuildButton.GetComponent<Interactable>().enabled = true;
+        //rebuildButton.GetComponent<PressableButtonHoloLens2>().enabled = true;
     }
 
     public void OnRebuildFinished()
     {
         Debug.Log("this is a rebuilt test");
-        destroyButton.GetComponent<Interactable>().enabled = true;
-        destroyButton.GetComponent<PressableButtonHoloLens2>().enabled = true;
+        //destroyButton.GetComponent<Interactable>().enabled = true;
+        //destroyButton.GetComponent<PressableButtonHoloLens2>().enabled = true;
 
     }
 
@@ -66,8 +66,8 @@ public class DestroyMonument : MonoBehaviour
 
         monumentanim.SetTrigger("destroybaal");
         //ornaments.SetActive(false);
-        destroyButton.GetComponent<Interactable>().enabled = false;
-        destroyButton.GetComponent<PressableButtonHoloLens2>().enabled = false;
+        //destroyButton.GetComponent<Interactable>().enabled = false;
+        //destroyButton.GetComponent<PressableButtonHoloLens2>().enabled = false;
         StartCoroutine(StoneToSnap());
         StartCoroutine(TrackDestroyAnim());
        
