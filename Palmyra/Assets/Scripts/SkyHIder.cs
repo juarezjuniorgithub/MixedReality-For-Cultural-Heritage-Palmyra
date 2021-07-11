@@ -23,27 +23,29 @@ public class SkyHIder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float delta = Mathf.Abs(parentTransform.localScale.x - initialScale);
+        float delta = parentTransform.localScale.x - initialScale;
 
-        color.a = Mathf.InverseLerp(maxDelta, 0, delta);
+        if(delta > 0) {
+            color.a = Mathf.InverseLerp(maxDelta, 0, delta);
 
-        if(delta > maxDelta)
-        {
-            groundRenderer.enabled = false;
-            foreach (var item in images)
+            if(delta > maxDelta)
             {
-                item.enabled = false;
+                groundRenderer.enabled = false;
+                foreach (var item in images)
+                {
+                    item.enabled = false;
+                }
             }
-        }
-        else
-        {
-            groundRenderer.enabled = true;
-            foreach (var item in images)
+            else
             {
-                item.enabled = true;
+                groundRenderer.enabled = true;
+                foreach (var item in images)
+                {
+                    item.enabled = true;
+                }
             }
-        }
 
-        _renderer.material.color = color;
+            _renderer.material.color = color;
+        }
     }
 }
