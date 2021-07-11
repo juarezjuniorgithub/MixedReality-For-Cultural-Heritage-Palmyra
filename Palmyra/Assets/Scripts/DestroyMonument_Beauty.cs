@@ -29,6 +29,7 @@ public class DestroyMonument_Beauty : MonoBehaviour
     private int piecesRebuilt = 0;
     public static DestroyMonument_Beauty instance;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] bool playAudioOnFinish;
 
     private void Awake()
     {
@@ -41,6 +42,9 @@ public class DestroyMonument_Beauty : MonoBehaviour
         //rebuildButton = GameObject.FindGameObjectWithTag("Rebuild");
         StartCoroutine(Delay());
         Destroy_Artifact();
+        if (!playAudioOnFinish) {
+            Destroy(audioSource);
+        }
     }
 
     public void OnDestroyFinished()
@@ -62,7 +66,9 @@ public class DestroyMonument_Beauty : MonoBehaviour
         piecesRebuilt++;
         if(piecesRebuilt >= 6)
         {
-            audioSource.Play();
+            if (playAudioOnFinish) {
+                audioSource.Play();
+            }
         }
     }
 
