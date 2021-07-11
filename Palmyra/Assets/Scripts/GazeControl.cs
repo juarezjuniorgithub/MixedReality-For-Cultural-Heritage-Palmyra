@@ -172,6 +172,20 @@ public class GazeControl : MonoBehaviour
     IEnumerator AcitvateAdditionalGameObjects()
     {
         yield return new WaitForSeconds(additionalObjectsActivationDelay);
+        SetUpButtons();
+    }
+
+    private void SetUpButtons() {
+        if(buttons.transform.parent != null) {
+            GameObject container = new GameObject();
+            container.transform.parent = buttons.transform.parent;
+            container.transform.position = buttons.transform.position;
+            buttons.transform.parent = null;
+            buttons.transform.localScale = Vector3.one;
+            FollowPoint followPoint = buttons.AddComponent<FollowPoint>();
+            followPoint.pointToFollow = container.transform;
+            followPoint.speed = 30;
+        }
         buttons.SetActive(true);
     }
 
