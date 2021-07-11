@@ -32,7 +32,7 @@ public class DestroyMonument : MonoBehaviour
 
     private void Awake()
     {
-        Destroy();
+        //Destroy();
         //Rebuild();
 
     }
