@@ -32,12 +32,14 @@ public class GazeControl : MonoBehaviour
     Vector3 initialScale;
 
     [SerializeField] bool doNotDeactivateFirstDissolveEffect = false;
+    [SerializeField] bool isBeauty = false;
     
     bool startFloatSequence = false;
     bool startDeFloatSequence = false;
 
     bool gazeControlStatus = true;
     bool isFloating = false;
+    
 
     
 
@@ -172,6 +174,20 @@ public class GazeControl : MonoBehaviour
     IEnumerator AcitvateAdditionalGameObjects()
     {
         yield return new WaitForSeconds(additionalObjectsActivationDelay);
+        SetUpButtons();
+    }
+
+    private void SetUpButtons() {
+        if(buttons.transform.parent != null) {
+            GameObject container = new GameObject();
+            container.transform.parent = buttons.transform.parent;
+            container.transform.position = buttons.transform.position;
+            buttons.transform.parent = null;
+            buttons.transform.localScale = Vector3.one;
+            FollowPoint followPoint = buttons.AddComponent<FollowPoint>();
+            followPoint.pointToFollow = container.transform;
+            followPoint.speed = 30;
+        }
         buttons.SetActive(true);
     }
 
@@ -233,6 +249,13 @@ public class GazeControl : MonoBehaviour
             gameObject.SetActive(true);
         }
 
+        if(!doNotDeactivateFirstDissolveEffect && isBeauty)
+        {
+            dissolveEffect[0].InitiateAppearence();
+            StartCoroutine(GoAwayBeautyObjects());
+            StartCoroutine(WaitToDisaapear());
+        }
+        
         for(int i=0; i<dissolveEffect.Count; i++)
         {
             dissolveEffect[i].InitiateDisappearence(); 
@@ -240,6 +263,20 @@ public class GazeControl : MonoBehaviour
 
         StartCoroutine(ResetPlaygroundMap());
         
+    }
+
+    IEnumerator GoAwayBeautyObjects()
+    {
+        yield return new WaitForSeconds(1.5f);
+        foreach(GameObject gameObject in additionalActivators)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+    IEnumerator WaitToDisaapear()
+    {
+        yield return new WaitForSeconds(3);
+        dissolveEffect[0].InitiateDisappearence();
     }
 
     IEnumerator ResetPlaygroundMap()
