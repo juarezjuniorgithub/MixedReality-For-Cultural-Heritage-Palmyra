@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class DissolveEffect : MonoBehaviour
     float maxAppearanceValue=100f;
     bool initiateAppearanceSequence = false;
     bool initiateDisappearanceSequence = false;
+    public Action onAppearEnded;
+    public Action onDisappearStarting;
 
 
     void Start()
@@ -34,13 +37,11 @@ public class DissolveEffect : MonoBehaviour
     
     void Update()
     {
-        
         if(initiateAppearanceSequence)
         {
             Appear();
         }
-
-        if(initiateDisappearanceSequence)
+        else if(initiateDisappearanceSequence)
         {
             Disappear();
         }
@@ -49,7 +50,7 @@ public class DissolveEffect : MonoBehaviour
         {
             InitiateAppearence();
         }     
-        if(Input.GetKeyDown(KeyCode.U))
+        else if(Input.GetKeyDown(KeyCode.U))
         {
             InitiateDisappearence();
         }     
@@ -75,14 +76,17 @@ public class DissolveEffect : MonoBehaviour
                 }     
                 initiateAppearanceSequence = false;
             }
-        } 
+        }
+        if (!initiateAppearanceSequence) {
+            onAppearEnded?.Invoke();
+        }
     }
 
     void Disappear()
     {
         foreach (Material mat in dissolveMat)
         {
-             if(appearanceValue>=minApperanceValue)
+            if(appearanceValue>=minApperanceValue)
             {
                 appearanceValue -=5 * Time.deltaTime * appearanceSpeed;
                 mat.SetFloat(dissolveVal, appearanceValue/maxAppearanceValue);
@@ -102,6 +106,7 @@ public class DissolveEffect : MonoBehaviour
 
     public void InitiateDisappearence()
     {
+        onDisappearStarting?.Invoke();
         initiateDisappearanceSequence = true;
     }
 }
