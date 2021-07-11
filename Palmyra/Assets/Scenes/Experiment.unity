@@ -3862,7 +3862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821212549}
   m_LocalRotation: {x: 0.26534978, y: 0.000000007450581, z: -0, w: 0.9641522}
-  m_LocalPosition: {x: 0.0513, y: 0, z: -0.0364}
+  m_LocalPosition: {x: 0.0513, y: 0, z: -0.33}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 2065410414}
@@ -4618,7 +4618,7 @@ MonoBehaviour:
   floatScaleSpeed: 1
   floatRotateSpeed: 5
   scaleFactor: 10
-  delayForReset: 3
+  delayForReset: 4
   additionalObjectsActivationDelay: 1
   activateOtherAdditionalObjectsDelay: 0.1
   holderDeactivationDelay: 1
@@ -4630,6 +4630,7 @@ MonoBehaviour:
   dissolveEffect:
   - {fileID: 639401210}
   doNotDeactivateFirstDissolveEffect: 0
+  isBeauty: 1
 --- !u!4 &1230161234
 Transform:
   m_ObjectHideFlags: 0
@@ -5372,6 +5373,7 @@ MonoBehaviour:
   - {fileID: 8848697023095894717}
   - {fileID: 992060304}
   doNotDeactivateFirstDissolveEffect: 0
+  isBeauty: 0
 --- !u!4 &1385684301
 Transform:
   m_ObjectHideFlags: 0
@@ -8164,6 +8166,7 @@ MonoBehaviour:
   dissolveEffect:
   - {fileID: 1291074509}
   doNotDeactivateFirstDissolveEffect: 1
+  isBeauty: 0
 --- !u!65 &2055916962
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8656,32 +8659,32 @@ PrefabInstance:
     - target: {fileID: 6065555322093870159, guid: 58cef961a22948a41ad0b6b59ee75f64,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.008247962
+      value: 0.00857788
       objectReference: {fileID: 0}
     - target: {fileID: 6065555322093870159, guid: 58cef961a22948a41ad0b6b59ee75f64,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.0082479585
+      value: 0.008577877
       objectReference: {fileID: 0}
     - target: {fileID: 6065555322093870159, guid: 58cef961a22948a41ad0b6b59ee75f64,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.008247961
+      value: 0.0085778795
       objectReference: {fileID: 0}
     - target: {fileID: 6065555322093870159, guid: 58cef961a22948a41ad0b6b59ee75f64,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.0000074319
       objectReference: {fileID: 0}
     - target: {fileID: 6065555322093870159, guid: 58cef961a22948a41ad0b6b59ee75f64,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.00088
       objectReference: {fileID: 0}
     - target: {fileID: 6065555322093870159, guid: 58cef961a22948a41ad0b6b59ee75f64,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00098
+      value: -0.00003
       objectReference: {fileID: 0}
     - target: {fileID: 6065555322093870159, guid: 58cef961a22948a41ad0b6b59ee75f64,
         type: 3}
@@ -13425,6 +13428,7 @@ MonoBehaviour:
   dissolveEffect:
   - {fileID: 432922061389648753}
   doNotDeactivateFirstDissolveEffect: 0
+  isBeauty: 0
 --- !u!114 &432922061389648717
 MonoBehaviour:
   m_ObjectHideFlags: 0
