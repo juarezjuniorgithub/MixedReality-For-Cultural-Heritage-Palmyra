@@ -10,12 +10,18 @@ public class StepsController : MonoBehaviour
     [SerializeField] int threshold = 50;
     [SerializeField] Animator[] images;
     [SerializeField] AudioSource[] audioSources;
+    [SerializeField] bool playAudio;
 
     private void Start()
     {
         foreach (var item in images)
         {
             item.SetFloat("Blend", 0);
+        }
+        if (!playAudio) {
+            foreach (var item in audioSources) {
+                Destroy(item);
+            }
         }
     }
 
@@ -32,25 +38,29 @@ public class StepsController : MonoBehaviour
             {
                 float v = Mathf.InverseLerp(threshold, 0, Mathf.Abs(stepYears[i] - currYear));
                 images[i].SetFloat("Blend", v);
-                if(audioSources[i].clip != null)
-                {
-                    if (!audioSources[i].isPlaying)
+                if (playAudio) {
+                    if(audioSources[i].clip != null)
                     {
-                        audioSources[i].Play();
+                        if (!audioSources[i].isPlaying)
+                        {
+                            audioSources[i].Play();
+                        }
+                        audioSources[i].volume = v;
                     }
-                    audioSources[i].volume = v;
                 }
             }
             else
             {
                 images[i].SetFloat("Blend", 0);
-                if(audioSources != null)
-                {
-                    if (audioSources[i].isPlaying)
+                if (playAudio) {
+                    if(audioSources != null)
                     {
-                        audioSources[i].Stop();
+                        if (audioSources[i].isPlaying)
+                        {
+                            audioSources[i].Stop();
+                        }
+                        audioSources[i].volume = 0;
                     }
-                    audioSources[i].volume = 0;
                 }
             }
         }
