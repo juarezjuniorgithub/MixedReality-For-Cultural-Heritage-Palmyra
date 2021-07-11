@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Palmyra/Assets/Prefabs/ArckOfTriumph.prefab.meta
+guid: 52befb9c0a1cc0047a6cd5c5a4b7fbf3
+PrefabImporter:
+=======
 guid: e9f693669af91aa45ad615fc681ed29f
 folderAsset: yes
 DefaultImporter:
+>>>>>>> 8488330 (Baal):Palmyra/Assets/3rd Party Assets/TextMesh Pro/Shaders.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
