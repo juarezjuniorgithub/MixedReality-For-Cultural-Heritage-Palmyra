@@ -5195,6 +5195,7 @@ MonoBehaviour:
   - {fileID: 1303011096851821743}
   - {fileID: 5750974858922597833}
   - {fileID: 3073836848541968212}
+  - {fileID: 7512887229529640773}
   holderDeactivators: []
   dissolveEffect:
   - {fileID: 1059262225}
@@ -41704,6 +41705,7 @@ MonoBehaviour:
   - {fileID: 3073836847658396502}
   - {fileID: 3073836847222165531}
   - {fileID: 3073836847663038371}
+  playAudio: 0
 --- !u!4 &3073836848541968214
 Transform:
   m_ObjectHideFlags: 0
@@ -93406,7 +93408,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: bf2f1bcfc01278c40a8146ddb3646cd0, type: 2}
   appearanceValue: 0
   appearanceSpeed: 0.5
-  appearanceLimit: 14
+  appearanceLimit: 100
   dissolveVal: Vector1_CC876C20
   minApperanceValue: 0
 --- !u!33 &8850399850711105462
