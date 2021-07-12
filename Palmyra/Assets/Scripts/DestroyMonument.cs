@@ -9,6 +9,7 @@ using UnityEngine.Events;
 
 public class DestroyMonument : MonoBehaviour
 {
+    [SerializeField] List<FadeInFadeOut> fadeInFadeOuts;
     public Animator monumentanim;
     //public GameObject ornaments;
     public GameObject[] stoneglitch;
@@ -63,7 +64,6 @@ public class DestroyMonument : MonoBehaviour
 
     public void Destroy()
     {
-
         monumentanim.SetTrigger("destroybaal");
         //ornaments.SetActive(false);
         //destroyButton.GetComponent<Interactable>().enabled = false;
@@ -128,6 +128,12 @@ public class DestroyMonument : MonoBehaviour
     {
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
         yield return new WaitForSeconds(5.0f);
+
+        foreach(FadeInFadeOut fadeInFadeOut in fadeInFadeOuts)
+        {
+            fadeInFadeOut.StartFadeInSequence();
+        }
+        
         foreach (GameObject stones in stoneOfAnim)
         {
             stones.SetActive(false);

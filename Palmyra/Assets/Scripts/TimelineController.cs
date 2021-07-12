@@ -9,6 +9,7 @@ public class TimelineController : MonoBehaviour
     public EarthInteractionHandler earthInteractionHandler;
     public ExperimentalGrowAnimation experimentalGrowAnimation;
     public DissolveEffect palmyraMapDissolveEffect;
+    public FadeIn map;
     public List<GazeControl> mapObjects;
 
     bool animationExpandSyriaDone = false;
@@ -80,6 +81,7 @@ public class TimelineController : MonoBehaviour
     IEnumerator ShowPalmyraMap()
     {        
         yield return new WaitForSeconds(4);
+        map.StartFadeInSequence();
         palmyraMapDissolveEffect.InitiateAppearence();
         foreach(GazeControl mapObject in mapObjects)
         {

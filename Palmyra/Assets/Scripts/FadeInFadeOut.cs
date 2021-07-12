@@ -30,6 +30,11 @@ public class FadeInFadeOut : MonoBehaviour
         }
     }
 
+    public void StartFadeInSequence()
+    {
+        fadeIn = true;
+    }
+
     public void FadeIn()
     {
         fadeIn = false;
