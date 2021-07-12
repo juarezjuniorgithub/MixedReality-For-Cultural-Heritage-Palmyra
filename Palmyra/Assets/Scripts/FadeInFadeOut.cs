@@ -17,7 +17,7 @@ public class FadeInFadeOut : MonoBehaviour
         c.a = 0f;
         material.color = c;
     }
-
+ 
     void Update()
     {
         if(fadeIn)
