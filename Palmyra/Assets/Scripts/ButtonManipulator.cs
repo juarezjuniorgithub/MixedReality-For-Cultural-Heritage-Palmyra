@@ -7,6 +7,13 @@ public class ButtonManipulator : MonoBehaviour
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
     [SerializeField] float waitTime = 0.5f;
+
+    [SerializeField] StoreLastStateBallImage storeLastStateBallImage;
+
+    void OnEnable()
+    {
+        storeLastStateBallImage.GetCurrentState().SetActive(true);
+    }
     
     public void ActivateButton1()
     {
