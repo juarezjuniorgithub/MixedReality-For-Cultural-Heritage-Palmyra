@@ -30,6 +30,7 @@ public class GazeControl : MonoBehaviour
     // This part of the code is written specifically for triumph arck, the code needs to be refractored 
     // due to time limitation we are writing something specific for triumph
     [SerializeField] List<GameObject> triumphActivators;
+    [SerializeField] List<BoxCollider> colliders;
 
     Vector3 position;
     Vector3 initialPosition;
@@ -206,6 +207,10 @@ public class GazeControl : MonoBehaviour
             {
                 fadeout.SetActive(false);
             }
+            foreach(BoxCollider collider in colliders)
+            {
+                collider.enabled = false;
+            }
             
         }
         StartCoroutine(ActivateHighPolyModels());
@@ -274,6 +279,14 @@ public class GazeControl : MonoBehaviour
             }
             StartCoroutine(GoAwayBeautyObjects());
             StartCoroutine(WaitToDisaapear());
+        }
+
+        if(!doNotDeactivateFirstDissolveEffect)
+        {
+            foreach(BoxCollider collider in colliders)
+            {
+                collider.enabled = true;
+            }
         }
         
         for(int i=0; i<dissolveEffect.Count; i++)
