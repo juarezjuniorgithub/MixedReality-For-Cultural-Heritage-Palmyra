@@ -8,6 +8,7 @@ public class FadeIn: MonoBehaviour
     [SerializeField] float fadeStep = 0.05f;
     [SerializeField] float fadeLimit = 1.0f;
     [SerializeField] Material material;
+    [SerializeField] GameObject activateGameObject;
     bool fadeIn = false;
     
     void Start()
@@ -15,6 +16,10 @@ public class FadeIn: MonoBehaviour
         Color c = material.color;
         c.a = 0f;
         material.color = c;
+        if(activateGameObject != null)
+        {
+            activateGameObject.SetActive(false);
+        }   
     }
 
     void Update()
@@ -45,6 +50,11 @@ public class FadeIn: MonoBehaviour
             material.color = c;
             yield return new WaitForSeconds(delayToFade);
         }
+
+        if(activateGameObject != null)
+        {
+            activateGameObject.SetActive(true);
+        }        
         
     }
 
