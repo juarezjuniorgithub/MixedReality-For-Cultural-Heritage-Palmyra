@@ -25,13 +25,12 @@ public class GazeControl : MonoBehaviour
 
     [Tooltip("Keep 0th element as the dissolve effect on the map initiation and elements from 1th position onwards to dissolve in during manipulation")]
     [SerializeField] List<DissolveEffect> dissolveEffect;
-    [SerializeField] List<FadeIn> fadeIns;
-    [SerializeField] List<FadeOut> fadeOuts;
+    [SerializeField] List<GameObject> ArckActivators;
 
     // This part of the code is written specifically for triumph arck, the code needs to be refractored 
     // due to time limitation we are writing something specific for triumph
-    [SerializeField] List<FadeIn> triumphFadeIns;
-    [SerializeField] List<FadeOut> triumphFadeOuts;
+    [SerializeField] List<GameObject> triumphActivators;
+    [SerializeField] List<BoxCollider> colliders;
 
     Vector3 position;
     Vector3 initialPosition;
@@ -204,9 +203,13 @@ public class GazeControl : MonoBehaviour
         if(!doNotDeactivateFirstDissolveEffect)
         {
             dissolveEffect[0].InitiateDisappearence();
-            foreach(FadeOut fadeout in fadeOuts)
+            foreach(GameObject fadeout in ArckActivators)
             {
-                fadeout.StartFadeOutSequence();
+                fadeout.SetActive(false);
+            }
+            foreach(BoxCollider collider in colliders)
+            {
+                collider.enabled = false;
             }
             
         }
@@ -227,9 +230,9 @@ public class GazeControl : MonoBehaviour
             dissolveEffect[i].InitiateAppearence();  //fade in all other secondary items with dissolve shaders
         }
 
-        foreach(FadeIn fadein in triumphFadeIns)
+        foreach(GameObject fadein in triumphActivators)
         {
-            fadein.StartFadeInSequence();
+            fadein.SetActive(true);
         }
 
         StartCoroutine(DeactivateHolders());
@@ -270,12 +273,20 @@ public class GazeControl : MonoBehaviour
         if(!doNotDeactivateFirstDissolveEffect && isBeauty)
         {
             dissolveEffect[0].InitiateAppearence();
-            foreach(FadeIn fadein in fadeIns)
+            foreach(GameObject fadein in ArckActivators)
             {
-                fadein.StartFadeInSequence();
+                fadein.SetActive(true);
             }
             StartCoroutine(GoAwayBeautyObjects());
             StartCoroutine(WaitToDisaapear());
+        }
+
+        if(!doNotDeactivateFirstDissolveEffect)
+        {
+            foreach(BoxCollider collider in colliders)
+            {
+                collider.enabled = true;
+            }
         }
         
         for(int i=0; i<dissolveEffect.Count; i++)
@@ -283,9 +294,9 @@ public class GazeControl : MonoBehaviour
             dissolveEffect[i].InitiateDisappearence(); 
         }
 
-        foreach(FadeOut fadeout in triumphFadeOuts)
+        foreach(GameObject fadeout in triumphActivators)
         {
-            fadeout.StartFadeOutSequence();
+            fadeout.SetActive(false);
         }
 
         StartCoroutine(ResetPlaygroundMap());
@@ -304,9 +315,9 @@ public class GazeControl : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         dissolveEffect[0].InitiateDisappearence();
-        foreach(FadeOut fadeout in fadeOuts)
+        foreach(GameObject fadeout in ArckActivators)
         {
-            fadeout.StartFadeOutSequence();
+            fadeout.SetActive(false);
         }
     }
 
@@ -315,9 +326,9 @@ public class GazeControl : MonoBehaviour
         yield return new WaitForSeconds(delayForReset);
         transform.localPosition = initialPosition;
         dissolveEffect[0].InitiateAppearence();
-        foreach(FadeIn fadein in fadeIns)
+        foreach(GameObject fadein in ArckActivators)
         {
-            fadein.StartFadeInSequence();
+            fadein.SetActive(true);
         }
         transform.localRotation = Quaternion.Euler(initialRotation); 
         transform.localScale = initialScale;
@@ -334,9 +345,9 @@ public class GazeControl : MonoBehaviour
         yield return new WaitForSeconds(3);
         transform.localPosition = initialPosition;
         dissolveEffect[0].InitiateAppearence();
-        foreach(FadeIn fadein in fadeIns)
+        foreach(GameObject fadein in ArckActivators)
         {
-            fadein.StartFadeInSequence();
+            fadein.SetActive(true);
         }
         transform.localRotation = Quaternion.Euler(initialRotation); 
         transform.localScale = initialScale;
@@ -346,9 +357,9 @@ public class GazeControl : MonoBehaviour
     public void ResetAppearanceValueDissolve()
     {
             dissolveEffect[0].ResetAppearanceValue();
-            foreach(FadeOut fadeout in fadeOuts)
+            foreach(GameObject fadeout in ArckActivators)
             {
-                fadeout.StartFadeOutSequence();
+                fadeout.SetActive(false);
             }
     }
     
