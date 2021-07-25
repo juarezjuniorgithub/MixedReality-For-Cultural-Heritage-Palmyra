@@ -31,6 +31,7 @@ public class GazeControl : MonoBehaviour
     // due to time limitation we are writing something specific for triumph
     [SerializeField] List<GameObject> triumphActivators;
     [SerializeField] List<BoxCollider> colliders;
+    [SerializeField] List<BoxCollider> innerColliders;
 
     Vector3 position;
     Vector3 initialPosition;
@@ -60,6 +61,11 @@ public class GazeControl : MonoBehaviour
 
         rotation = new Vector3(0,1,0);
         initialRotation = new Vector3(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z);
+
+        foreach(BoxCollider innerCollider in innerColliders)
+        {
+            innerCollider.enabled = false;
+        }
 
     }
 
@@ -212,6 +218,10 @@ public class GazeControl : MonoBehaviour
         {
             collider.enabled = false;
         }
+        foreach(BoxCollider innerCollider in innerColliders)
+        {
+            innerCollider.enabled = true;
+        }
         StartCoroutine(ActivateHighPolyModels());
     }
 
@@ -280,10 +290,15 @@ public class GazeControl : MonoBehaviour
             StartCoroutine(WaitToDisaapear());
         }
 
-            foreach(BoxCollider collider in colliders)
-            {
-                collider.enabled = true;
-            }
+        foreach(BoxCollider collider in colliders)
+        {
+            collider.enabled = true;
+        }
+
+        foreach(BoxCollider innerCollider in innerColliders)
+        {
+            innerCollider.enabled = false;
+        }
     
         for(int i=0; i<dissolveEffect.Count; i++)
         {

@@ -5,10 +5,11 @@ using UnityEngine;
 public class FadeIn: MonoBehaviour
 {
     [SerializeField] float delayToFade=0.05f;
+    [SerializeField] float delaytoActivate=1f;
     [SerializeField] float fadeStep = 0.05f;
     [SerializeField] float fadeLimit = 1.0f;
     [SerializeField] Material material;
-    [SerializeField] GameObject activateGameObject;
+    [SerializeField] List<GameObject> activateGameObjects;
     bool fadeIn = false;
     
     void Start()
@@ -16,10 +17,11 @@ public class FadeIn: MonoBehaviour
         Color c = material.color;
         c.a = 0f;
         material.color = c;
-        if(activateGameObject != null)
+
+        foreach(GameObject gameObject in activateGameObjects)
         {
-            activateGameObject.SetActive(false);
-        }   
+            gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -50,12 +52,16 @@ public class FadeIn: MonoBehaviour
             material.color = c;
             yield return new WaitForSeconds(delayToFade);
         }
+        StartCoroutine(ActivateGameObjects());
+    }
 
-        if(activateGameObject != null)
+    IEnumerator ActivateGameObjects()
+    {
+        yield return new WaitForSeconds(delaytoActivate);
+        foreach(GameObject gameObject in activateGameObjects)
         {
-            activateGameObject.SetActive(true);
-        }        
-        
+            gameObject.SetActive(true);
+        }
     }
 
 }
