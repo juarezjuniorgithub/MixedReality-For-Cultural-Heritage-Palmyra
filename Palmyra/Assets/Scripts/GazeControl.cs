@@ -207,11 +207,10 @@ public class GazeControl : MonoBehaviour
             {
                 fadeout.SetActive(false);
             }
-            foreach(BoxCollider collider in colliders)
-            {
-                collider.enabled = false;
-            }
-            
+        }
+        foreach(BoxCollider collider in colliders)
+        {
+            collider.enabled = false;
         }
         StartCoroutine(ActivateHighPolyModels());
     }
@@ -281,14 +280,11 @@ public class GazeControl : MonoBehaviour
             StartCoroutine(WaitToDisaapear());
         }
 
-        if(!doNotDeactivateFirstDissolveEffect)
-        {
             foreach(BoxCollider collider in colliders)
             {
                 collider.enabled = true;
             }
-        }
-        
+    
         for(int i=0; i<dissolveEffect.Count; i++)
         {
             dissolveEffect[i].InitiateDisappearence(); 
