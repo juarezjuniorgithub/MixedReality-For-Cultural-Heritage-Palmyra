@@ -30,10 +30,22 @@ public class DestroyMonument_Beauty : MonoBehaviour
     public static DestroyMonument_Beauty instance;
     [SerializeField] AudioSource audioSource;
     [SerializeField] bool playAudioOnFinish;
+    [SerializeField] Animation DestroyAnimation;
 
     private void Awake()
     {
         instance = this;
+    }
+
+
+    private void OnEnable()
+    {
+        Debug.Log("Enabled");
+        //StartCoroutine(Delay());
+        Destroy_Artifact();
+        if (!playAudioOnFinish) {
+            Destroy(audioSource);
+        }
     }
 
     void Start()
@@ -80,6 +92,7 @@ public class DestroyMonument_Beauty : MonoBehaviour
         //OnRebuildFinished();
         //StartCoroutine(Delay());
         monumentanim.SetTrigger("destroy");
+        Debug.Log("Triggered");
         //ornaments.SetActive(false);
         //destroyButton.GetComponent<Interactable>().enabled = false;
         //destroyButton.GetComponent<PressableButtonHoloLens2>().enabled = false;
