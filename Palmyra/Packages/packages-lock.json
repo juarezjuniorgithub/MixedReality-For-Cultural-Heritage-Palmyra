@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.autodesk.fbx": {
+      "version": "4.1.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.microsoft.mixedreality.toolkit.examples": {
       "version": "file:MixedReality/com.microsoft.mixedreality.toolkit.examples-2.7.0.tgz",
       "depth": 0,
@@ -81,6 +88,16 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.formats.fbx": {
+      "version": "4.1.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.timeline": "1.5.2",
+        "com.autodesk.fbx": "4.1.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.ide.rider": {
       "version": "1.2.1",
       "depth": 0,
@@ -154,8 +171,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.2.18",
-      "depth": 0,
+      "version": "1.5.2",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.director": "1.0.0",
