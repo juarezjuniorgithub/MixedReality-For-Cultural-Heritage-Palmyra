@@ -41,22 +41,28 @@ public class DestroyMonument_Beauty : MonoBehaviour
     private void OnEnable()
     {
         Debug.Log("Enabled");
-        //StartCoroutine(Delay());
-        Destroy_Artifact();
-        if (!playAudioOnFinish) {
-            Destroy(audioSource);
-        }
+        StartCoroutine(DelayToDestroy());
+        
+        // if (!playAudioOnFinish) {
+        //     Destroy(audioSource);
+        // }
+    }
+
+    private void OnDisable()
+    {
+        HideStonesToSnap();
+        monumentanim.SetBool("destroyed",false);
     }
 
     void Start()
     {
         //destroyButton = GameObject.FindGameObjectWithTag("Destroy");
         //rebuildButton = GameObject.FindGameObjectWithTag("Rebuild");
-        StartCoroutine(Delay());
-        Destroy_Artifact();
-        if (!playAudioOnFinish) {
-            Destroy(audioSource);
-        }
+        // StartCoroutine(Delay());
+        // Destroy_Artifact();
+        // if (!playAudioOnFinish) {
+        //     Destroy(audioSource);
+        // }
     }
 
     public void OnDestroyFinished()
@@ -91,12 +97,12 @@ public class DestroyMonument_Beauty : MonoBehaviour
 
         //OnRebuildFinished();
         //StartCoroutine(Delay());
-        monumentanim.SetTrigger("destroy");
+        monumentanim.SetBool("destroyed",true);
         Debug.Log("Triggered");
         //ornaments.SetActive(false);
         //destroyButton.GetComponent<Interactable>().enabled = false;
         //destroyButton.GetComponent<PressableButtonHoloLens2>().enabled = false;
-        StartCoroutine(StoneToSnap());
+        StartCoroutine(ShowStonesToSnap());
         StartCoroutine(TrackDestroyAnim());
 
         //OnRebuildFinished();
@@ -120,9 +126,10 @@ public class DestroyMonument_Beauty : MonoBehaviour
 
     }*/
 
-    IEnumerator Delay()
+    IEnumerator DelayToDestroy()
     {
         yield return new WaitForSeconds(2.5f);
+        Destroy_Artifact();
     }
 
     IEnumerator Waitrebuild()
@@ -168,7 +175,7 @@ public class DestroyMonument_Beauty : MonoBehaviour
         }
     }
 
-    IEnumerator StoneToSnap()
+    IEnumerator ShowStonesToSnap()
     {
         yield return new WaitForSeconds(6.1f);
         //stoneToSnap.SetActive(true);
@@ -189,6 +196,25 @@ public class DestroyMonument_Beauty : MonoBehaviour
         foreach (GameObject stones in stoneMainLocation)
         {
             stones.SetActive(true);
+        }
+        //stoneToSnap.GetComponent<PartAssemblyController>().ResetPlacement();
+    }
+
+        private void HideStonesToSnap(){
+        foreach (GameObject stones in stoneOfAnim)
+        {
+            stones.SetActive(true);
+        }
+        //stoneToSnap.SetActive(false);
+        foreach (GameObject stones in stoneToSnap)
+        {
+            stones.SetActive(false);
+            stones.GetComponent<PartAssemblyController_Beauty>().ResetPlacement();
+        }
+        //stoneMainLocation.SetActive(false);
+        foreach (GameObject stones in stoneMainLocation)
+        {
+            stones.SetActive(false);
         }
         //stoneToSnap.GetComponent<PartAssemblyController>().ResetPlacement();
     }
