@@ -27,6 +27,7 @@ public class GazeControl : MonoBehaviour
     [SerializeField] List<DissolveEffect> dissolveEffect; 
     [SerializeField] List<FadeController> monumentFadeController;
     [SerializeField] List<GameObject> ArckActivators;
+    [SerializeField] GameObject arckHolder;
 
     // This part of the code is written specifically for triumph arck, the code needs to be refractored 
     // due to time limitation we are writing something specific for triumph
@@ -238,6 +239,12 @@ public class GazeControl : MonoBehaviour
     IEnumerator ActivateHighPolyModels()
     {
         yield return new WaitForSeconds(activateOtherAdditionalObjectsDelay);
+
+        if(arckHolder != null)
+        {
+            arckHolder.SetActive(false);
+        }
+
         foreach(GameObject gameObject in additionalActivators)
         {
             gameObject.SetActive(true);
@@ -359,6 +366,10 @@ public class GazeControl : MonoBehaviour
         }
 
         StartCoroutine(ResetPlaygroundMap());
+        if(arckHolder != null)
+        {
+            arckHolder.SetActive(true);
+        }
         
     }
 
