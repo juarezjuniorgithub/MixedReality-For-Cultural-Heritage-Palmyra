@@ -24,7 +24,8 @@ public class GazeControl : MonoBehaviour
     [SerializeField] List<GameObject> holderDeactivators;
 
     [Tooltip("Keep 0th element as the dissolve effect on the map initiation and elements from 1th position onwards to dissolve in during manipulation")]
-    [SerializeField] List<DissolveEffect> dissolveEffect;
+    [SerializeField] List<DissolveEffect> dissolveEffect; 
+    [SerializeField] List<FadeController> monumentFadeController;
     [SerializeField] List<GameObject> ArckActivators;
 
     // This part of the code is written specifically for triumph arck, the code needs to be refractored 
@@ -208,7 +209,16 @@ public class GazeControl : MonoBehaviour
     {
         if(!doNotDeactivateFirstDissolveEffect)
         {
-            dissolveEffect[0].InitiateDisappearence();
+            if(dissolveEffect.Count != 0)
+            {
+                dissolveEffect[0].InitiateDisappearence();
+            }
+                
+            if(monumentFadeController.Count != 0)
+            {
+                monumentFadeController[0].StartFadeOutSequence();
+            }
+
             foreach(GameObject fadeout in ArckActivators)
             {
                 fadeout.SetActive(false);
@@ -233,11 +243,22 @@ public class GazeControl : MonoBehaviour
             gameObject.SetActive(true);
         }
 
-
-        for(int i=1; i<dissolveEffect.Count; i++)
+        if(dissolveEffect.Count != 0)
         {
-            dissolveEffect[i].InitiateAppearence();  //fade in all other secondary items with dissolve shaders
+            for(int i=1; i<dissolveEffect.Count; i++)
+            {
+                dissolveEffect[i].InitiateAppearence();  //fade in all other secondary items with dissolve shaders
+            }
         }
+       
+        if(monumentFadeController.Count != 0)
+        {
+            for(int i=1; i<monumentFadeController.Count; i++)
+            {
+                monumentFadeController[i].StartFadeInSequence();
+            }
+        }
+        
 
         foreach(GameObject fadein in triumphActivators)
         {
@@ -260,10 +281,23 @@ public class GazeControl : MonoBehaviour
     {
         gazeControlStatus = true;
 
-        for(int i=1; i<dissolveEffect.Count; i++)
+        if(dissolveEffect.Count != 0)
         {
-            dissolveEffect[i].InitiateDisappearence(); //fade out all other secondary items with dissolve shaders
+            for(int i=1; i<dissolveEffect.Count; i++)
+            {
+                dissolveEffect[i].InitiateDisappearence(); //fade out all other secondary items with dissolve shaders
+            }
         }
+
+        
+        if(monumentFadeController.Count != 0)
+        {
+            for(int i=1; i<monumentFadeController.Count; i++)
+            {
+                monumentFadeController[i].StartFadeOutSequence();
+            }
+        }
+        
 
         foreach(GameObject gameObject in additionalActivators)
         {
@@ -281,7 +315,16 @@ public class GazeControl : MonoBehaviour
 
         if(!doNotDeactivateFirstDissolveEffect && isBeauty)
         {
-            dissolveEffect[0].InitiateAppearence();
+            if(dissolveEffect.Count != 0)
+            {   
+                dissolveEffect[0].InitiateAppearence();
+            }
+            
+            if(monumentFadeController.Count != 0)
+            {
+                monumentFadeController[0].StartFadeInSequence();
+            }
+
             foreach(GameObject fadein in ArckActivators)
             {
                 fadein.SetActive(true);
@@ -305,6 +348,11 @@ public class GazeControl : MonoBehaviour
             dissolveEffect[i].InitiateDisappearence(); 
         }
 
+        for(int i=0; i<monumentFadeController.Count; i++)
+        {
+            monumentFadeController[i].StartFadeOutSequence();
+        }
+
         foreach(GameObject fadeout in triumphActivators)
         {
             fadeout.SetActive(false);
@@ -325,7 +373,17 @@ public class GazeControl : MonoBehaviour
     IEnumerator WaitToDisaapear()
     {
         yield return new WaitForSeconds(3);
-        dissolveEffect[0].InitiateDisappearence();
+
+        if(dissolveEffect.Count != 0)
+        {
+            dissolveEffect[0].InitiateDisappearence();
+        }
+        
+        if(monumentFadeController.Count != 0)
+        {
+            monumentFadeController[0].StartFadeOutSequence();
+        }
+        
         foreach(GameObject fadeout in ArckActivators)
         {
             fadeout.SetActive(false);
@@ -336,7 +394,17 @@ public class GazeControl : MonoBehaviour
     {
         yield return new WaitForSeconds(delayForReset);
         transform.localPosition = initialPosition;
-        dissolveEffect[0].InitiateAppearence();
+
+        if(dissolveEffect.Count != 0)
+        {
+            dissolveEffect[0].InitiateAppearence();
+        }
+        
+        if(monumentFadeController.Count != 0)
+        {
+            monumentFadeController[0].StartFadeInSequence();
+        }
+       
         foreach(GameObject fadein in ArckActivators)
         {
             fadein.SetActive(true);
@@ -355,7 +423,18 @@ public class GazeControl : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         transform.localPosition = initialPosition;
-        dissolveEffect[0].InitiateAppearence();
+
+        if(dissolveEffect.Count != 0)
+        {
+            dissolveEffect[0].InitiateAppearence();
+        }
+        
+        if(monumentFadeController.Count != 0)
+        {
+            monumentFadeController[0].StartFadeInSequence();
+        }
+        
+
         foreach(GameObject fadein in ArckActivators)
         {
             fadein.SetActive(true);
@@ -367,7 +446,16 @@ public class GazeControl : MonoBehaviour
 
     public void ResetAppearanceValueDissolve()
     {
-            dissolveEffect[0].ResetAppearanceValue();
+            if(dissolveEffect.Count != 0)
+            {
+                dissolveEffect[0].ResetAppearanceValue();
+            }
+            
+            if(monumentFadeController.Count != 0)
+            {
+                monumentFadeController[0].ResetFadeValues();
+            }
+            
             foreach(GameObject fadeout in ArckActivators)
             {
                 fadeout.SetActive(false);

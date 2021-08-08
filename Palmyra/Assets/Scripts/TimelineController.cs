@@ -11,6 +11,7 @@ public class TimelineController : MonoBehaviour
     public DissolveEffect palmyraMapDissolveEffect;
     public FadeIn map;
     public List<GazeControl> mapObjects;
+    public List<FadeController> mapObjectsFadeController;
 
     bool animationExpandSyriaDone = false;
  
@@ -19,6 +20,11 @@ public class TimelineController : MonoBehaviour
         foreach(GazeControl mapObject in mapObjects)
         {
             mapObject.ResetAppearanceValueDissolve();
+        }
+
+        foreach(FadeController mapObject in mapObjectsFadeController)
+        {
+            mapObject.ResetFadeValues();
         }
     }
     
@@ -83,9 +89,15 @@ public class TimelineController : MonoBehaviour
         yield return new WaitForSeconds(4);
         map.StartFadeInSequence();
         palmyraMapDissolveEffect.InitiateAppearence();
+        
         foreach(GazeControl mapObject in mapObjects)
         {
             mapObject.InitiateAppearanceOfObject();
+        }
+
+        foreach(FadeController mapObject in mapObjectsFadeController)
+        {
+            mapObject.StartFadeInSequence();
         }
     }
 
