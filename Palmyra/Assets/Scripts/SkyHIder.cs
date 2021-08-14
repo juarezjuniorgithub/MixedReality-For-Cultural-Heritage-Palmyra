@@ -8,6 +8,7 @@ public class SkyHIder : MonoBehaviour
     MeshRenderer _renderer;
     [SerializeField] MeshRenderer groundRenderer;
     [SerializeField] Image[] images;
+    [SerializeField] GameObject slider;
     [SerializeField] Transform parentTransform;
     private float initialScale;
     Color color = Color.white;
@@ -35,6 +36,7 @@ public class SkyHIder : MonoBehaviour
                 {
                     item.enabled = false;
                 }
+                slider.SetActive(false);
             }
             else
             {
@@ -43,6 +45,7 @@ public class SkyHIder : MonoBehaviour
                 {
                     item.enabled = true;
                 }
+                slider.SetActive(true);
             }
 
             _renderer.material.color = color;
