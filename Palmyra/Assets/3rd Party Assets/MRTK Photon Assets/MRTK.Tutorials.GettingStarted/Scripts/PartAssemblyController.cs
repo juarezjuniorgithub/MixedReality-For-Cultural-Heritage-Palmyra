@@ -212,5 +212,21 @@ namespace MRTK.Tutorials.GettingStarted
         ///     Raised when SetPlacement is called and PUN is enabled.
         /// </summary>
         public event PartAssemblyControllerDelegate OnSetPlacement;
+
+
+
+        public void ChangeToGreen()
+        {
+            locationToPlace.GetComponent<Renderer>().material.color = Color.green;
+            locationToPlace.GetComponent<FadeInFadeOut>().material = locationToPlace.GetComponent<Renderer>().material;
+            //locationToPlace.GetComponent<FadeInFadeOut>().StopFadeInFadeOut();
+        }
+
+        public void ChangeToBlue()
+        {
+            locationToPlace.GetComponent<Renderer>().material.color = Color.cyan;
+            //locationToPlace.GetComponent<FadeInFadeOut>().StartFadeInFadeOut();
+        }
     }
+
 }

@@ -8,7 +8,7 @@ public class FadeInFadeOut : MonoBehaviour
     [SerializeField] float fadeStep = 0.05f;
     [SerializeField] float fadeLimit = 1.0f;
     [SerializeField] float delayToFadeIn = 2.0f;
-    [SerializeField] Material material;
+    [SerializeField] public Material material;
     bool fadeIn = true;
     bool fadeOut = false;
     void Start()
@@ -77,5 +77,19 @@ public class FadeInFadeOut : MonoBehaviour
     {
         yield return new WaitForSeconds(delayToFadeIn);
         fadeIn = true;
+    }
+
+    public void StopFadeInFadeOut()
+    {
+        Color c = material.color;
+        c.a = fadeLimit;
+        material.color = c;
+        fadeIn = false;
+        fadeOut = false;
+    }
+
+    public void StartFadeInFadeOut()
+    {
+        fadeOut = true;
     }
 }
