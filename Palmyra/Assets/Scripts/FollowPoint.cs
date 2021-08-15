@@ -9,5 +9,6 @@ public class FollowPoint : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.Lerp(transform.position, pointToFollow.position, Time.deltaTime * speed);
+        transform.rotation = pointToFollow.rotation;
     }
 }
