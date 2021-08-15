@@ -8,17 +8,26 @@ public class FadeIn: MonoBehaviour
     [SerializeField] float delaytoActivate=1f;
     [SerializeField] float fadeStep = 0.05f;
     [SerializeField] float fadeLimit = 1.0f;
-    [SerializeField] Material material;
+    [SerializeField] List<Material> materials;
     [SerializeField] List<GameObject> activateGameObjects;
+    [SerializeField] List<GameObject> walls;
     bool fadeIn = false;
     
     void Start()
     {
-        Color c = material.color;
-        c.a = 0f;
-        material.color = c;
-
+        foreach(Material material in materials)
+        {
+            Color c = material.color;
+            c.a = 0f;
+            material.color = c;
+        }
+        
         foreach(GameObject gameObject in activateGameObjects)
+        {
+            gameObject.SetActive(false);
+        }
+
+        foreach(GameObject gameObject in walls)
         {
             gameObject.SetActive(false);
         }
@@ -40,17 +49,24 @@ public class FadeIn: MonoBehaviour
     public void FadeInAnimation()
     {
         fadeIn = false;
+         foreach(GameObject gameObject in walls)
+        {
+            gameObject.SetActive(true);
+        }
         StartCoroutine(FadeInAnim());
     }
 
     IEnumerator FadeInAnim()
     {
-        for(float f = fadeStep; f<=fadeLimit; f+=fadeStep)
+        foreach(Material material in materials)
         {
-            Color c = material.color;
-            c.a = f;
-            material.color = c;
-            yield return new WaitForSeconds(delayToFade);
+            for(float f = fadeStep; f<=fadeLimit; f+=fadeStep)
+            {
+                Color c = material.color;
+                c.a = f;
+                material.color = c;
+                yield return new WaitForSeconds(delayToFade);
+            }
         }
         StartCoroutine(ActivateGameObjects());
     }
