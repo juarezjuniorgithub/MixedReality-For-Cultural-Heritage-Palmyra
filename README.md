@@ -6,7 +6,8 @@ Palmyra in Syria (A unique UNESCO World Heritage Site) contains the monumental r
 Endangered in the recent times
 ISIS occupied the city and destroyed many of its historic treasures (2015)
 We use Mixed Reality and HoloLens Technology to make the monuments of the site of Palmyra in Syria a taingble expirience
-![image](https://user-images.githubusercontent.com/43517319/130322509-51680cc0-2679-4ed1-8b21-e012944328fd.png)
+![image](https://user-images.githubusercontent.com/43517319/130322558-3d60c702-0847-43ed-81bc-8af70dc92d49.png)
+
 
 Specs & How to use:
 Unity version: 2019.4.28f1 LTS
