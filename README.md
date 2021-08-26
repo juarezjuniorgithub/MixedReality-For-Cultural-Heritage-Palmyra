@@ -1,4 +1,4 @@
-# Mixed Reality for Cultural Heritage: Palmyra:
+# Mixed Reality for Cultural Heritage: Palmyra
 
 ![isometric_room](https://user-images.githubusercontent.com/43517319/130931855-87950e27-d873-48b1-bef3-f1caab22b21e.png)
 
