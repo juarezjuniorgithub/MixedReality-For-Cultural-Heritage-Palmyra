@@ -2,6 +2,10 @@
 
 ![isometric_room](https://user-images.githubusercontent.com/43517319/130931855-87950e27-d873-48b1-bef3-f1caab22b21e.png)
 
+Join us :)
+![image](https://user-images.githubusercontent.com/43517319/130961957-61366ae9-f30a-447c-a7df-fc4bdcc8c188.png)
+
+
 
 Palmyra in Syria (A unique UNESCO World Heritage Site) contains the monumental ruins of a great city that was one of the most important cultural centres of the ancient world. From the 1st to the 2nd century, the art and architecture of Palmyra, standing at the crossroads of several civilizations, married Graeco-Roman techniques with local traditions and Persian influences.
 
