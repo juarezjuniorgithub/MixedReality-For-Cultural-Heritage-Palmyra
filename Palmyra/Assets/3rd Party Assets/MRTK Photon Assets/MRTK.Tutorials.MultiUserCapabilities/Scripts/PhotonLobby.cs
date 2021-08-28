@@ -70,6 +70,9 @@ namespace MRTK.Tutorials.MultiUserCapabilities
         {
             Debug.Log("\nPhotonLobby.OnCreateRoomFailed()");
             Debug.LogError("Creating Room Failed");
+            if(roomName != "") {
+                PhotonNetwork.JoinRoom(roomName);
+            }
             CreateRoom();
         }
 
