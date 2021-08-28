@@ -42,8 +42,10 @@ public class TimelineController : MonoBehaviour
         {
             mapObject.ResetFadeValues();
         }
+
+        PhotonNetwork.IsMessageQueueRunning = true;
     }
-    
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.G))

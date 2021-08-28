@@ -32,6 +32,8 @@ namespace MRTK.Tutorials.MultiUserCapabilities
 
             DontDestroyOnLoad(gameObject);
 
+            PhotonNetwork.IsMessageQueueRunning = false;
+
             GenericNetworkManager.OnReadyToStartNetwork += StartNetwork;
         }
 
