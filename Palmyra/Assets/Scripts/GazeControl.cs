@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GazeControl : MonoBehaviour
 {
-
     //@TODO Make code more readable, reduce redundancy of code
     [SerializeField] float floatYMaxValue = 0.7f;
     [SerializeField] float floatPosSpeed = 5;
@@ -106,7 +105,7 @@ public class GazeControl : MonoBehaviour
 
     public void StartFloatSequence()
     {
-        pv.RPC("RPC_StartFloatSequence", RpcTarget.AllBuffered);
+        pv.RPC("RPC_StartFloatSequence", RpcTarget.All);
     }
 
     [PunRPC]
@@ -120,7 +119,7 @@ public class GazeControl : MonoBehaviour
 
     public void StartDeFloatSequence()
     {
-        pv.RPC("RPC_StartDeFloatSequence", RpcTarget.AllBuffered);
+        pv.RPC("RPC_StartDeFloatSequence", RpcTarget.All);
     }
 
     [PunRPC]

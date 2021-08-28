@@ -18,9 +18,17 @@ public class TimelineController : MonoBehaviour
     bool animationExpandSyriaDone = false;
 
     PhotonView pv;
+    bool isGlobeShowing;
+    bool isMapShowing;
 
     private void Awake() {
         pv = GetComponent<PhotonView>();
+        if (isGlobeShowing) {
+            RPC_PlayExpandSyria();
+        }
+        if (isMapShowing) {
+            RPC_PlayPalmyraMap();
+        }
     }
 
     void Start()
@@ -65,6 +73,11 @@ public class TimelineController : MonoBehaviour
 
     [PunRPC]
     public void RPC_PlayPalmyraMap() {
+        
+        if(pv == null) {
+            isMapShowing = true;
+            return;
+        }
         playableDirectors[2].Play();
         StartCoroutine(ShowPalmyraMap());
         buttonPanel.SetActive(false);
@@ -77,6 +90,10 @@ public class TimelineController : MonoBehaviour
 
     [PunRPC]
     public void RPC_PlayExpandSyria() {
+        if (pv == null) {
+            isGlobeShowing = true;
+            return;
+        }
         if (!animationExpandSyriaDone) {
             playableDirectors[1].Play();
             StartCoroutine(ShowEarthToolTip());
