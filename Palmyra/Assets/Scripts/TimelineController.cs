@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -14,7 +15,13 @@ public class TimelineController : MonoBehaviour
     public List<FadeController> mapObjectsFadeController;
 
     bool animationExpandSyriaDone = false;
- 
+
+    PhotonView pv;
+
+    private void Awake() {
+        pv = GetComponent<PhotonView>();
+    }
+
     void Start()
     {
         foreach(GazeControl mapObject in mapObjects)
@@ -52,23 +59,30 @@ public class TimelineController : MonoBehaviour
 
     public void PlayPalmyraMap()
     {
+        pv.RPC("RPC_PlayPalmyraMap", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_PlayPalmyraMap() {
         playableDirectors[2].Play();
         StartCoroutine(ShowPalmyraMap());
     }
 
     public void PlayExpandSyria()
     {
-        if(!animationExpandSyriaDone)
-        {
+        pv.RPC("RPC_PlayExpandSyria", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_PlayExpandSyria() {
+        if (!animationExpandSyriaDone) {
             playableDirectors[1].Play();
             StartCoroutine(ShowEarthToolTip());
             StartCoroutine(CallExperimentalGrow());
             animationExpandSyriaDone = true;
-        }
-        else
-        {
+        } else {
             playableDirectors[1].Play();
-        } 
+        }
     }
 
     IEnumerator ShowEarthToolTip()
