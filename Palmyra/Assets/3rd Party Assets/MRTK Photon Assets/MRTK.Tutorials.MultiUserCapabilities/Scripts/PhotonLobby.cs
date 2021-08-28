@@ -43,7 +43,12 @@ namespace MRTK.Tutorials.MultiUserCapabilities
             PhotonNetwork.AuthValues.UserId = randomUserId.ToString();
             userIdCount++;
             PhotonNetwork.NickName = PhotonNetwork.AuthValues.UserId;
-            PhotonNetwork.JoinRandomRoom();
+            if (roomName != "") {
+                CreateRoom();
+
+            } else {
+                PhotonNetwork.JoinRandomRoom();
+            }
         }
 
         public override void OnJoinedRoom()
