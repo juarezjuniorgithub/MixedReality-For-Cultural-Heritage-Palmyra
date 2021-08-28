@@ -7,7 +7,7 @@ using UnityEngine;
 namespace MRTK.Tutorials.MultiUserCapabilities
 {
     [RequireComponent(typeof(PhotonView), typeof(GenericNetSync))]
-    public class OwnershipHandler : MonoBehaviourPun, IPunOwnershipCallbacks, IMixedRealityInputHandler
+    public class OwnershipHandler : MonoBehaviourPun, IMixedRealityInputHandler
     {
         public void OnInputDown(InputEventData eventData)
         {

@@ -1,6 +1,9 @@
-﻿using Photon.Pun;
+﻿using System;
+using System.Collections;
+using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace MRTK.Tutorials.MultiUserCapabilities
 {
@@ -33,7 +36,7 @@ namespace MRTK.Tutorials.MultiUserCapabilities
 
         public override void OnConnectedToMaster()
         {
-            var randomUserId = Random.Range(0, 999999);
+            var randomUserId = UnityEngine.Random.Range(0, 999999);
             PhotonNetwork.AutomaticallySyncScene = true;
             PhotonNetwork.AuthValues = new AuthenticationValues();
             PhotonNetwork.AuthValues.UserId = randomUserId.ToString();
@@ -77,23 +80,44 @@ namespace MRTK.Tutorials.MultiUserCapabilities
 
         private void StartNetwork()
         {
-            if (Application.internetReachability == NetworkReachability.NotReachable)
+            // Try pinging google to see if response - Try Web Request
+            StartCoroutine(checkInternetConnection((isConnected)=>{
+            // handle connection status here
+            if(isConnected)
             {
-                PhotonNetwork.OfflineMode = true;
-                Debug.Log("No Internet connection. Offline mode ");
+                PhotonNetwork.OfflineMode = false;
+                Lobby = this;
+                PhotonNetwork.ConnectUsingSettings();
+                Debug.Log("You are Online. Multiplayer");
             }
             else
             {
+                PhotonNetwork.OfflineMode = true;
                 PhotonNetwork.ConnectUsingSettings();
-                Lobby = this;
-                Debug.Log("You are Online. Multiplayer");
+                Debug.Log("No Internet connection. Offline mode ");
             }
+            }));
+            
         }
+
+        IEnumerator checkInternetConnection(Action<bool> action)
+        {
+            UnityWebRequest www = new UnityWebRequest("http://google.com");
+            yield return www.SendWebRequest();
+            
+            if (www.isNetworkError || www.isHttpError) {
+                action (false);
+            } else {
+                action (true);
+            }
+        } 
+
+        
 
         private void CreateRoom()
         {
             var roomOptions = new RoomOptions {IsVisible = true, IsOpen = true, MaxPlayers = 10};
-            PhotonNetwork.CreateRoom("Room" + Random.Range(1, 3000), roomOptions);
+            PhotonNetwork.CreateRoom("Room" + UnityEngine.Random.Range(1, 3000), roomOptions);
         }
     }
 }
