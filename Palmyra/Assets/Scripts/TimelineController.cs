@@ -13,6 +13,7 @@ public class TimelineController : MonoBehaviour
     public FadeIn map;
     public List<GazeControl> mapObjects;
     public List<FadeController> mapObjectsFadeController;
+    public GameObject buttonPanel;
 
     bool animationExpandSyriaDone = false;
 
@@ -66,6 +67,7 @@ public class TimelineController : MonoBehaviour
     public void RPC_PlayPalmyraMap() {
         playableDirectors[2].Play();
         StartCoroutine(ShowPalmyraMap());
+        buttonPanel.SetActive(false);
     }
 
     public void PlayExpandSyria()
