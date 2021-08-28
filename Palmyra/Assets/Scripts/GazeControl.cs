@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,13 +50,15 @@ public class GazeControl : MonoBehaviour
 
     bool gazeControlStatus = true;
     bool isFloating = false;
-    
 
-    
+    private PhotonView pv;
+
+    private void Awake() {
+        pv = GetComponent<PhotonView>();
+    }
 
     void Start()
     {
-        
         initialPosition = transform.localPosition;
         position = initialPosition;
 
@@ -68,7 +71,6 @@ public class GazeControl : MonoBehaviour
         {
             innerCollider.enabled = false;
         }
-
     }
 
     void Update()
@@ -104,19 +106,26 @@ public class GazeControl : MonoBehaviour
 
     public void StartFloatSequence()
     {
-        if(gazeControlStatus)
-        {
+        pv.RPC("RPC_StartFloatSequence", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_StartFloatSequence() {
+        if (gazeControlStatus) {
             startFloatSequence = true;
             startDeFloatSequence = false;
             isFloating = true;
         }
-
     }
 
     public void StartDeFloatSequence()
     {
-        if(gazeControlStatus)
-        {
+        pv.RPC("RPC_StartDeFloatSequence", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_StartDeFloatSequence() {
+        if (gazeControlStatus) {
             Debug.LogWarning("Called DefloatSequencce");
             StartCoroutine(CallDefloatSequence());
         }
@@ -130,6 +139,7 @@ public class GazeControl : MonoBehaviour
         isFloating = false;
         transform.localRotation = Quaternion.Euler(initialRotation);
     }
+
 
     void FloatSequence() //Inititaes Floating
     {
