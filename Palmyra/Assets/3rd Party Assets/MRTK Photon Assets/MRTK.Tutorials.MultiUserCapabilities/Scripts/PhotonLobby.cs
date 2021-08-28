@@ -13,6 +13,7 @@ namespace MRTK.Tutorials.MultiUserCapabilities
 
         private int roomNumber = 1;
         private int userIdCount;
+        public string roomName = "";
 
         private void Awake()
         {
@@ -115,7 +116,12 @@ namespace MRTK.Tutorials.MultiUserCapabilities
         private void CreateRoom()
         {
             var roomOptions = new RoomOptions {IsVisible = true, IsOpen = true, MaxPlayers = 10, EmptyRoomTtl = 5};
-            PhotonNetwork.CreateRoom("Room" + UnityEngine.Random.Range(1, 3000), roomOptions);
+            if(roomName != "") {
+                PhotonNetwork.CreateRoom(roomName, roomOptions);
+
+            } else {
+                PhotonNetwork.CreateRoom("Room" + UnityEngine.Random.Range(1, 3000), roomOptions);
+            }
         }
     }
 }

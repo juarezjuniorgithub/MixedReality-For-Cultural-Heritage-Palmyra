@@ -52,6 +52,8 @@ MonoBehaviour:
   - RespawnSpaceship
   - RPC_PlayPalmyraMap
   - RPC_PlayExpandSyria
+  - RPC_StartDeFloatSequence
+  - RPC_StartFloatSequence
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
