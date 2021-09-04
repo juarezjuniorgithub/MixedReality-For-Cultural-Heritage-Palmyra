@@ -187,11 +187,21 @@ public class GazeControl : MonoBehaviour
 
     public void DeactivateOnlyGazeControl()
     {
+        pv.RPC("RPC_DeactivateOnlyGazeControl", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_DeactivateOnlyGazeControl() {
         gazeControlStatus = false;
     }
 
     public void DeactivateGazeControlSequence() //Deactivates the GazeControl
     {
+        pv.RPC("RPC_DeactivateGazeControlSequence", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_DeactivateGazeControlSequence() {
         StartCoroutine(AcitvateAdditionalGameObjects());
     }
 
