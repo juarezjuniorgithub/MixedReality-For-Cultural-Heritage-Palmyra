@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.UI;
+using Photon.Pun;
 using UnityEngine;
 
 namespace MRTK.Tutorials.GettingStarted
 {
-    public class PartAssemblyController : MonoBehaviour
+    public class PartAssemblyController : MonoBehaviourPun
     {
         public delegate void PartAssemblyControllerDelegate();
 
         [SerializeField] private Transform locationToPlace = default;
 
+        ObjectManipulator objectManipulator;
+
         private const float MinDistance = 0.001f;
         public  float MaxDistance = 0.1f;
 
-        private bool isPunEnabled;
         private bool shouldCheckPlacement;
 
         private AudioSource audioSource;
@@ -34,20 +36,11 @@ namespace MRTK.Tutorials.GettingStarted
         private bool isPlaced;
         private bool isResetting;
         public Material mainStoneMat;
-        
-
-
-
-
-        public bool IsPunEnabled
-        {
-            set => isPunEnabled = value;
-        }
-
-
 
         private void Awake()
         {
+            objectManipulator = GetComponent<ObjectManipulator>();
+
             // Check if object should check for placement
             if (locationToPlace != transform) shouldCheckPlacement = true;
 
@@ -92,18 +85,14 @@ namespace MRTK.Tutorials.GettingStarted
         /// </summary>
         private void SetPlacement()
         {
-            if (isPunEnabled)
-                OnSetPlacement?.Invoke();
-            else
-                Set();
-                
+            photonView.RPC("RPC_SetPlacement", RpcTarget.AllBuffered);
         }
 
-        /// <summary>
-        ///     Parents the part to the assembly and places the part at the target location.
-        /// </summary>
-        public void Set()
+        [PunRPC]
+        public void RPC_SetPlacement()
         {
+            objectManipulator.ForceEndManipulation();
+
             // Update placement state
             isPlaced = true;
             Debug.Log("Placed");
@@ -122,15 +111,13 @@ namespace MRTK.Tutorials.GettingStarted
             trans.SetParent(locationToPlace.parent);
             trans.position = locationToPlace.position;
             trans.rotation = locationToPlace.rotation;
-            locationToPlace.gameObject.active = false;
+            locationToPlace.gameObject.SetActive(false);
+
             if (isPlaced)
             {
                 MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
                 meshRenderer.material = mainStoneMat;
             }
-
-           
-            //DestroyMonument.instance.PieceAttached();
         }
 
         /// <summary>
@@ -139,13 +126,7 @@ namespace MRTK.Tutorials.GettingStarted
         /// </summary>
         public void ResetPlacement()
         {
-            //foreach (var controller in partAssemblyControllers)
-                if (isPunEnabled)
-                    //controller.
-                    OnResetPlacement?.Invoke();
-                else
-                    //controller.
-                    Reset();
+            Reset();
         }
 
         /// <summary>
@@ -184,8 +165,6 @@ namespace MRTK.Tutorials.GettingStarted
                     if (Vector3.Distance(transform.position, locationToPlace.position) > MinDistance &&
                         Vector3.Distance(transform.position, locationToPlace.position) < MaxDistance)
                         SetPlacement();
-
-
                 }
                 else if (isPlaced)
                 {
@@ -201,8 +180,6 @@ namespace MRTK.Tutorials.GettingStarted
             }
         }
 
-
-
         /// <summary>
         ///     Raised when RestPlacement is called and PUN is enabled.
         /// </summary>
@@ -212,8 +189,6 @@ namespace MRTK.Tutorials.GettingStarted
         ///     Raised when SetPlacement is called and PUN is enabled.
         /// </summary>
         public event PartAssemblyControllerDelegate OnSetPlacement;
-
-
 
         public void ChangeToGreen()
         {

@@ -35,6 +35,8 @@ public class GazeControl : MonoBehaviour
     [SerializeField] List<BoxCollider> colliders;
     [SerializeField] List<BoxCollider> innerColliders;
 
+    [SerializeField] List<GameObject> deactivateOnReset;
+
     Vector3 position;
     Vector3 initialPosition;
     Vector3 rotation;
@@ -225,7 +227,12 @@ public class GazeControl : MonoBehaviour
         buttons.SetActive(true);
     }
 
-    public void ActivateAllAdditionalObjects()
+    public void ActivateAllAdditionalObjects() {
+        pv.RPC("RPC_ActivateAllAdditionalObjects", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_ActivateAllAdditionalObjects()
     {
         if(!doNotDeactivateFirstDissolveEffect)
         {
@@ -332,11 +339,20 @@ public class GazeControl : MonoBehaviour
         buttons.SetActive(false);
     }
 
-    public void InitiateResetPlaygroundMap()
+    public void InitiateResetPlaygroundMap() {
+        pv.RPC("RPC_InitiateResetPlaygroundMap", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_InitiateResetPlaygroundMap()
     {   
         foreach(GameObject gameObject in holderDeactivators)
         {
             gameObject.SetActive(true);
+        }
+
+        foreach (var item in deactivateOnReset) {
+            item.SetActive(false);
         }
 
         if(!doNotDeactivateFirstDissolveEffect && isBeauty)

@@ -32,6 +32,4 @@ public class ButtonManipulator : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         button.SetActive(true);
     }
-
-    
 }

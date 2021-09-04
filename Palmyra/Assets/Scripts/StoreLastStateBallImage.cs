@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
 using UnityEngine;
 
-public class StoreLastStateBallImage : MonoBehaviour
-{
+public class StoreLastStateBallImage : MonoBehaviourPun {
+
     [SerializeField] GameObject baalBefore;
     [SerializeField] GameObject baalAfter;
     bool b1=true;
@@ -15,7 +14,28 @@ public class StoreLastStateBallImage : MonoBehaviour
         currentState = baalBefore;
     }
 
-    public void ChangeState()
+    public void SetTempleImages() {
+        photonView.RPC("RPC_SetTempleImages", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_SetTempleImages() {
+        if (currentState == null) return;
+        if (currentState == baalBefore) {
+            baalBefore.SetActive(true);
+            baalAfter.SetActive(false);
+        } else {
+            baalBefore.SetActive(false);
+            baalAfter.SetActive(true);
+        }
+    }
+
+    public void ChangeState() {
+        photonView.RPC("RPC_ChangeState", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_ChangeState()
     {
         if(b1)
         {
