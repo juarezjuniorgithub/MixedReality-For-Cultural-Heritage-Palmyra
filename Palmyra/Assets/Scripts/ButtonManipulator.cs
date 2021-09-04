@@ -12,7 +12,7 @@ public class ButtonManipulator : MonoBehaviour
 
     void OnEnable()
     {
-        storeLastStateBallImage.GetCurrentState().SetActive(true);
+        storeLastStateBallImage.SetTempleImages();
     }
     
     public void ActivateButton1()
