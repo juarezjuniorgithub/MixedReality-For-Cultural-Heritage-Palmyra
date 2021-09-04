@@ -15,7 +15,9 @@ public class StoreLastStateBallImage : MonoBehaviourPun {
     }
 
     public void SetTempleImages() {
-        photonView.RPC("RPC_SetTempleImages", RpcTarget.AllBuffered);
+        if(photonView != null) {
+            photonView.RPC("RPC_SetTempleImages", RpcTarget.AllBuffered);
+        }
     }
 
     [PunRPC]

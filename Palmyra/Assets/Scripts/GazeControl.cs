@@ -264,7 +264,7 @@ public class GazeControl : MonoBehaviour
 
     IEnumerator ActivateHighPolyModels()
     {
-        yield return new WaitForSeconds(activateOtherAdditionalObjectsDelay);
+        yield return null;
 
         if(arckHolder != null)
         {

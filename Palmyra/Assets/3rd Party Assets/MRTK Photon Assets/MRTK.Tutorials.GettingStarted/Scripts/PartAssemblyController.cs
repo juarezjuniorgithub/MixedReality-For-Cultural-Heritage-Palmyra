@@ -53,10 +53,6 @@ namespace MRTK.Tutorials.GettingStarted
                 foreach (var col in GetComponents<Collider>())
                     colliders.Add(col);
 
-            //partAssemblyControllers = new List<PartAssemblyController>();
-            //foreach (var controller in FindObjectsOfType<PartAssemblyController>())
-                //partAssemblyControllers.Add(controller);
-
             var trans = transform;
             originalParent = trans.parent;
             originalPosition = trans.localPosition;
@@ -80,16 +76,7 @@ namespace MRTK.Tutorials.GettingStarted
 
         }
 
-        /// <summary>
-        ///     Triggers the placement feature.
-        /// </summary>
-        private void SetPlacement()
-        {
-            photonView.RPC("RPC_SetPlacement", RpcTarget.AllBuffered);
-        }
-
-        [PunRPC]
-        public void RPC_SetPlacement()
+        public void SetPlacement()
         {
             objectManipulator.ForceEndManipulation();
 
