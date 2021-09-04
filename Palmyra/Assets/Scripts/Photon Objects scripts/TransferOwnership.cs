@@ -8,11 +8,16 @@ public class TransferOwnership : MonoBehaviourPun
     ObjectManipulator objectManipulator;
 
     private void Start() {
-        objectManipulator = GetComponent<ObjectManipulator>();
+        if(objectManipulator == null) {
+            objectManipulator = GetComponent<ObjectManipulator>();
+        }
         objectManipulator.OnManipulationStarted.AddListener(TransferOwnershipWhenGrab);
     }
 
     private void OnDestroy() {
+        if (objectManipulator == null) {
+            objectManipulator = GetComponent<ObjectManipulator>();
+        }
         objectManipulator.OnManipulationStarted.RemoveListener(TransferOwnershipWhenGrab);
     }
 
