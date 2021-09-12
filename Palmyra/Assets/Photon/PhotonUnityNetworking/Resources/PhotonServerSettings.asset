@@ -67,6 +67,9 @@ MonoBehaviour:
   - RPC_PlayZaidAnimation
   - RPC_Rebuild
   - RPC_SetTempleImages
+  - RPC_UpdateImageAndAudio
+  - RPC_UpdateMonumentAnimation
+  - RPC_UpdateYear
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

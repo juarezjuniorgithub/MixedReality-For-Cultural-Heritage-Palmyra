@@ -1,10 +1,11 @@
 ﻿using Microsoft.MixedReality.Toolkit.UI;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StepsController : MonoBehaviour
+public class StepsController : MonoBehaviourPun
 {
     [SerializeField] int[] stepYears;
     [SerializeField] int threshold = 50;
@@ -27,10 +28,11 @@ public class StepsController : MonoBehaviour
 
     public void OnSliderUpdated(SliderEventData eventData)
     {
-        UpdateImageAndAudio(Mathf.Round(eventData.NewValue * 2020 + 1));
+        photonView.RPC("RPC_UpdateImageAndAudio", RpcTarget.All, (Mathf.Round(eventData.NewValue * 2020 + 1)));
     }
 
-    void UpdateImageAndAudio(float currYear)
+    [PunRPC]
+    void RPC_UpdateImageAndAudio(float currYear)
     {
         for (int i = 0; i < stepYears.Length; i++)
         {

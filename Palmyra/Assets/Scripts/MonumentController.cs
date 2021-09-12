@@ -1,9 +1,10 @@
 ﻿using Microsoft.MixedReality.Toolkit.UI;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonumentController : MonoBehaviour
+public class MonumentController : MonoBehaviourPun
 {
     [SerializeField] Animator monumentAnimator;
 
@@ -27,7 +28,11 @@ public class MonumentController : MonoBehaviour
 
     public void OnSliderUpdated(SliderEventData eventData)
     {
-        //monumentAnimator.SetFloat("Blend", eventData.NewValue);
-        monumentAnimator.Play("Main", 0, eventData.NewValue);
+        photonView.RPC("RPC_UpdateMonumentAnimation", RpcTarget.All, eventData.NewValue);
+    }
+
+    [PunRPC]
+    public void RPC_UpdateMonumentAnimation(float f) {
+        monumentAnimator.Play("Main", 0, f);
     }
 }
