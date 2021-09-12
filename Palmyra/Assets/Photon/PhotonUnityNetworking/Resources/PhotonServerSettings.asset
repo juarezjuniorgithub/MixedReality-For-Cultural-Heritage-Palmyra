@@ -54,6 +54,19 @@ MonoBehaviour:
   - RPC_PlayExpandSyria
   - RPC_StartDeFloatSequence
   - RPC_StartFloatSequence
+  - RPC_ActivateAllAdditionalObjects
+  - RPC_ChangeState
+  - RPC_DeactivateGazeControlSequence
+  - RPC_DeactivateOnlyGazeControl
+  - RPC_Destroy
+  - RPC_DisableBoxColliderOfBeauty
+  - RPC_EnableBoxColliderOfBeauty
+  - RPC_InitiateDescaling
+  - RPC_InitiateResetPlaygroundMap
+  - RPC_InitiateScaling
+  - RPC_PlayZaidAnimation
+  - RPC_Rebuild
+  - RPC_SetTempleImages
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
