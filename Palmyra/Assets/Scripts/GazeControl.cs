@@ -45,6 +45,9 @@ public class GazeControl : MonoBehaviour
 
     [SerializeField] bool doNotDeactivateFirstDissolveEffect = false;
     [SerializeField] bool isBeauty = false;
+
+    [Tooltip("Also reset first child local position when resetting the monument into map.")]
+    [SerializeField] bool resetFirstChildPosition;
     
     bool startFloatSequence = false;
     bool startDeFloatSequence = false;
@@ -440,6 +443,11 @@ public class GazeControl : MonoBehaviour
     {
         yield return new WaitForSeconds(delayForReset);
         transform.localPosition = initialPosition;
+
+        //Reset also the first child local position
+        if (resetFirstChildPosition) {
+            transform.GetChild(0).localPosition = Vector3.zero;
+        }
 
         if(dissolveEffect.Count != 0)
         {
