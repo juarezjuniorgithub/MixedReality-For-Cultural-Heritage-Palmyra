@@ -204,10 +204,10 @@ public class GazeControl : MonoBehaviour
 
     [PunRPC]
     public void RPC_DeactivateGazeControlSequence() {
-        StartCoroutine(AcitvateAdditionalGameObjects());
+        StartCoroutine(ActivateAdditionalGameObjects());
     }
 
-    IEnumerator AcitvateAdditionalGameObjects()
+    IEnumerator ActivateAdditionalGameObjects()
     {
         yield return new WaitForSeconds(additionalObjectsActivationDelay);
         SetUpButtons();
