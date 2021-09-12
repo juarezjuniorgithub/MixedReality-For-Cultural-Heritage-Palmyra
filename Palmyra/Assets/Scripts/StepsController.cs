@@ -32,7 +32,7 @@ public class StepsController : MonoBehaviourPun
     }
 
     [PunRPC]
-    void RPC_UpdateImageAndAudio(float currYear)
+    public void RPC_UpdateImageAndAudio(float currYear)
     {
         for (int i = 0; i < stepYears.Length; i++)
         {
