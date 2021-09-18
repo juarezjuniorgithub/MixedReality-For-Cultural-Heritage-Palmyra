@@ -5,8 +5,6 @@ public class StoreLastStateBallImage : MonoBehaviourPun {
 
     [SerializeField] GameObject baalBefore;
     [SerializeField] GameObject baalAfter;
-    bool b1=true;
-    bool b2=false;
     public GameObject currentState;
 
     void Start()
@@ -39,17 +37,13 @@ public class StoreLastStateBallImage : MonoBehaviourPun {
     [PunRPC]
     public void RPC_ChangeState()
     {
-        if(b1)
+        if(baalBefore.activeInHierarchy)
         {
-            b1=false;
             currentState = baalAfter;
-            b2=true;
         }
-        else if(b2)
+        else
         {
-            b2=false;
             currentState = baalBefore;
-            b1=true;
         }
     }
     
