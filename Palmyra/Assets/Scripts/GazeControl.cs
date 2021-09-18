@@ -295,7 +295,6 @@ public class GazeControl : MonoBehaviour
             }
         }
         
-
         foreach(GameObject fadein in triumphActivators)
         {
             fadein.SetActive(true);
@@ -324,7 +323,6 @@ public class GazeControl : MonoBehaviour
                 dissolveEffect[i].InitiateDisappearence(); //fade out all other secondary items with dissolve shaders
             }
         }
-
         
         if(monumentFadeController.Count != 0)
         {
@@ -334,7 +332,6 @@ public class GazeControl : MonoBehaviour
             }
         }
         
-
         foreach(GameObject gameObject in additionalActivators)
         {
             gameObject.SetActive(false);
@@ -408,7 +405,6 @@ public class GazeControl : MonoBehaviour
         {
             arckHolder.SetActive(true);
         }
-        
     }
 
     IEnumerator GoAwayBeautyObjects()
@@ -500,20 +496,19 @@ public class GazeControl : MonoBehaviour
 
     public void ResetAppearanceValueDissolve()
     {
-            if(dissolveEffect.Count != 0)
-            {
-                dissolveEffect[0].ResetAppearanceValue();
-            }
+        if(dissolveEffect.Count != 0)
+        {
+            dissolveEffect[0].ResetAppearanceValue();
+        }
             
-            if(monumentFadeController.Count != 0)
-            {
-                monumentFadeController[0].ResetFadeValues();
-            }
+        if(monumentFadeController.Count != 0)
+        {
+            monumentFadeController[0].ResetFadeValues();
+        }
             
-            foreach(GameObject fadeout in ArckActivators)
-            {
-                fadeout.SetActive(false);
-            }
-    }
-    
+        foreach(GameObject fadeout in ArckActivators)
+        {
+            fadeout.SetActive(false);
+        }
+    }    
 }
