@@ -15,6 +15,7 @@ public class ButtonManipulator : MonoBehaviourPun
     {
         storeLastStateBallImage.SetTempleImages();
     }
+
     public void ActivateButton1() {
         photonView.RPC("RPC_ActivateButton1", RpcTarget.All);
     }

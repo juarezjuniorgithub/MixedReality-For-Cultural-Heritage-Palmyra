@@ -14,6 +14,7 @@ namespace MRTK.Tutorials.MultiUserCapabilities
         private int roomNumber = 1;
         private int userIdCount;
         public string roomName = "";
+        [SerializeField] bool forceOfflineMode = false;
 
         private void Awake()
         {
@@ -51,6 +52,11 @@ namespace MRTK.Tutorials.MultiUserCapabilities
             } else {
                 PhotonNetwork.JoinRandomRoom();
             }
+        }
+
+        public override void OnDisconnected(DisconnectCause cause) {
+            base.OnDisconnected(cause);
+            StartNetwork();
         }
 
         public override void OnJoinedRoom()
@@ -94,7 +100,7 @@ namespace MRTK.Tutorials.MultiUserCapabilities
             // Try pinging google to see if response - Try Web Request
             StartCoroutine(checkInternetConnection((isConnected)=>{
             // handle connection status here
-            if(isConnected)
+            if(isConnected && !forceOfflineMode)
             {
                 PhotonNetwork.OfflineMode = false;
                 Lobby = this;
@@ -108,7 +114,6 @@ namespace MRTK.Tutorials.MultiUserCapabilities
                 Debug.Log("No Internet connection. Offline mode ");
             }
             }));
-            
         }
 
         IEnumerator checkInternetConnection(Action<bool> action)
