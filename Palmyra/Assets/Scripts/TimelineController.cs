@@ -82,7 +82,8 @@ public class TimelineController : MonoBehaviour
         }
         playableDirectors[2].Play();
         StartCoroutine(ShowPalmyraMap());
-        buttonPanel.SetActive(false);
+        //Deactivate button panel when starting
+        //buttonPanel.SetActive(false);
     }
 
     public void PlayExpandSyria()
