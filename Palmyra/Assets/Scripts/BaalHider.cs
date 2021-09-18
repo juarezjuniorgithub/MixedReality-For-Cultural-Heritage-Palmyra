@@ -7,7 +7,7 @@ public class BaalHider : MonoBehaviour
 {
     MeshRenderer _renderer;
     //[SerializeField] MeshRenderer groundRenderer;
-    [SerializeField] GameObject[] images;
+    [SerializeField] SpriteRenderer[] images;
     [SerializeField] Transform parentTransform;
     private float initialScale;
     Color color = Color.white;
@@ -28,24 +28,9 @@ public class BaalHider : MonoBehaviour
         if(delta > 0) {
             color.a = Mathf.InverseLerp(maxDelta, 0, delta);
 
-            if(delta > maxDelta)
-            {
-                //groundRenderer.enabled = false;
-                foreach (var item in images)
-                {
-                    item.SetActive(false);
-                }
+            foreach (var item in images) {
+                item.material.color = color;
             }
-            else
-            {
-                //groundRenderer.enabled = true;
-                foreach (var item in images)
-                {
-                    item.SetActive(true);
-                }
-            }
-
-            //_renderer.material.color = color;
         }
     }
 }
