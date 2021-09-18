@@ -13,7 +13,7 @@ public class ZaidAnimPlay : MonoBehaviourPun
     [PunRPC]
     public void RPC_PlayZaidAnimation()
     {
-        gameObject.SetActive(true);
+        playableDirector.gameObject.SetActive(true);
         playableDirector.Play();
     }
 }
