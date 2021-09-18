@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonManipulator : MonoBehaviour
+public class ButtonManipulator : MonoBehaviourPun
 {
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
@@ -14,14 +15,22 @@ public class ButtonManipulator : MonoBehaviour
     {
         storeLastStateBallImage.SetTempleImages();
     }
-    
-    public void ActivateButton1()
+    public void ActivateButton1() {
+        photonView.RPC("RPC_ActivateButton1", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPC_ActivateButton1()
     {
         button2.SetActive(false);
         StartCoroutine(Activate(button1));
     }
+    public void ActivateButton2() {
+        photonView.RPC("RPC_ActivateButton2", RpcTarget.All);
+    }
 
-    public void ActivateButton2()
+    [PunRPC]
+    public void RPC_ActivateButton2()
     {
         button1.SetActive(false);
         StartCoroutine(Activate(button2));
