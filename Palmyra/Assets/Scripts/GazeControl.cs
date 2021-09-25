@@ -20,7 +20,7 @@ public class GazeControl : MonoBehaviour
 
     //what is the delays before buttons are set active
     [Tooltip("Delay for buttons and objects to become active")]
-    [SerializeField] float buttonObjectsActivationDelay = 0.5f;
+    [SerializeField] float additionalObjectsActivationDelay = 0.5f;
     // what is the delay before the additional objects are activated
     [SerializeField] float activateOtherAdditionalObjectsDelay = 1f;
     //what is the delay before holders are deactivated
@@ -29,8 +29,8 @@ public class GazeControl : MonoBehaviour
     [SerializeField] GameObject buttons;
     //List of additional gameObjects that need to be set active later
     [SerializeField] List<GameObject> additionalActivators;
-    //for holder GameObjects that needs to be deactivated when additional activators are activated. 
-    //Eg the lowpoly beauty holder in the scene
+    //or holder GameObjects that needs to be deactivated when additional activators are activated. Eg, the Arck initially and the beauty holder with the dissolve script
+
     [Tooltip("For Holder GameObjects")]
     [SerializeField] List<GameObject> holderDeactivators;
 
@@ -247,13 +247,13 @@ public class GazeControl : MonoBehaviour
 
     [PunRPC]
     public void RPC_DeactivateGazeControlSequence() {
-        StartCoroutine(ActivateButtonGameObjects());
+        StartCoroutine(ActivateAdditionalGameObjects());
     }
 
-    //activates button GameObjects
-    IEnumerator ActivateButtonGameObjects()
+    //activates additional GameObjects like the buttons
+    IEnumerator ActivateAdditionalGameObjects()
     {
-        yield return new WaitForSeconds(buttonObjectsActivationDelay);
+        yield return new WaitForSeconds(additionalObjectsActivationDelay);
         SetUpButtons();
     }
 
