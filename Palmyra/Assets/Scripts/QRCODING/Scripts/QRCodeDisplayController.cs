@@ -40,6 +40,7 @@ public class QRCodeDisplayController : MonoBehaviour
     private void Start()
     {
         menu.SetActive(false);
+        if (Application.isEditor) return;
         if (!QRCodeTrackingService.IsSupported)
         {
             return;
