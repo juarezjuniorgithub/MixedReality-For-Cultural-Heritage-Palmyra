@@ -34,9 +34,11 @@ public class DissolveEffect : MonoBehaviour
     }
 
     private void OnDestroy() {
-        //Reset material values to initial values.
-        for (int i = 0; i < dissolveMat.Length; i++) {
-            dissolveMat[i].SetFloat(dissolveVal, initialValues[i]);
+        if(initialValues.Count > 0) {
+            //Reset material values to initial values.
+            for (int i = 0; i < dissolveMat.Length; i++) {
+                dissolveMat[i].SetFloat(dissolveVal, initialValues[i]);
+            }
         }
     }
 
