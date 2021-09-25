@@ -5,6 +5,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField]
     private QRTrackerController trackerController;
+    [SerializeField] GameObject instructions;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class ObjectSpawner : MonoBehaviour
         Debug.Log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         
         childObj.gameObject.SetActive(true);
+        instructions.SetActive(false); //deactivate instructions
     }
 
     private void PoseFound(Vector3 pos) {
@@ -59,5 +61,6 @@ public class ObjectSpawner : MonoBehaviour
         childObj.SetPositionAndRotation(pos, newRotation); //setting position and rotation
 
         childObj.gameObject.SetActive(true);
+        instructions.SetActive(false); //deactivate instructions
     }
 }
