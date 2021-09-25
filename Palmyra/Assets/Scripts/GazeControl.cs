@@ -5,54 +5,86 @@ using UnityEngine;
 
 public class GazeControl : MonoBehaviour
 {
-    //@TODO Make code more readable, reduce redundancy of code
+    //on head gaze focus by user how high should the monument go in the Y axis.
     [SerializeField] float floatYMaxValue = 0.7f;
+    //on head gaze focus by user how fast should the monument go up in the Y axis
     [SerializeField] float floatPosSpeed = 5;
+    //on head gaze focus by user how fast should the monument scale
     [SerializeField] float floatScaleSpeed = 5;
+    //on head gaze focus by user how fast should the monument rotate
     [SerializeField] float floatRotateSpeed = 5;
+    //what is the scale factor that the monument is being scaled to
     [SerializeField] float scaleFactor = 0.1f;
+    //what is the delay before the monuments are reset to its original position
     [SerializeField] float delayForReset = 3f;
 
+    //what is the delays before buttons are set active
     [Tooltip("Delay for buttons and objects to become active")]
     [SerializeField] float additionalObjectsActivationDelay = 0.5f;
+    // what is the delay before the additional objects are activated
     [SerializeField] float activateOtherAdditionalObjectsDelay = 1f;
+    //what is the delay before holders are deactivated
     [SerializeField] float  holderDeactivationDelay = 1f;
+    // reference to the button gameObject
     [SerializeField] GameObject buttons;
-
+    //List of additional gameObjects that need to be set active later
     [SerializeField] List<GameObject> additionalActivators;
+    //or holder GameObjects that needs to be deactivated when additional activators are activated. Eg, the Arck initially and the beauty holder with the dissolve script
+
     [Tooltip("For Holder GameObjects")]
     [SerializeField] List<GameObject> holderDeactivators;
 
+    //List of dissolveEffect scripts that needs to be called
     [Tooltip("Keep 0th element as the dissolve effect on the map initiation and elements from 1th position onwards to dissolve in during manipulation")]
     [SerializeField] List<DissolveEffect> dissolveEffect; 
+    //List of FadeController scripts for the monument that needs to be called
     [SerializeField] List<FadeController> monumentFadeController;
+    //List of GameObject of arck that needs to be activated
     [SerializeField] List<GameObject> ArckActivators;
+
+    //Specific Holder for ArckOfTriumph due to it different design architecture
     [SerializeField] GameObject arckHolder;
 
     // This part of the code is written specifically for triumph arck, the code needs to be refractored 
     // due to time limitation we are writing something specific for triumph
+    
+    // Specific to ArckOfTriumph. List of gameObjects to be activated for the arck of triumph
     [SerializeField] List<GameObject> triumphActivators;
+    //Specific to ArckOfTriumph. List of BoxCollider for the Arck of Triumph
     [SerializeField] List<BoxCollider> colliders;
+    //Specific to ArckOfTriumph. List of inner box colliders (for the TriumphArch) that needs to be activated later 
     [SerializeField] List<BoxCollider> innerColliders;
-
+    //List of gameObjects needed to be deactivated on being clicked Reset
     [SerializeField] List<GameObject> deactivateOnReset;
 
+    //the position of the gameObject
     Vector3 position;
+    //the initial position of the gameObject when the gameObject first loads
     Vector3 initialPosition;
+    //the rotation of the gameObject
     Vector3 rotation;
+    //the initial rotation of the gameObject when the gameObject first loads
     Vector3 initialRotation;
+    //the initial scale of the gameObject when the gameObject first loads
     Vector3 initialScale;
 
+    //when the dissolve effect/fade effect of the first monument that was loaded should not be deactivated/disappeared on loading additional gameObjects then click this or set this to true.
     [SerializeField] bool doNotDeactivateFirstDissolveEffect = false;
+    //Specific for Beauty Monument. Click this or Set this to true if monument is Beauty
     [SerializeField] bool isBeauty = false;
 
+    //Specific for Beauty Monument. reset the local position of the first child when resetting the monument.
     [Tooltip("Also reset first child local position when resetting the monument into map.")]
     [SerializeField] bool resetFirstChildPosition;
     
+    //set to true when float sequence starts
     bool startFloatSequence = false;
+    //set to true when float sequence ends
     bool startDeFloatSequence = false;
 
+    //set to true when gaze control functionality is allowed
     bool gazeControlStatus = true;
+    //set to true when monument is floating
     bool isFloating = false;
 
     private PhotonView pv;
@@ -103,11 +135,13 @@ public class GazeControl : MonoBehaviour
         }
     }
 
+    //functionality to Rotate the gameObject 
     void RotateObject()
     {
         transform.Rotate(rotation * Time.deltaTime * floatRotateSpeed);
     }
 
+    // Starts the Floating Sequence when gazed at
     public void StartFloatSequence()
     {
         pv.RPC("RPC_StartFloatSequence", RpcTarget.All);
@@ -122,6 +156,7 @@ public class GazeControl : MonoBehaviour
         }
     }
 
+    //Starts the De-Floating Sequence when gaze removed
     public void StartDeFloatSequence()
     {
         pv.RPC("RPC_StartDeFloatSequence", RpcTarget.All);
@@ -144,7 +179,7 @@ public class GazeControl : MonoBehaviour
         transform.localRotation = Quaternion.Euler(initialRotation);
     }
 
-
+    // handles the floating functionalities
     void FloatSequence() //Inititaes Floating
     {
         float newYPos = position.y + (0.1f * Time.deltaTime * floatPosSpeed);
@@ -160,7 +195,8 @@ public class GazeControl : MonoBehaviour
             startFloatSequence = false;
         }
     }
-
+    
+    //handles the defloating functionalities
     void DeFloatSequence() //Initiates DeFloating
     {
         float newYPos = position.y - (0.1f * Time.deltaTime * floatPosSpeed);
@@ -177,12 +213,14 @@ public class GazeControl : MonoBehaviour
         }
     }
 
+    //handles the scaling functionality
     void Scale()
     {
         float scaleValue = Time.deltaTime * scaleFactor * floatScaleSpeed;
         transform.localScale += new Vector3(scaleValue,scaleValue,scaleValue);
     }
 
+    // handles the descaling functionality
     void DeScale()
     {
         float scaleValue = Time.deltaTime * scaleFactor * floatScaleSpeed;
@@ -190,6 +228,7 @@ public class GazeControl : MonoBehaviour
             transform.localScale -= new Vector3(scaleValue,scaleValue,scaleValue);
     }
 
+    //Sets gazeControlStatus to false so that the monument no longer floats and defloats on gaze
     public void DeactivateOnlyGazeControl()
     {
         pv.RPC("RPC_DeactivateOnlyGazeControl", RpcTarget.AllBuffered);
@@ -200,6 +239,7 @@ public class GazeControl : MonoBehaviour
         gazeControlStatus = false;
     }
 
+    //Ends the entire Gaze Control Sequence when the user handles the monument by hand
     public void DeactivateGazeControlSequence() //Deactivates the GazeControl
     {
         pv.RPC("RPC_DeactivateGazeControlSequence", RpcTarget.AllBuffered);
@@ -210,12 +250,14 @@ public class GazeControl : MonoBehaviour
         StartCoroutine(ActivateAdditionalGameObjects());
     }
 
+    //activates additional GameObjects like the buttons
     IEnumerator ActivateAdditionalGameObjects()
     {
         yield return new WaitForSeconds(additionalObjectsActivationDelay);
         SetUpButtons();
     }
 
+    //Sets up the buttons
     private void SetUpButtons() {
         if(buttons.transform.parent != null) {
             GameObject container = new GameObject();
@@ -230,6 +272,9 @@ public class GazeControl : MonoBehaviour
         buttons.SetActive(true);
     }
 
+    //Activates all additional Game Objects that are required when monument is scaled and handled by user. 
+    //This process includes activating high poly models, deactivating holders, activating specific requirements like 
+    //triumphActivators, etc.
     public void ActivateAllAdditionalObjects() {
         pv.RPC("RPC_ActivateAllAdditionalObjects", RpcTarget.AllBuffered);
     }
@@ -311,7 +356,8 @@ public class GazeControl : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
+    
+    // Restarts the entire Gaze Control Sequence for when monument is back on map
     public void ActivateGazeControlSequence() //Activates the GazeControl
     {
         gazeControlStatus = true;
@@ -339,6 +385,7 @@ public class GazeControl : MonoBehaviour
         buttons.SetActive(false);
     }
 
+    //Handles resetting the monuments to its initial location on the map, deactivating additional gameObjects, reactivating holders, and other specific commands.
     public void InitiateResetPlaygroundMap() {
         pv.RPC("RPC_InitiateResetPlaygroundMap", RpcTarget.AllBuffered);
     }
@@ -464,6 +511,7 @@ public class GazeControl : MonoBehaviour
         ActivateGazeControlSequence();
     }
 
+    //Initiates the appearance sequence for the monument
     public void InitiateAppearanceOfObject()
     {
         StartCoroutine(AppearObject());
@@ -494,6 +542,7 @@ public class GazeControl : MonoBehaviour
         ActivateGazeControlSequence();
     }
 
+    //resets the value of fadecontroller and dissolve effect script to transparent states to begin with.
     public void ResetAppearanceValueDissolve()
     {
         if(dissolveEffect.Count != 0)
