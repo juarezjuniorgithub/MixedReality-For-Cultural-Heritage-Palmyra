@@ -17,12 +17,28 @@ public class DissolveEffect : MonoBehaviour
     public Action onAppearEnded;
     public Action onDisappearStarting;
 
+    List<float> initialValues = new List<float>();
+
 
     void Start()
     {
+        //Get material initial values for restoring later.
+        foreach (var item in dissolveMat) {
+            initialValues.Add(item.GetFloat(dissolveVal));
+        }
+
         foreach (Material mat in dissolveMat)
         {
             mat.SetFloat(dissolveVal, appearanceValue/maxAppearanceValue);
+        }
+    }
+
+    private void OnDestroy() {
+        if(initialValues.Count > 0) {
+            //Reset material values to initial values.
+            for (int i = 0; i < dissolveMat.Length; i++) {
+                dissolveMat[i].SetFloat(dissolveVal, initialValues[i]);
+            }
         }
     }
 
