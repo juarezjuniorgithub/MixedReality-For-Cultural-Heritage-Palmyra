@@ -8,9 +8,6 @@ namespace MRTKExtensions.QRCodes
     public class QRTrackerController : MonoBehaviour
     {
         [SerializeField]
-        GameObject instructions;
-
-        [SerializeField]
         private SpatialGraphCoordinateSystemSetter spatialGraphCoordinateSystemSetter;
 
         public string locationQrValue = string.Empty;
@@ -20,9 +17,8 @@ namespace MRTKExtensions.QRCodes
         [SerializeField]
         private float realignWindow = 1;
         private float counter = 0;
-        public GameObject SpownedObjects;
 
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
 
         private Transform markerHolder;
         private AudioSource audioSource;
@@ -157,12 +153,6 @@ namespace MRTKExtensions.QRCodes
                         msg.PhysicalSideLength);
                 }
             }
-
-            /*if (firstTargetFound)
-            {
-                SpownedObjects.transform.eulerAngles.y
-
-            }*/
         }
 
         private void SetScale(object sender, Pose pose)
