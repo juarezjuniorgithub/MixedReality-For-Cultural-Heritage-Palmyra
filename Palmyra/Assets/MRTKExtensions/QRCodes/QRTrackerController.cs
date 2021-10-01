@@ -17,6 +17,7 @@ namespace MRTKExtensions.QRCodes
         [SerializeField]
         private float realignWindow = 1;
         private float counter = 0;
+        [SerializeField] GameObject digitalTwin;
 
 #if !UNITY_EDITOR
 
@@ -25,7 +26,6 @@ namespace MRTKExtensions.QRCodes
         private GameObject markerDisplay;
         private QRInfo lastMessage;
 
-        [SerializeField] GameObject digitalTwin;
 
         private int trackingCounter;
         private Coroutine coroutine;
