@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 922af06afc0bd1f4cb939f7e3c99eb15,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -482,6 +482,7 @@ MonoBehaviour:
   locationQrValue: Tracker9
   realignUpdateTime: 10
   realignWindow: 1
+  digitalTwin: {fileID: 0}
 --- !u!1 &86197155
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +531,7 @@ MonoBehaviour:
   locationQrValue: Tracker8
   realignUpdateTime: 10
   realignWindow: 1
+  digitalTwin: {fileID: 0}
 --- !u!1 &154154969
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +811,7 @@ MonoBehaviour:
   locationQrValue: Tracker7
   realignUpdateTime: 10
   realignWindow: 1
+  digitalTwin: {fileID: 0}
 --- !u!1 &226879126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1176,7 @@ MonoBehaviour:
   locationQrValue: Tracker4
   realignUpdateTime: 10
   realignWindow: 1
+  digitalTwin: {fileID: 0}
 --- !u!1 &337709949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,6 +1794,7 @@ MonoBehaviour:
   locationQrValue: Tracker3
   realignUpdateTime: 10
   realignWindow: 1
+  digitalTwin: {fileID: 0}
 --- !u!1 &664123170
 GameObject:
   m_ObjectHideFlags: 0
@@ -2703,6 +2708,7 @@ MonoBehaviour:
   locationQrValue: Tracker10
   realignUpdateTime: 10
   realignWindow: 1
+  digitalTwin: {fileID: 0}
 --- !u!1 &934348600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1518213805719091795, guid: 014968b15c802764280d30975ed34252,
@@ -2757,6 +2763,7 @@ MonoBehaviour:
   locationQrValue: Tracker2
   realignUpdateTime: 10
   realignWindow: 1
+  digitalTwin: {fileID: 0}
 --- !u!1 &1154910329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,6 +3470,7 @@ MonoBehaviour:
   locationQrValue: Tracker5
   realignUpdateTime: 10
   realignWindow: 1
+  digitalTwin: {fileID: 0}
 --- !u!1 &1556327630
 GameObject:
   m_ObjectHideFlags: 0
@@ -4361,6 +4369,7 @@ MonoBehaviour:
   locationQrValue: Tracker6
   realignUpdateTime: 10
   realignWindow: 1
+  digitalTwin: {fileID: 0}
 --- !u!1 &2127307277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,6 +4436,7 @@ MonoBehaviour:
   - {fileID: 49239991}
   - {fileID: 1986906055}
   - {fileID: 1464905132}
+  nextPosition: {fileID: 0}
 --- !u!114 &2127307280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4830,6 +4840,75 @@ MonoBehaviour:
   sceneViewId: 13
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!1001 &7876442683453353411
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419644195998508044, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636406401016273366, guid: 060178dbb9cbfb94f8c619369b1667c9,
+        type: 3}
+      propertyPath: m_Name
+      value: VisionAI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 060178dbb9cbfb94f8c619369b1667c9, type: 3}
 --- !u!33 &9177500562071388448
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4939,6 +5018,7 @@ MonoBehaviour:
   locationQrValue: Tracker1
   realignUpdateTime: 10
   realignWindow: 1
+  digitalTwin: {fileID: 0}
 --- !u!4 &9177500562095222078
 Transform:
   m_ObjectHideFlags: 0
