@@ -18,12 +18,14 @@ namespace MRTKExtensions.QRCodes
         private float realignWindow = 1;
         private float counter = 0;
 
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
 
         private Transform markerHolder;
         private AudioSource audioSource;
         private GameObject markerDisplay;
         private QRInfo lastMessage;
+
+        [SerializeField] GameObject digitalTwin;
 
         private int trackingCounter;
         private Coroutine coroutine;
