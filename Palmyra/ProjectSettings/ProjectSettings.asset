@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: ZaidZaim
-  productName: Palmyra2.0
+  productName: ITS21Hack - Access
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -731,14 +731,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Palmyra
+  metroPackageName: ITS21Hack
   metroPackageVersion: 1.0.13.0
   metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: ZaidZaim
   metroCertificateIssuer: ZaidZaim
   metroCertificateNotAfter: 003318125082d801
-  metroApplicationDescription: Palmyra
+  metroApplicationDescription: ITS21Hack
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
