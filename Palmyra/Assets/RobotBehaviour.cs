@@ -13,6 +13,8 @@ public class RobotBehaviour : MonoBehaviour
     [SerializeField] AudioSource soundEmitter;
     [SerializeField] TextToSpeech textToSpeech;
     [SerializeField] Material eyesMaterial;
+    [SerializeField] Material headMaterial;
+
     public enum State { ScanQR, Directing, Dog, Stairs, Finish}
     public State appState = State.ScanQR;
 
@@ -74,6 +76,7 @@ public class RobotBehaviour : MonoBehaviour
         float duration = 1f;
         for (float i = 0; i < duration; i += Time.deltaTime) {
             eyesMaterial.color = Color.Lerp(Color.white, Color.grey, i / duration);
+            headMaterial.color = Color.Lerp(Color.white, Color.black, i / duration);
             yield return null;
         }
     }
