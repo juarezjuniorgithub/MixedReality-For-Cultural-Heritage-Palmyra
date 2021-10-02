@@ -2,6 +2,7 @@
 using System;
 using Microsoft.MixedReality.Toolkit;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MRTKExtensions.QRCodes
 {
@@ -18,6 +19,8 @@ namespace MRTKExtensions.QRCodes
         private float realignWindow = 1;
         private float counter = 0;
         [SerializeField] GameObject digitalTwin;
+
+        public UnityEvent onDetected;
 
 #if !UNITY_EDITOR
 
@@ -165,6 +168,7 @@ namespace MRTKExtensions.QRCodes
             //if(!isUpdateTracking)
 
             if (!firstTargetFound) {
+                onDetected.Invoke();
                 audioSource.Play();
             }
         }
