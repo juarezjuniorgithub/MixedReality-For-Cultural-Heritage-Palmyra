@@ -56,6 +56,7 @@ public class WaypointNavigator : MonoBehaviour
     }
 
     private void CloseToWaypoint(Waypoint waypoint) {
+        if (waypoint.triggered) return;
         waypoint.triggered = true;
         switch (waypoint.waypointType) {
             case Waypoint.WaypointType.Regular:
