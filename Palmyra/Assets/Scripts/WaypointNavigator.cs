@@ -6,7 +6,7 @@ public class WaypointNavigator : MonoBehaviour
 {
     [SerializeField] Camera camera;
     [SerializeField] List<Transform> waypoints;
-    Transform nextPosition;
+    public Transform nextPosition;
     [SerializeField] AudioSource soundEmmitter;
     private int index = 0;
 
