@@ -7,6 +7,7 @@ public class FollowUser : MonoBehaviour
     enum Target { User, Waypoint}
     [SerializeField] Target target = Target.Waypoint;
     [SerializeField] WaypointNavigator waypointNavigator;
+    [SerializeField] Camera cam;
     private Transform destination;
 
     // Update is called once per frame
@@ -20,7 +21,7 @@ public class FollowUser : MonoBehaviour
             destination = waypointNavigator.nextPosition;
             Vector3 target = destination.transform.position + destination.transform.up * 1.5f + destination.transform.up * Mathf.Sin(Time.time) * 0.1f;
             transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * 3);
-            transform.LookAt(destination.transform.position);
         }
+        transform.LookAt(cam.transform.position);
     }
 }
