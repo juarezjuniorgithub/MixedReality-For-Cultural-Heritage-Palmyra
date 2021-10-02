@@ -31,10 +31,9 @@ public class RobotBehaviour : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * 3);
             transform.LookAt(cam.transform.position);
         } else if (target == Target.Waypoint && waypointNavigator.nextPosition != null){
-            soundEmitter.Play();
             destination = waypointNavigator.nextPosition;
             Vector3 target = destination.transform.position + destination.transform.up * 1.5f + destination.transform.up * Mathf.Sin(Time.time) * 0.1f;
-            transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * 3);
+            transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime);
         }
         transform.LookAt(cam.transform.position);
 
@@ -44,8 +43,15 @@ public class RobotBehaviour : MonoBehaviour
                 textToSpeech.StartSpeaking("Look for a QR code in the floor");
                 startingTime = Time.time;
             }
+        }
 
-        }       
+        //Robot sound every 2 seconds to direct user.
+        if (appState == State.Directing) {
+            if (Time.time - startingTime > 2) {
+                soundEmitter.Play();
+                startingTime = Time.time;
+            }
+        }
     }
 
     public void SwitchTargetType(Target targetType) {
@@ -53,12 +59,15 @@ public class RobotBehaviour : MonoBehaviour
     }
 
     public void ChangeAppState(State newState) {
+        Debug.Log("App state set to: " + newState.ToString());
+        appState = newState;
         switch (newState) {
             case State.ScanQR:
                 SwitchTargetType(Target.User);
                 break;
             case State.Directing:
                 SwitchTargetType(Target.Waypoint);
+                startingTime = Time.time;
                 break;
             case State.Dog:
                 break;
