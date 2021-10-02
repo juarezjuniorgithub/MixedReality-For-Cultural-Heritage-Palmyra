@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446b5da29dc80ba41a6a67121e24d143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  cam: {fileID: 0}
   waypoints:
   - {fileID: 235923555}
   - {fileID: 454612455}
@@ -2539,7 +2539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446b5da29dc80ba41a6a67121e24d143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1769914564}
+  cam: {fileID: 1769914564}
   waypoints:
   - {fileID: 235923555}
   - {fileID: 454612455}
