@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class WaypointNavigator : MonoBehaviour
 {
+    [SerializeField] Camera camera;
     [SerializeField] List<Transform> waypoints;
-    [SerializeField] Transform nextPosition;
-    [SerializeField] float deltaAngle;
-    [SerializeField] private Transform cameraForward;
+    Transform nextPosition;
+    [SerializeField] AudioSource soundEmmitter;
     private int index = 0;
 
     void Start()
     {
         nextPosition = waypoints[index];
+        soundEmmitter.transform.position = nextPosition.transform.position;
     }
 
     void Update()
     {
         if(nextPosition != null) {
-            transform.forward = Vector3.ProjectOnPlane(Vector3.up, nextPosition.position - transform.position);
-            deltaAngle = Quaternion.Angle(cameraForward.transform.rotation, transform.rotation);
-            if(Vector3.Distance(nextPosition.position, transform.position) < 0.5f) {
+            if(Vector3.Distance(nextPosition.position, camera.transform.position) < 0.5f) {
                 if(index < waypoints.Count) {
                     index++;
                     nextPosition = waypoints[index];
-                    if(index == waypoints.Count) {
+                    soundEmmitter.transform.position = nextPosition.transform.position;
+                    if (index == waypoints.Count) {
                         Debug.Log("Finished");
+                        soundEmmitter.Stop();
                     }
                 }
             }
