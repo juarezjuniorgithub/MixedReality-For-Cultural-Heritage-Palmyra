@@ -150,6 +150,9 @@ namespace MRTKExtensions.QRCodes
             if (msg.Data == locationQrValue)
             {
                 firstTargetFound = true;
+                if(robotBehaviour.appState == RobotBehaviour.State.ScanQR) {
+                    robotBehaviour.ChangeAppState(RobotBehaviour.State.Directing);
+                }
                 if (trackingCounter++ == 2)
                 {
                     IsTrackingActive = false;
@@ -172,7 +175,6 @@ namespace MRTKExtensions.QRCodes
             if (!firstTargetFound) {
                 onDetected.Invoke();
                 audioSource.Play();
-                robotBehaviour.ChangeAppState(RobotBehaviour.State.Directing);
             }
         }
 
