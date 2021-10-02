@@ -12,7 +12,9 @@ public class WaypointNavigator : MonoBehaviour
     [SerializeField] GameObject signEvent;
     [SerializeField] GameObject dogEvent;
     [SerializeField] GameObject stairsEvent;
-    bool pathFinished;
+    [SerializeField] AudioSource continousSound;
+    [SerializeField] private float soundVolume;
+    private bool pathFinished;
 
     private int index = 0;
 
@@ -29,7 +31,7 @@ public class WaypointNavigator : MonoBehaviour
                 Vector3 waypointProjection = new Vector3(nextWaypoint.transform.position.x, 0, nextWaypoint.transform.position.z);
                 Vector3 cameraProjection = new Vector3(cam.transform.position.x, 0, cam.transform.position.z);
 
-                if (Vector3.Distance(waypointProjection, cameraProjection) < 3 && !nextWaypoint.triggered) {
+                if (Vector3.Distance(waypointProjection, cameraProjection) < 1.5 && !nextWaypoint.triggered) {
                     CloseToWaypoint(nextWaypoint);
                 }
 
@@ -44,6 +46,11 @@ public class WaypointNavigator : MonoBehaviour
                         WaypointsCompleted();
                     }
                 }
+
+                soundVolume = Vector3.Dot(Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).normalized, Vector3.ProjectOnPlane(nextWaypoint.transform.position - cam.transform.position, Vector3.up).normalized);
+                continousSound.volume = Mathf.Pow(soundVolume, 100);
+            } else {
+                continousSound.volume = 0;
             }
         }
     }
