@@ -70,6 +70,7 @@ public class WaypointNavigator : MonoBehaviour
     }
 
     private void TrainSignEvent() {
+        textToSpeech.StartSpeaking("Next train to Itzaube departing from platform 3, in 9 minutes");
         signEvent.SetActive(true);
     }
 
