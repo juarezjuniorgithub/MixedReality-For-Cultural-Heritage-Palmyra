@@ -66,8 +66,9 @@ public class VisionAIManager : MonoBehaviour
 
         var jsonStr = await response.Content.ReadAsStringAsync();
         
+        Debug.Log(jsonStr);
+        
         var data = JsonConvert.DeserializeObject<Data>(jsonStr);
-        Debug.Log(data);
 
         if (data != null && data.description != null && data.description.captions.Count > 0)
         {
