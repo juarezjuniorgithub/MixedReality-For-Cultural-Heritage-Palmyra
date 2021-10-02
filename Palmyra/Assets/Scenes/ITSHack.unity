@@ -941,6 +941,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: adce28d42d4afec4aafa6c6fa0b4a484, type: 2}
+    - target: {fileID: 7940807810997136023, guid: e587e270bc2dbb54aa28b27afd409962,
+        type: 3}
+      propertyPath: m_Name
+      value: Dog
+      objectReference: {fileID: 0}
     - target: {fileID: 8885809980917036342, guid: e587e270bc2dbb54aa28b27afd409962,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1418,6 +1423,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &376451198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7940807810997136023, guid: e587e270bc2dbb54aa28b27afd409962,
+    type: 3}
+  m_PrefabInstance: {fileID: 157750474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &376451199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376451198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158861c350f2f7e458669d3127f12f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &417103521
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,7 +5786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &9177500562250615215
 SpriteRenderer:
   m_ObjectHideFlags: 0
