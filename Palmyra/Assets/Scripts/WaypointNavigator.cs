@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaypointNavigator : MonoBehaviour
 {
-    [SerializeField] Camera camera;
+    [SerializeField] Camera cam;
     [SerializeField] List<Transform> waypoints;
     [SerializeField] RobotBehaviour robotBehaviour;
     [HideInInspector] public Transform nextPosition;
@@ -18,7 +18,10 @@ public class WaypointNavigator : MonoBehaviour
     void Update()
     {
         if(nextPosition != null) {
-            if(Vector3.Distance(nextPosition.position, camera.transform.position) < 0.5f) {
+            Vector3 waypointProjection = new Vector3(nextPosition.position.x, 0, nextPosition.position.z);
+            Vector3 cameraProjection = new Vector3(cam.transform.position.x, 0, cam.transform.position.z);
+
+            ; if (Vector3.Distance(waypointProjection, cameraProjection) < 0.5f) {
                 if(index < waypoints.Count) {
                     index++;
                     nextPosition = waypoints[index];
