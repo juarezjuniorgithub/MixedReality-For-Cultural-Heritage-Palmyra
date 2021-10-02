@@ -6,8 +6,10 @@ public class WaypointNavigator : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] List<Waypoint> waypoints;
     [SerializeField] RobotBehaviour robotBehaviour;
-    [HideInInspector] public Waypoint nextWaypoint;
+    public Waypoint nextWaypoint;
     [SerializeField] GameObject dogEvent;
+    [SerializeField] GameObject stairsEvent;
+
     private int index = 0;
 
     void Start()
@@ -43,9 +45,10 @@ public class WaypointNavigator : MonoBehaviour
             case Waypoint.WaypointType.Regular:
                 break;
             case Waypoint.WaypointType.Dog:
-                DogIsClose();
+                DogEvent();
                 break;
             case Waypoint.WaypointType.Stairs:
+                StairsEvent();
                 break;
             case Waypoint.WaypointType.Finish:
                 break;
@@ -54,8 +57,12 @@ public class WaypointNavigator : MonoBehaviour
         }
     }
 
-    private void DogIsClose() {
+    private void DogEvent() {
         dogEvent.SetActive(true);
+    }
+
+    private void StairsEvent() {
+        stairsEvent.SetActive(true);
     }
 
     private void WaypointsCompleted() {
