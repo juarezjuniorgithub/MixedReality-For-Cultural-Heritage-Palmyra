@@ -3039,6 +3039,7 @@ MonoBehaviour:
   - {fileID: 1464905133}
   robotBehaviour: {fileID: 1070480948}
   nextWaypoint: {fileID: 0}
+  textToSpeech: {fileID: 1727337302}
   signEvent: {fileID: 584837549}
   dogEvent: {fileID: 1794698649}
   stairsEvent: {fileID: 330464673}

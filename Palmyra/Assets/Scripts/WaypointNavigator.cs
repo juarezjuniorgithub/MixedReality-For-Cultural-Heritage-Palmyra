@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.MixedReality.Toolkit.Audio;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaypointNavigator : MonoBehaviour
@@ -7,6 +9,7 @@ public class WaypointNavigator : MonoBehaviour
     [SerializeField] List<Waypoint> waypoints;
     [SerializeField] RobotBehaviour robotBehaviour;
     [HideInInspector] public Waypoint nextWaypoint;
+    [SerializeField] TextToSpeech textToSpeech;
     [SerializeField] GameObject signEvent;
     [SerializeField] GameObject dogEvent;
     [SerializeField] GameObject stairsEvent;
@@ -67,10 +70,12 @@ public class WaypointNavigator : MonoBehaviour
 
     private void DogEvent() {
         dogEvent.SetActive(true);
+        textToSpeech.StartSpeaking("Angry dog detected, don't pet, 97% confidence of bite.");
     }
 
     private void StairsEvent() {
         stairsEvent.SetActive(true);
+        textToSpeech.StartSpeaking("Stairs ahead, be careful, don't fall.");
     }
 
     private void WaypointsCompleted() {
