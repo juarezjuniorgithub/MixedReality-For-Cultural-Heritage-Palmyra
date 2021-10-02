@@ -182,20 +182,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   waypoints:
-  - {fileID: 235923555}
-  - {fileID: 454612455}
-  - {fileID: 2039016522}
-  - {fileID: 533632243}
-  - {fileID: 889982379}
-  - {fileID: 1556327631}
-  - {fileID: 1898117763}
-  - {fileID: 881703763}
-  - {fileID: 417103522}
-  - {fileID: 49239991}
-  - {fileID: 1986906055}
-  - {fileID: 1464905132}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   robotBehaviour: {fileID: 0}
-  nextPosition: {fileID: 0}
+  nextWaypoint: {fileID: 0}
+  dogEvent: {fileID: 0}
 --- !u!1 &7709438
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,20 +392,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &49239992
-CapsuleCollider:
+--- !u!114 &49239992
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49239990}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 0
+  triggered: 0
 --- !u!23 &49239993
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1125,20 +1126,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &235923556
-CapsuleCollider:
+--- !u!114 &235923556
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235923554}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 0
+  triggered: 0
 --- !u!23 &235923557
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1474,20 +1475,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &417103523
-CapsuleCollider:
+--- !u!114 &417103523
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417103521}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 0
+  triggered: 0
 --- !u!23 &417103524
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1568,20 +1569,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &454612456
-CapsuleCollider:
+--- !u!114 &454612456
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454612454}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 0
+  triggered: 0
 --- !u!23 &454612457
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1905,20 +1906,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &533632244
-CapsuleCollider:
+--- !u!114 &533632244
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533632242}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 1
+  triggered: 0
 --- !u!23 &533632245
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2564,20 +2565,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1769914564}
   waypoints:
-  - {fileID: 235923555}
-  - {fileID: 454612455}
-  - {fileID: 2039016522}
-  - {fileID: 533632243}
-  - {fileID: 889982379}
-  - {fileID: 1556327631}
-  - {fileID: 1898117763}
-  - {fileID: 881703763}
-  - {fileID: 417103522}
-  - {fileID: 49239991}
-  - {fileID: 1986906055}
-  - {fileID: 1464905132}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   robotBehaviour: {fileID: 1070480948}
-  nextPosition: {fileID: 0}
+  nextWaypoint: {fileID: 0}
+  dogEvent: {fileID: 1794698649}
 --- !u!4 &805122085
 Transform:
   m_ObjectHideFlags: 0
@@ -2585,10 +2587,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805122083}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -4.1550007, y: 3.9150033, z: 0.0999998}
-  m_LocalScale: {x: 0.16999993, y: 0.17, z: 0.17}
-  m_Children: []
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1794698651}
   m_Father: {fileID: 157750475}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2880,20 +2883,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &881703764
-CapsuleCollider:
+--- !u!114 &881703764
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881703762}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 0
+  triggered: 0
 --- !u!23 &881703765
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2974,20 +2977,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &889982380
-CapsuleCollider:
+--- !u!114 &889982380
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889982378}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 0
+  triggered: 0
 --- !u!23 &889982381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3971,20 +3974,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &1464905133
-CapsuleCollider:
+--- !u!114 &1464905133
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464905131}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 3
+  triggered: 0
 --- !u!23 &1464905134
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4117,20 +4120,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &1556327632
-CapsuleCollider:
+--- !u!114 &1556327632
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556327630}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 2
+  triggered: 0
 --- !u!23 &1556327633
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4539,6 +4542,133 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!1 &1794698649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1794698651}
+  - component: {fileID: 1794698650}
+  m_Layer: 0
+  m_Name: DogEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!82 &1794698650
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794698649}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e965385696670b141b94db41072b7d08, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1794698651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794698649}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.305, y: 10.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 805122085}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1850536560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1518213807122260921, guid: 014968b15c802764280d30975ed34252,
@@ -4609,20 +4739,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &1898117764
-CapsuleCollider:
+--- !u!114 &1898117764
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898117762}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 0
+  triggered: 0
 --- !u!23 &1898117765
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4784,20 +4914,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &1986906056
-CapsuleCollider:
+--- !u!114 &1986906056
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986906054}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 0
+  triggered: 0
 --- !u!23 &1986906057
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4878,20 +5008,20 @@ Transform:
   m_Father: {fileID: 51108031}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
---- !u!136 &2039016523
-CapsuleCollider:
+--- !u!114 &2039016523
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039016521}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c38937c750a7f945a0f8c074c9c2fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointType: 0
+  triggered: 0
 --- !u!23 &2039016524
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5786,7 +5916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &9177500562250615215
 SpriteRenderer:
   m_ObjectHideFlags: 0

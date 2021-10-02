@@ -35,8 +35,8 @@ public class RobotBehaviour : MonoBehaviour
             Vector3 target = cam.transform.position + cam.transform.forward * 1 + cam.transform.up * Mathf.Sin(Time.time) * 0.1f;
             transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime * 3);
             transform.LookAt(cam.transform.position);
-        } else if (target == Target.Waypoint && waypointNavigator.nextPosition != null){
-            destination = waypointNavigator.nextPosition;
+        } else if (target == Target.Waypoint && waypointNavigator.nextWaypoint != null){
+            destination = waypointNavigator.nextWaypoint.transform;
             Vector3 target = destination.transform.position + destination.transform.up * 1.5f + destination.transform.up * Mathf.Sin(Time.time) * 0.1f;
             transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime);
         }
