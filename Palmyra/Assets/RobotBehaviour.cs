@@ -15,10 +15,11 @@ public class RobotBehaviour : MonoBehaviour
     public enum State { ScanQR, Directing, Dog, Stairs, Finish}
     public State appState = State.ScanQR;
 
-    private float timeCounter;
+    private float startingTime;
 
     private void Start() {
         ChangeAppState(State.ScanQR);
+        startingTime = Time.time;
     }
 
     // Update is called once per frame
@@ -37,11 +38,13 @@ public class RobotBehaviour : MonoBehaviour
         }
         transform.LookAt(cam.transform.position);
 
+        //Instructions to scan QR code every 5 seconds
         if(appState == State.ScanQR) {
-            timeCounter += Time.deltaTime;
-            if(Time.time - timeCounter > 5) {
+            if(Time.time - startingTime > 5) {
                 textToSpeech.StartSpeaking("Look for a QR code in the floor");
+                startingTime = Time.time;
             }
+
         }       
     }
 

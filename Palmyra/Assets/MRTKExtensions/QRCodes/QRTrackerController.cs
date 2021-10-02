@@ -180,7 +180,7 @@ namespace MRTKExtensions.QRCodes
 #endif
         [Button]
         public void QRCodeDetectedDebug() {
-            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             robotBehaviour.ChangeAppState(RobotBehaviour.State.Directing);
         }
     }
