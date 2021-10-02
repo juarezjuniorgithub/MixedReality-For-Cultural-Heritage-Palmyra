@@ -1,5 +1,4 @@
 ﻿using Microsoft.MixedReality.Toolkit.Audio;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,11 +7,12 @@ public class WaypointNavigator : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] List<Waypoint> waypoints;
     [SerializeField] RobotBehaviour robotBehaviour;
-    [HideInInspector] public Waypoint nextWaypoint;
+    public Waypoint nextWaypoint;
     [SerializeField] TextToSpeech textToSpeech;
     [SerializeField] GameObject signEvent;
     [SerializeField] GameObject dogEvent;
     [SerializeField] GameObject stairsEvent;
+    bool pathFinished;
 
     private int index = 0;
 
@@ -24,21 +24,23 @@ public class WaypointNavigator : MonoBehaviour
 
     void Update()
     {
-        if(nextWaypoint != null) {
-            Vector3 waypointProjection = new Vector3(nextWaypoint.transform.position.x, 0, nextWaypoint.transform.position.z);
-            Vector3 cameraProjection = new Vector3(cam.transform.position.x, 0, cam.transform.position.z);
+        if (!pathFinished) {
+            if (nextWaypoint != null) {
+                Vector3 waypointProjection = new Vector3(nextWaypoint.transform.position.x, 0, nextWaypoint.transform.position.z);
+                Vector3 cameraProjection = new Vector3(cam.transform.position.x, 0, cam.transform.position.z);
 
-            if (Vector3.Distance(waypointProjection, cameraProjection) < 9 && !nextWaypoint.triggered) {
-                CloseToWaypoint(nextWaypoint);
-            }
+                if (Vector3.Distance(waypointProjection, cameraProjection) < 9 && !nextWaypoint.triggered) {
+                    CloseToWaypoint(nextWaypoint);
+                }
 
-            if (Vector3.Distance(waypointProjection, cameraProjection) < 2) {
-                if(index < waypoints.Count) {
-                    index++;
-                    nextWaypoint.circle.SetActive(false);
-                    nextWaypoint = waypoints[index];
-                    nextWaypoint.circle.SetActive(true);
-                    if (index == waypoints.Count) {
+                if (Vector3.Distance(waypointProjection, cameraProjection) < 2) {
+                    if (index < waypoints.Count - 1) {
+                        nextWaypoint.circle.SetActive(false);
+                        index++;
+                        nextWaypoint = waypoints[index];
+                        nextWaypoint.circle.SetActive(true);
+                    } else {
+                        nextWaypoint.circle.SetActive(false);
                         WaypointsCompleted();
                     }
                 }
@@ -84,5 +86,6 @@ public class WaypointNavigator : MonoBehaviour
     private void WaypointsCompleted() {
         Debug.Log("Waypoints completed");
         robotBehaviour.ChangeAppState(RobotBehaviour.State.Finish);
+        pathFinished = true;
     }
 }
