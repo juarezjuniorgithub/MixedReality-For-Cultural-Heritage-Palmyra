@@ -194,6 +194,7 @@ MonoBehaviour:
   - {fileID: 49239991}
   - {fileID: 1986906055}
   - {fileID: 1464905132}
+  robotBehaviour: {fileID: 0}
   nextPosition: {fileID: 0}
 --- !u!1 &7709438
 GameObject:
@@ -541,7 +542,7 @@ MonoBehaviour:
   locationQrValue: Tracker9
   realignUpdateTime: 10
   realignWindow: 1
-  digitalTwin: {fileID: 0}
+  robotBehaviour: {fileID: 0}
   onDetected:
     m_PersistentCalls:
       m_Calls: []
@@ -593,7 +594,7 @@ MonoBehaviour:
   locationQrValue: Tracker8
   realignUpdateTime: 10
   realignWindow: 1
-  digitalTwin: {fileID: 0}
+  robotBehaviour: {fileID: 0}
   onDetected:
     m_PersistentCalls:
       m_Calls: []
@@ -1001,7 +1002,7 @@ MonoBehaviour:
   locationQrValue: Tracker7
   realignUpdateTime: 10
   realignWindow: 1
-  digitalTwin: {fileID: 0}
+  robotBehaviour: {fileID: 0}
   onDetected:
     m_PersistentCalls:
       m_Calls: []
@@ -1369,7 +1370,7 @@ MonoBehaviour:
   locationQrValue: Tracker4
   realignUpdateTime: 10
   realignWindow: 1
-  digitalTwin: {fileID: 0}
+  robotBehaviour: {fileID: 0}
   onDetected:
     m_PersistentCalls:
       m_Calls: []
@@ -1990,7 +1991,7 @@ MonoBehaviour:
   locationQrValue: Tracker3
   realignUpdateTime: 10
   realignWindow: 1
-  digitalTwin: {fileID: 0}
+  robotBehaviour: {fileID: 0}
   onDetected:
     m_PersistentCalls:
       m_Calls: []
@@ -2552,6 +2553,7 @@ MonoBehaviour:
   - {fileID: 49239991}
   - {fileID: 1986906055}
   - {fileID: 1464905132}
+  robotBehaviour: {fileID: 1070480948}
   nextPosition: {fileID: 0}
 --- !u!4 &805122085
 Transform:
@@ -3058,7 +3060,7 @@ MonoBehaviour:
   locationQrValue: Tracker10
   realignUpdateTime: 10
   realignWindow: 1
-  digitalTwin: {fileID: 0}
+  robotBehaviour: {fileID: 0}
   onDetected:
     m_PersistentCalls:
       m_Calls: []
@@ -3095,8 +3097,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 091ad00ea430bd94c968b1f6d1a0cd28, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 5d520c99001615848bd64c903a55b67e, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -3226,9 +3228,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed63d5a8d55f23f4aa862f72e118c988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: 1
+  target: 0
   waypointNavigator: {fileID: 805122084}
   cam: {fileID: 1769914564}
+  soundEmitter: {fileID: 996842209}
+  textToSpeech: {fileID: 1727337302}
+  appState: 0
 --- !u!23 &1070480949
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3340,7 +3345,7 @@ MonoBehaviour:
   locationQrValue: Tracker2
   realignUpdateTime: 10
   realignWindow: 1
-  digitalTwin: {fileID: 0}
+  robotBehaviour: {fileID: 0}
   onDetected:
     m_PersistentCalls:
       m_Calls: []
@@ -4050,7 +4055,7 @@ MonoBehaviour:
   locationQrValue: Tracker5
   realignUpdateTime: 10
   realignWindow: 1
-  digitalTwin: {fileID: 0}
+  robotBehaviour: {fileID: 0}
   onDetected:
     m_PersistentCalls:
       m_Calls: []
@@ -4229,6 +4234,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1727337302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9021437034441048385, guid: 060178dbb9cbfb94f8c619369b1667c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7876442683453353411}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706bbbc152fa1c9409b916290c648591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1750582737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4945,7 +4962,7 @@ MonoBehaviour:
   locationQrValue: Tracker6
   realignUpdateTime: 10
   realignWindow: 1
-  digitalTwin: {fileID: 0}
+  robotBehaviour: {fileID: 0}
   onDetected:
     m_PersistentCalls:
       m_Calls: []
@@ -5501,21 +5518,10 @@ MonoBehaviour:
   locationQrValue: Tracker1
   realignUpdateTime: 10
   realignWindow: 1
-  digitalTwin: {fileID: 0}
+  robotBehaviour: {fileID: 1070480948}
   onDetected:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1070480947}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &9177500562095222078
 Transform:
   m_ObjectHideFlags: 0

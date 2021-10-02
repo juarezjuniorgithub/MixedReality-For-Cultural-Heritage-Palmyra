@@ -3,6 +3,7 @@ using System;
 using Microsoft.MixedReality.Toolkit;
 using UnityEngine;
 using UnityEngine.Events;
+using NaughtyAttributes;
 
 namespace MRTKExtensions.QRCodes
 {
@@ -18,7 +19,8 @@ namespace MRTKExtensions.QRCodes
         [SerializeField]
         private float realignWindow = 1;
         private float counter = 0;
-        [SerializeField] GameObject digitalTwin;
+        //[SerializeField] GameObject digitalTwin;
+        [SerializeField] RobotBehaviour robotBehaviour;
 
         public UnityEvent onDetected;
 
@@ -170,10 +172,16 @@ namespace MRTKExtensions.QRCodes
             if (!firstTargetFound) {
                 onDetected.Invoke();
                 audioSource.Play();
+                robotBehaviour.ChangeAppState(RobotBehaviour.State.Directing);
             }
         }
 
         public EventHandler<Pose> PositionSet;
 #endif
+        [Button]
+        public void QRCodeDetectedDebug() {
+            transform.GetChild(0).gameObject.SetActive(true);
+            robotBehaviour.ChangeAppState(RobotBehaviour.State.Directing);
+        }
     }
 }

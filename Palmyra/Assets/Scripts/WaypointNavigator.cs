@@ -6,7 +6,8 @@ public class WaypointNavigator : MonoBehaviour
 {
     [SerializeField] Camera camera;
     [SerializeField] List<Transform> waypoints;
-    public Transform nextPosition;
+    [SerializeField] RobotBehaviour robotBehaviour;
+    [HideInInspector] public Transform nextPosition;
     private int index = 0;
 
     void Start()
@@ -22,10 +23,15 @@ public class WaypointNavigator : MonoBehaviour
                     index++;
                     nextPosition = waypoints[index];
                     if (index == waypoints.Count) {
-                        Debug.Log("Finished");
+                        WaypointsCompleted();
                     }
                 }
             }
         }
+    }
+
+    private void WaypointsCompleted() {
+        Debug.Log("Waypoints completed");
+        robotBehaviour.ChangeAppState(RobotBehaviour.State.Finish);
     }
 }
