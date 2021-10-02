@@ -12,10 +12,13 @@ public class RobotBehaviour : MonoBehaviour
     private Transform destination;
     [SerializeField] AudioSource soundEmitter;
     [SerializeField] TextToSpeech textToSpeech;
+    [SerializeField] Material eyesMaterial;
     public enum State { ScanQR, Directing, Dog, Stairs, Finish}
     public State appState = State.ScanQR;
 
     private float startingTime;
+
+    private Coroutine eyesLightCoroutine;
 
     private void Start() {
         ChangeAppState(State.ScanQR);
@@ -42,6 +45,7 @@ public class RobotBehaviour : MonoBehaviour
             if(Time.time - startingTime > 5) {
                 textToSpeech.StartSpeaking("Look for a QR code in the floor");
                 startingTime = Time.time;
+                EyesLight();
             }
         }
 
@@ -49,6 +53,7 @@ public class RobotBehaviour : MonoBehaviour
         if (appState == State.Directing) {
             if (Time.time - startingTime > 2) {
                 soundEmitter.Play();
+                EyesLight();
                 startingTime = Time.time;
             }
         }
@@ -56,6 +61,21 @@ public class RobotBehaviour : MonoBehaviour
 
     public void SwitchTargetType(Target targetType) {
         target = targetType;
+    }
+
+    private void EyesLight() {
+        if(eyesLightCoroutine != null) {
+            StopCoroutine(eyesLightCoroutine);
+        }
+        eyesLightCoroutine = StartCoroutine(Co_EyesLight());
+    }
+
+    IEnumerator Co_EyesLight() {
+        float duration = 1f;
+        for (float i = 0; i < duration; i += Time.deltaTime) {
+            eyesMaterial.color = Color.Lerp(Color.white, Color.grey, i / duration);
+            yield return null;
+        }
     }
 
     public void ChangeAppState(State newState) {

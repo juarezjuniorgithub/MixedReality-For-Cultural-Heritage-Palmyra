@@ -3233,6 +3233,7 @@ MonoBehaviour:
   cam: {fileID: 1769914564}
   soundEmitter: {fileID: 996842209}
   textToSpeech: {fileID: 1727337302}
+  eyesMaterial: {fileID: 2100000, guid: e18c57504e27ca549b0d31a20b872c79, type: 2}
   appState: 0
 --- !u!23 &1070480949
 MeshRenderer:
