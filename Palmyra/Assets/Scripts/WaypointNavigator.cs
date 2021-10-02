@@ -19,6 +19,7 @@ public class WaypointNavigator : MonoBehaviour
     void Start()
     {
         nextWaypoint = waypoints[index];
+        nextWaypoint.circle.SetActive(true);
     }
 
     void Update()
@@ -31,10 +32,12 @@ public class WaypointNavigator : MonoBehaviour
                 CloseToWaypoint(nextWaypoint);
             }
 
-            if (Vector3.Distance(waypointProjection, cameraProjection) < 3) {
+            if (Vector3.Distance(waypointProjection, cameraProjection) < 2) {
                 if(index < waypoints.Count) {
                     index++;
+                    nextWaypoint.circle.SetActive(false);
                     nextWaypoint = waypoints[index];
+                    nextWaypoint.circle.SetActive(true);
                     if (index == waypoints.Count) {
                         WaypointsCompleted();
                     }
