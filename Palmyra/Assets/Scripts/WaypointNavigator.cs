@@ -6,7 +6,8 @@ public class WaypointNavigator : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] List<Waypoint> waypoints;
     [SerializeField] RobotBehaviour robotBehaviour;
-    public Waypoint nextWaypoint;
+    [HideInInspector] public Waypoint nextWaypoint;
+    [SerializeField] GameObject signEvent;
     [SerializeField] GameObject dogEvent;
     [SerializeField] GameObject stairsEvent;
 
@@ -44,6 +45,9 @@ public class WaypointNavigator : MonoBehaviour
         switch (waypoint.waypointType) {
             case Waypoint.WaypointType.Regular:
                 break;
+            case Waypoint.WaypointType.Sign:
+                TrainSignEvent();
+                break;
             case Waypoint.WaypointType.Dog:
                 DogEvent();
                 break;
@@ -55,6 +59,10 @@ public class WaypointNavigator : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void TrainSignEvent() {
+        signEvent.SetActive(true);
     }
 
     private void DogEvent() {
