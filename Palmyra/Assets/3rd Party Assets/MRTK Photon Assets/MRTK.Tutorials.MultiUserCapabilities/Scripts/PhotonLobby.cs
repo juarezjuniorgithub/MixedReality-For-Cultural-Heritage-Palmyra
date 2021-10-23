@@ -56,6 +56,7 @@ namespace MRTK.Tutorials.MultiUserCapabilities
 
         public override void OnDisconnected(DisconnectCause cause) {
             base.OnDisconnected(cause);
+            Debug.Log("Disconnection cause: " + cause);
             StartNetwork();
         }
 
@@ -110,7 +111,6 @@ namespace MRTK.Tutorials.MultiUserCapabilities
             else
             {
                 PhotonNetwork.OfflineMode = true;
-                PhotonNetwork.ConnectUsingSettings();
                 Debug.Log("No Internet connection. Offline mode ");
             }
             }));
@@ -119,6 +119,7 @@ namespace MRTK.Tutorials.MultiUserCapabilities
         IEnumerator checkInternetConnection(Action<bool> action)
         {
             UnityWebRequest www = new UnityWebRequest("http://google.com");
+            www.timeout = 3;
             yield return www.SendWebRequest();
             
             if (www.isNetworkError || www.isHttpError) {
