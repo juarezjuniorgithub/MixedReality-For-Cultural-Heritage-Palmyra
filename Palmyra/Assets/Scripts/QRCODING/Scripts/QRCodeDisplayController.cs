@@ -4,7 +4,7 @@ using Microsoft.MixedReality.Toolkit.Audio;
 using MRTKExtensions.QRCodes;
 using TMPro;
 using UnityEngine;
-using B83
+using B83;
 
 public class QRCodeDisplayController : MonoBehaviour
 {
@@ -64,7 +64,8 @@ public class QRCodeDisplayController : MonoBehaviour
 
         startingTime = Time.time;
 
-        Run
+        //Text to speech message after 3 seconds from starting.
+        Run.After(3, () => textToSpeech.StartSpeaking(instructionsText.text));
     }
 
 
