@@ -1,8 +1,10 @@
 ﻿using System;
 using Microsoft.MixedReality.Toolkit;
+using Microsoft.MixedReality.Toolkit.Audio;
 using MRTKExtensions.QRCodes;
 using TMPro;
 using UnityEngine;
+using B83
 
 public class QRCodeDisplayController : MonoBehaviour
 {
@@ -26,6 +28,12 @@ public class QRCodeDisplayController : MonoBehaviour
     private QRTrackerController qrTrackerController;
 
     private bool qrCodeAlreadyDetected = false;
+
+    //Text to speech
+    [SerializeField] private TextToSpeech textToSpeech;
+    [SerializeField] private TextMeshPro instructionsText;
+    private float repeatTime = 20;
+    private float startingTime;
 
     private IQRCodeTrackingService QRCodeTrackingService
     {
@@ -53,6 +61,10 @@ public class QRCodeDisplayController : MonoBehaviour
         {
             QRCodeTrackingService.Initialized += QRCodeTrackingService_Initialized;
         }
+
+        startingTime = Time.time;
+
+        Run
     }
 
 
@@ -98,5 +110,12 @@ public class QRCodeDisplayController : MonoBehaviour
             lastSeenCode = null;
             displayText.text = string.Empty;
         }
+        //only if windows platform
+#if WINDOWS_UWP
+        if(Time.time - startingTime > repeatTime) {
+            textToSpeech.StartSpeaking(instructionsText.text);
+            startingTime = Time.time;
+        }
+#endif
     }
 }
