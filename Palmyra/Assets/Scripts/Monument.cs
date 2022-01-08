@@ -9,7 +9,20 @@ public class Monument : MonoBehaviour
     private TextPanel localTextPanel = null;
     public string textPanelTitle;
     public string textPanelBody;
-    public Texture2D textPanelImage;
+    public Texture2D textPanelImage 
+    {
+        get
+        {
+            return textPanelImage;
+        }
+        set
+        {
+            if(localTextPanel != null)
+            {
+                localTextPanel.image.texture = value;
+            }
+        }      
+    }
 
     private GazeControl gazeControl;
 
@@ -29,8 +42,8 @@ public class Monument : MonoBehaviour
     {
         if(localTextPanel == null)
         {
-            //Vector3 directionBetweenUserAndMonument = 
-            localTextPanel = Instantiate(textPanelPrefab, transform.position, transform.rotation, transform).GetComponent<TextPanel>();
+            Vector3 directionBetweenUserAndMonument = transform.position - GlobalReferences.instance.localUser.transform.position;
+            localTextPanel = Instantiate(textPanelPrefab, transform.position + new Vector3(0,0,0) , transform.rotation, transform).GetComponent<TextPanel>();
 
             localTextPanel.Initialize(textPanelTitle, textPanelBody, textPanelImage);
         }
