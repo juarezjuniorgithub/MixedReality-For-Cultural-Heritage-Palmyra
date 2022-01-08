@@ -29,7 +29,9 @@ public class Monument : MonoBehaviour
     {
         if(localTextPanel == null)
         {
-            localTextPanel = Instantiate(textPanelPrefab, transform.position, transform.rotation).GetComponent<TextPanel>();
+            //Vector3 directionBetweenUserAndMonument = 
+            localTextPanel = Instantiate(textPanelPrefab, transform.position, transform.rotation, transform).GetComponent<TextPanel>();
+
             localTextPanel.Initialize(textPanelTitle, textPanelBody, textPanelImage);
         }
         localTextPanel.gameObject.SetActive(true);
