@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class StoreLastStateBallImage : MonoBehaviourPun {
 
-    [SerializeField] GameObject baalBefore;
-    [SerializeField] GameObject baalAfter;
-    public GameObject currentState;
+    [SerializeField] Texture2D baalDestroy;
+    [SerializeField] Texture2D baalRebuild;
+    public Texture2D currentState;
+    public Monument monument;
+
 
     void Start()
     {
-        currentState = baalBefore;
+        currentState = baalRebuild;
     }
 
     public void SetTempleImages() {
@@ -18,24 +20,49 @@ public class StoreLastStateBallImage : MonoBehaviourPun {
         }
     }
 
+    public void SetImageToRebulid()
+    {
+        photonView.RPC("RPC_SetImageToRebuild", RpcTarget.AllBuffered);
+
+    }
     [PunRPC]
+    public void RPC_SetImageToRebuild()
+    {
+        monument.textPanelImage = baalRebuild;
+        
+    }
+    
+    public void SetImageToDestroy()
+    {
+        photonView.RPC("RPC_SetImageToDestroy", RpcTarget.AllBuffered);
+
+    }
+    [PunRPC]
+    public void RPC_SetImageToDestroy()
+    {
+        monument.textPanelImage = baalDestroy;
+
+    }
+
+    /*[PunRPC]
     public void RPC_SetTempleImages() {
         if (currentState == null) return;
         if (currentState == baalBefore) {
-            baalBefore.SetActive(true);
-            baalAfter.SetActive(false);
+            monument.textPanelImage = baalBefore;
+            //baalBefore.SetActive(true);
+            //baalAfter.SetActive(false);
         } else {
-            baalBefore.SetActive(false);
-            baalAfter.SetActive(true);
+            //baalBefore.SetActive(false);
+            //baalAfter.SetActive(true);
         }
-    }
+    }*/
 
     public void ChangeState() {
-        photonView.RPC("RPC_ChangeState", RpcTarget.AllBuffered);
+        //photonView.RPC("RPC_ChangeState", RpcTarget.AllBuffered);
     }
 
-    [PunRPC]
-    public void RPC_ChangeState()
+    //[PunRPC]
+   /* public void RPC_ChangeState()
     {
         if(baalBefore.activeInHierarchy)
         {
@@ -45,10 +72,10 @@ public class StoreLastStateBallImage : MonoBehaviourPun {
         {
             currentState = baalBefore;
         }
-    }
+    }*/
     
-    public GameObject GetCurrentState()
+    /*public GameObject GetCurrentState()
     {
         return currentState;
-    }
+    }*/
 }
