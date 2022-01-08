@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -86,6 +87,9 @@ public class GazeControl : MonoBehaviour
     bool gazeControlStatus = true;
     //set to true when monument is floating
     bool isFloating = false;
+
+    public event Action OnMonumentActivated;
+    public event Action OnMonumentDeactivated;
 
     private PhotonView pv;
 
@@ -355,8 +359,9 @@ public class GazeControl : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        OnMonumentActivated?.Invoke();
     }
-    
+
     // Restarts the entire Gaze Control Sequence for when monument is back on map
     public void ActivateGazeControlSequence() //Activates the GazeControl
     {
@@ -392,8 +397,10 @@ public class GazeControl : MonoBehaviour
 
     [PunRPC]
     public void RPC_InitiateResetPlaygroundMap()
-    {   
-        foreach(GameObject gameObject in holderDeactivators)
+    {
+        OnMonumentDeactivated?.Invoke();
+
+        foreach (GameObject gameObject in holderDeactivators)
         {
             gameObject.SetActive(true);
         }
