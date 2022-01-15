@@ -14,12 +14,6 @@ public class StoreLastStateBallImage : MonoBehaviourPun {
         currentState = baalRebuild;
     }
 
-    public void SetTempleImages() {
-        if(photonView != null) {
-            photonView.RPC("RPC_SetTempleImages", RpcTarget.AllBuffered);
-        }
-    }
-
     public void SetImageToRebulid()
     {
         photonView.RPC("RPC_SetImageToRebuild", RpcTarget.AllBuffered);

@@ -11,10 +11,7 @@ public class ButtonManipulator : MonoBehaviourPun
 
     [SerializeField] StoreLastStateBallImage storeLastStateBallImage;
 
-    void OnEnable()
-    {
-        storeLastStateBallImage.SetTempleImages();
-    }
+
 
     public void ActivateButton1() {
         photonView.RPC("RPC_ActivateButton1", RpcTarget.All);
