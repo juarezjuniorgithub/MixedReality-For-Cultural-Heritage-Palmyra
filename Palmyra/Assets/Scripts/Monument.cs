@@ -29,9 +29,9 @@ public class Monument : MonoBehaviour
         if(localTextPanel == null)
         {
             Vector3 directionBetweenUserAndMonument = transform.position - GlobalReferences.instance.localUser.transform.position;
-            localTextPanel = Instantiate(textPanelPrefab, transform.position + new Vector3(0,0,0) , transform.rotation).GetComponent<TextPanel>();
-            localTextPanel.transform.SetParent(transform);
-            localTextPanel.Initialize(textPanelTitle, textPanelBody, textPanelImage);
+            localTextPanel = Instantiate(textPanelPrefab, transform.position + -transform.right * 0.35f + transform.up * 0.15f, transform.rotation).GetComponent<TextPanel>();
+            localTextPanel.transform.SetParent(transform.GetChild(0).transform);
+            localTextPanel.Initialize(textPanelTitle, textPanelBody, textPanelImage, transform.GetChild(0).transform);
         }
         localTextPanel.gameObject.SetActive(true);
         localTextPanel.PlayAnimation();

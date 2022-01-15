@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6862745, g: 0.6862745, b: 0.6862745, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -679,9 +679,10 @@ MonoBehaviour:
   title: {fileID: 8318753977604354155}
   body: {fileID: 999331715565647570}
   image: {fileID: 7215882208567677940}
-  background: {fileID: 7215882209806978846}
-  foreground: {fileID: 7215882208013970694}
+  background: {fileID: 7215882209806978849}
+  foreground: {fileID: 7215882208013970698}
   animator: {fileID: 7501969179884228511}
+  maxDelta: 0.2
 --- !u!1 &7215882209806978846
 GameObject:
   m_ObjectHideFlags: 0
