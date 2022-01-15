@@ -11,9 +11,9 @@ public class TextPanel : MonoBehaviour
     public RawImage image;
     [SerializeField] private MeshRenderer background;
     private Color backgroundColor;
-    [SerializeField] private MeshRenderer foreground;
-    private Color foregroundColor;
     [SerializeField] private Animator animator;
+
+    bool fading;
 
     public void Initialize(string _title, string _body, Texture2D _image, Transform _parentScaleReference)
     {
@@ -22,16 +22,16 @@ public class TextPanel : MonoBehaviour
         image.texture = _image;
         parentScaleReference = _parentScaleReference;
         backgroundColor = background.material.color;
-        foregroundColor = foreground.material.color;
         textColor = body.color;
-        StartCoroutine(WaitBeforeSetingInitialScale(_parentScaleReference));
+        StartCoroutine(WaitBeforeFadingStart(_parentScaleReference));
     }
 
-    IEnumerator WaitBeforeSetingInitialScale(Transform _parentScaleReference)
+    IEnumerator WaitBeforeFadingStart(Transform _parentScaleReference)
     {
         yield return new WaitForSeconds(2);
         initialScale = _parentScaleReference.localScale.x;
         maxDelta = initialScale * 3;
+        fading = true;
     }
 
     public void PlayAnimation()
@@ -48,6 +48,8 @@ public class TextPanel : MonoBehaviour
 
     void Update()
     {
+        if (!fading) return;
+
         float delta = parentScaleReference.localScale.x - initialScale;
 
         if (delta > 0)
@@ -55,10 +57,8 @@ public class TextPanel : MonoBehaviour
             float newAlpha = Mathf.InverseLerp(maxDelta, 0, delta);
             color.a = newAlpha;
             backgroundColor.a = newAlpha;
-            foregroundColor.a = newAlpha;
             textColor.a = newAlpha;
             image.material.color = color;
-            foreground.material.color = foregroundColor;
             background.material.color = backgroundColor;
             title.color = textColor;
             body.color = textColor;
