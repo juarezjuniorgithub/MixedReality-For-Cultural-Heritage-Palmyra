@@ -6,26 +6,12 @@ using UnityEngine.UI;
 public class Monument : MonoBehaviour
 {
     [SerializeField] GameObject textPanelPrefab;
-    private TextPanel localTextPanel = null;
+    public TextPanel localTextPanel = null;
     public string textPanelTitle;
     public string textPanelBody;
-    public Texture2D textPanelImage 
-    {
-        get
-        {
-            return textPanelImage;
-        }
-        set
-        {
-            if(localTextPanel != null)
-            {
-                localTextPanel.image.texture = value;
-            }
-        }      
-    }
+    public Texture2D textPanelImage;
 
     private GazeControl gazeControl;
-
 
     private void Awake()
     {

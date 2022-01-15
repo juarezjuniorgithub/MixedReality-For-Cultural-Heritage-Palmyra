@@ -9,7 +9,7 @@ public class ButtonManipulator : MonoBehaviourPun
     [SerializeField] GameObject button2;
     [SerializeField] float waitTime = 0.5f;
 
-    [SerializeField] StoreLastStateBallImage storeLastStateBallImage;
+    [SerializeField] SwitchBaalImage storeLastStateBallImage;
 
 
 
