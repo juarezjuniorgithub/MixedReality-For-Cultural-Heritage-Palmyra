@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Monument : MonoBehaviour
 {
     [SerializeField] GameObject textPanelPrefab;
-    public TextPanel localTextPanel = null;
+    [HideInInspector] public TextPanel localTextPanel = null;
     public string textPanelTitle;
     public string textPanelBody;
     public Texture2D textPanelImage;
