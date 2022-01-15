@@ -39,7 +39,10 @@ public class Monument : MonoBehaviour
 
     private void HideTextPanel()
     {
-        localTextPanel.gameObject.SetActive(false);
+        if(localTextPanel != null)
+        {
+            localTextPanel.gameObject.SetActive(false);
+        }
     }
 
     private void OnDestroy()
