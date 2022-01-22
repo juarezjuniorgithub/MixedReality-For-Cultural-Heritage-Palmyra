@@ -19,7 +19,15 @@ public class TextPanel : MonoBehaviour
     {
         title.text = _title;
         body.text = _body;
-        image.texture = _image;
+        //If no texture assigned, disable iamge
+        if (_image)
+        {
+            image.texture = _image;
+        }
+        else
+        {
+            image.enabled = false;
+        }
         parentScaleReference = _parentScaleReference;
         backgroundColor = background.material.color;
         textColor = body.color;
