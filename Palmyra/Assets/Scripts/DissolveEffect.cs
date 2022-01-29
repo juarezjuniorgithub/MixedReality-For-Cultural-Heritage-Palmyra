@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DissolveEffect : MonoBehaviour
@@ -9,36 +7,18 @@ public class DissolveEffect : MonoBehaviour
     [SerializeField] float appearanceValue;
     [SerializeField] float appearanceSpeed=10f;
     [SerializeField] float appearanceLimit=100f;
-    [SerializeField] string dissolveVal;
     [SerializeField] float minApperanceValue;
     float maxAppearanceValue=100f;
     bool initiateAppearanceSequence = false;
     bool initiateDisappearanceSequence = false;
     public Action onAppearEnded;
     public Action onDisappearStarting;
-
-    List<float> initialValues = new List<float>();
-
-
+    
     void Start()
     {
-        //Get material initial values for restoring later.
-        foreach (var item in dissolveMat) {
-            initialValues.Add(item.GetFloat(dissolveVal));
-        }
-
         foreach (Material mat in dissolveMat)
         {
-            mat.SetFloat(dissolveVal, appearanceValue/maxAppearanceValue);
-        }
-    }
-
-    private void OnDestroy() {
-        if(initialValues.Count > 0) {
-            //Reset material values to initial values.
-            for (int i = 0; i < dissolveMat.Length; i++) {
-                dissolveMat[i].SetFloat(dissolveVal, initialValues[i]);
-            }
+            SetMatAlpha(mat, 0);
         }
     }
 
@@ -47,7 +27,7 @@ public class DissolveEffect : MonoBehaviour
         appearanceValue = 0;
         foreach (Material mat in dissolveMat)
         {
-            mat.SetFloat(dissolveVal, appearanceValue/maxAppearanceValue);
+            SetMatAlpha(mat, appearanceValue);
         }
     }
     
@@ -78,16 +58,16 @@ public class DissolveEffect : MonoBehaviour
         {
             if(appearanceValue<=maxAppearanceValue && appearanceValue<=appearanceLimit)
             {
-                appearanceValue +=5 * Time.deltaTime * appearanceSpeed;
-                mat.SetFloat(dissolveVal, appearanceValue/maxAppearanceValue);
+                appearanceValue += 5 * Time.deltaTime * appearanceSpeed;
+                SetMatAlpha(mat, appearanceValue);
             }
             else
             {
-                if(appearanceLimit>100)
+                if(appearanceLimit >= maxAppearanceValue)
                 {
                     foreach(Material mat2 in dissolveMat)
                     {
-                        mat2.SetFloat(dissolveVal, 1.0f);
+                        SetMatAlpha(mat2, maxAppearanceValue);
                     }
                 }     
                 initiateAppearanceSequence = false;
@@ -102,16 +82,23 @@ public class DissolveEffect : MonoBehaviour
     {
         foreach (Material mat in dissolveMat)
         {
-            if(appearanceValue>=minApperanceValue)
+            if(appearanceValue >= minApperanceValue)
             {
-                appearanceValue -=5 * Time.deltaTime * appearanceSpeed;
-                mat.SetFloat(dissolveVal, appearanceValue/maxAppearanceValue);
+                appearanceValue -= 5 * Time.deltaTime * appearanceSpeed;
+                SetMatAlpha(mat, appearanceValue);
             }
             else
             {
                 initiateDisappearanceSequence = false;
             }
         }  
+    }
+
+    private void SetMatAlpha(Material mat, float value)
+    {
+        Color white = Color.white;
+        white.a = value / 100f;
+        mat.SetColor("_Color", white);
     }
 
     public void InitiateAppearence()
