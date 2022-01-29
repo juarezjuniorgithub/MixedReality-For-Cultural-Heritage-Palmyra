@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Stone_ornamente_Rundbogen
   m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
-  m_ShaderKeywords: _DETAIL_MULX2 _DIRECTIONAL_LIGHT _NORMALMAP _NORMAL_MAP _REFLECTIONS
-    _SPECULAR_HIGHLIGHTS
+  m_ShaderKeywords: _DETAIL_MULX2 _DIRECTIONAL_LIGHT _DISABLE_ALBEDO_MAP _NORMALMAP
+    _NORMAL_MAP _REFLECTIONS _SPECULAR_HIGHLIGHTS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
