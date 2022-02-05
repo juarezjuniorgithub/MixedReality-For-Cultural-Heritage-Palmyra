@@ -11,42 +11,77 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.001
-    second: {fileID: 2100000, guid: 3510a102c72155941a5337d043c6ace3, type: 2}
+    second: {fileID: 2100000, guid: 38298d8c76e187c4b9c0ec98fd9023f4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.003
-    second: {fileID: 2100000, guid: 4d7a019a92e5108499d5a78d6267983c, type: 2}
+    second: {fileID: 2100000, guid: 4080d4e5181795d4bbe02c69e50aae2f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.004
-    second: {fileID: 2100000, guid: 5659e58bb95416443a1569a716466f6d, type: 2}
+    second: {fileID: 2100000, guid: 37d5195a503d77045a5e0b183238d99d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.007
-    second: {fileID: 2100000, guid: 3223e7662819e0e45b1fd24cdccec5b9, type: 2}
+    second: {fileID: 2100000, guid: 64f27481830f0f741a568cfb0b4e44ee, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.008
-    second: {fileID: 2100000, guid: 742b7c18fd4e1764a9a795a283abee79, type: 2}
+    second: {fileID: 2100000, guid: f320aea14f5331f41a4aefe59f8a9e69, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.010
-    second: {fileID: 2100000, guid: 3a8227bbd7375d14781fb7dc88486507, type: 2}
+    second: {fileID: 2100000, guid: 1f16fb3ed14713b409ef95bb7c973130, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.011
-    second: {fileID: 2100000, guid: f8f9d3d941c22a94f82b089e1b056085, type: 2}
+    second: {fileID: 2100000, guid: f81b08402b319ae498392785e40a5f24, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert2.001
-    second: {fileID: 2100000, guid: 5ee595761f59b5d4187abd184a72b1be, type: 2}
+    second: {fileID: 2100000, guid: 27505bab1e9f1bd4993ab90e3774ff76, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Limestone_NORMAL
+    second: {fileID: 2800000, guid: 368083f2bc73d8042ae4d948e02818d8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Limestone_SPECULAR
+    second: {fileID: 2800000, guid: fd5fea1aac74c844894bae45dc801698, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: NormalMap
+    second: {fileID: 2800000, guid: c33846d7735f8b248993532133772265, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: column_BASE
+    second: {fileID: 2800000, guid: 2626865296cb6354fa9dd96b0558bfe6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: column_NORMAL
+    second: {fileID: 2800000, guid: ea3be7de04784254c8e6da1f6a6876ae, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: column_SPECULAR
+    second: {fileID: 2800000, guid: 4a1c66b4584898549b824eeab03de6de, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: limestone_BASE
+    second: {fileID: 2800000, guid: a856f0fbe09a69f46a42cfce8a362d81, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
