@@ -295,7 +295,9 @@ public class GazeControl : MonoBehaviour
                 
             if(monumentFadeController.Count != 0)
             {
-                monumentFadeController[0].StartFadeOutSequence();
+                //Need to clean
+                if(monumentFadeController[0])
+                    monumentFadeController[0].StartFadeOutSequence();
             }
 
             foreach(GameObject fadeout in ArckActivators)
@@ -446,7 +448,8 @@ public class GazeControl : MonoBehaviour
 
         for(int i=0; i<monumentFadeController.Count; i++)
         {
-            monumentFadeController[i].StartFadeOutSequence();
+            if(monumentFadeController[i])
+                monumentFadeController[i].StartFadeOutSequence();
         }
 
         foreach(GameObject fadeout in triumphActivators)
@@ -506,7 +509,10 @@ public class GazeControl : MonoBehaviour
         
         if(monumentFadeController.Count != 0)
         {
-            monumentFadeController[0].StartFadeInSequence();
+            if (monumentFadeController[0])
+                monumentFadeController[0].StartFadeInSequence();
+            else
+                monumentFadeController[1].StartFadeInSequence();
         }
        
         foreach(GameObject fadein in ArckActivators)
