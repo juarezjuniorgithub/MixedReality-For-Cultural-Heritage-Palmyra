@@ -74,7 +74,7 @@ Material:
     - _ClippingBorder: 0
     - _ClippingBorderWidth: 0.025
     - _ColorWriteMask: 15
-    - _CullMode: 2
+    - _CullMode: 0
     - _CustomMode: 2
     - _Cutoff: 0.5
     - _DirectionalLight: 1
@@ -106,7 +106,7 @@ Material:
     - _IridescenceThreshold: 0.05
     - _Metallic: 0
     - _MipmapBias: -2
-    - _Mode: 2
+    - _Mode: 5
     - _NearLightFade: 0
     - _NearPlaneFade: 0
     - _NormalMapScale: 1
@@ -138,14 +138,14 @@ Material:
     - _ZOffsetFactor: 0
     - _ZOffsetUnits: 0
     - _ZTest: 4
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
     - Color_56CFC3DB: {r: 1, g: 1, b: 1, a: 0}
     - Color_86F02E28: {r: 0, g: 0.5231595, b: 1, a: 1}
     - Vector2_2AB140C4: {r: 0, g: 0, b: 0, a: 0}
     - Vector2_9FBF9605: {r: 1, g: 1, b: 0, a: 0}
     - _ClippingBorderColor: {r: 1, g: 0.2, b: 0, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 0.002827087}
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EnvironmentColorX: {r: 1, g: 0, b: 0, a: 1}
     - _EnvironmentColorY: {r: 0, g: 1, b: 0, a: 1}
